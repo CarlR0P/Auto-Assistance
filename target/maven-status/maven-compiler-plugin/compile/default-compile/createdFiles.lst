@@ -1,0 +1,8 @@
+com\edu\konradlorenz\model\Horario.class
+com\edu\konradlorenz\controller\Controlador.class
+com\edu\konradlorenz\model\Trabajador.class
+com\edu\konradlorenz\model\Administrador.class
+com\edu\konradlorenz\view\Ventana.class
+com\edu\konradlorenz\model\Empleado.class
+com\edu\konradlorenz\controller\AplMain.class
+com\edu\konradlorenz\model\Persona.class
