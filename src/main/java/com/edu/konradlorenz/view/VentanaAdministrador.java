@@ -22,9 +22,14 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         lblSistAdmin = new javax.swing.JLabel();
         btnHorarios = new javax.swing.JButton();
         btnUsuarios = new javax.swing.JButton();
-        txtUserLogged = new javax.swing.JTextField();
+        lblUserLogged = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         lblSistAdmin.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         lblSistAdmin.setText("Sistema Administrador");
@@ -34,8 +39,14 @@ public class VentanaAdministrador extends javax.swing.JFrame {
 
         btnUsuarios.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         btnUsuarios.setText("Usuarios");
+        btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuariosActionPerformed(evt);
+            }
+        });
 
-        txtUserLogged.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        lblUserLogged.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblUserLogged.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -53,15 +64,15 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtUserLogged, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addComponent(lblUserLogged, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtUserLogged, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(lblUserLogged, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(lblSistAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -84,12 +95,23 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        this.lblUserLogged.setText(person.getNombreUsuario());
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
+        
+        VenAdminUsuario venAdminUser = new VenAdminUsuario(control, person);
+        venAdminUser.setVisible(true);
+        venAdminUser.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnUsuariosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHorarios;
     private javax.swing.JButton btnUsuarios;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblSistAdmin;
-    private javax.swing.JTextField txtUserLogged;
+    private javax.swing.JLabel lblUserLogged;
     // End of variables declaration//GEN-END:variables
 }

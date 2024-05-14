@@ -5,7 +5,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("EMPLEADO")
+@DiscriminatorValue("empleado")
 public class Empleado extends Persona implements Trabajador {
     
     private Horario horario;

@@ -1,6 +1,7 @@
 package com.edu.konradlorenz.model;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
@@ -31,6 +32,8 @@ public abstract class Persona implements Serializable {
     private String correo;  
     private int telefono;  
     private int salario;
+    @Column(name = "ROL", insertable = false, updatable = false)
+    private String rol;
     
     public Persona () {
     }
@@ -118,6 +121,14 @@ public abstract class Persona implements Serializable {
         this.salario = salario;
     }
 
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+    
     public abstract void iniciarSesion();
 
     

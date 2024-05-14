@@ -22,26 +22,24 @@ public class Controlador {
 
     public Persona validarUsuario(String usuario, String contrasena) {
         
-        List<Persona> listaUsuarios = controlPersistencia.traerUsuarios();
-
-        Persona user = null;
-
+        List<Persona> listaUsuarios = controlPersistencia.traerUsuarios();     
+        Persona person = null;
+        
         for (Persona usu : listaUsuarios) {
-            if (usu.getNombre().equals(usuario)) {
-                if (usu.getContrasena().equals(contrasena)){
-                    user = usu;
-                    return user;
+            if (usu.getNombreUsuario().equals(usuario)) {
+                if(usu.getContrasena().equals(contrasena)){
+                    person = usu;
+                    return person;
                 } else {
-                    user = null;
-                    return user;
+                    person = null;
+                    return person;
                 } 
-            } else {
-               user = null; 
+            } else {               
+                person = null;
             }
-        }   
-        return user;
+        }        
+        return person;
     }
-    
     
     
 }

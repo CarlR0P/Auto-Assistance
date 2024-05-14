@@ -1,7 +1,8 @@
 package com.edu.konradlorenz.view;
 
 import com.edu.konradlorenz.controller.Controlador;
-import com.edu.konradlorenz.model.Persona;
+import com.edu.konradlorenz.model.*;
+import javax.swing.JOptionPane;
 
 public class VentanaPrincipal extends javax.swing.JFrame {
     
@@ -139,9 +140,62 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         String contrasena = txtContrasena.getText();
         Persona person = control.validarUsuario(usuario, contrasena);
         
+        if (person != null){
+            String rol = person.getRol();
+            if (rol.equalsIgnoreCase("administrador")) {
+                VentanaAdministrador ventanaAdmin = new VentanaAdministrador(control, person);
+                ventanaAdmin.setVisible(true);
+                ventanaAdmin.setLocationRelativeTo(null);
+                this.dispose();
+            } else if (rol.equalsIgnoreCase("empleado")) {
+                VentanaEmpleado ventanaEmple = new VentanaEmpleado(control, person);
+                ventanaEmple.setVisible(true);
+                ventanaEmple.setLocationRelativeTo(null);
+                this.dispose();
+            }
+        } else {
+            txtMensaje.setText("Usuario o contraseña incorrecto");
+        }    
         
     }//GEN-LAST:event_btnIniciarActionPerformed
 
+    /*if (person != null) {
+            if (person instanceof Administrador) {
+                VentanaAdministrador ventanaAdmin = new VentanaAdministrador(control, person);
+                ventanaAdmin.setVisible(true);
+                ventanaAdmin.setLocationRelativeTo(null);
+            } else if (person instanceof Empleado) {
+                VentanaEmpleado ventanaUser = new VentanaEmpleado(control, person);
+                ventanaUser.setVisible(true);
+                ventanaUser.setLocationRelativeTo(null);
+                } else {
+                JOptionPane.showMessageDialog(this, "Tipo de usuario desconocido.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            this.setVisible(false);  // Opcional: Ocultar el login frame
+        } else {
+            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        if (person != null) {
+        switch (person.getTipo()) {
+            case "ADMINISTRADOR":
+                VentanaAdministrador ventanaAdmin = new VentanaAdministrador(control, person);
+                ventanaAdmin.setVisible(true);
+                ventanaAdmin.setLocationRelativeTo(null);
+                break;
+            case "EMPLEADO":
+                VentanaEmpleado ventanaUser = new VentanaEmpleado(control, person);
+                ventanaUser.setVisible(true);
+                ventanaUser.setLocationRelativeTo(null);
+                break;
+            default:
+                JOptionPane.showMessageDialog(this, "Tipo de usuario desconocido.", "Error", JOptionPane.ERROR_MESSAGE);
+                break;
+        }
+        this.setVisible(false);  // Opcional: Ocultar el login frame
+    } else {
+        JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.", "Error", JOptionPane.ERROR_MESSAGE);
+    }*/
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciar;
     private javax.swing.JButton btnLimpiar;

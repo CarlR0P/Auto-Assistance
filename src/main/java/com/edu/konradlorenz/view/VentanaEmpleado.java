@@ -3,12 +3,12 @@ package com.edu.konradlorenz.view;
 import com.edu.konradlorenz.controller.Controlador;
 import com.edu.konradlorenz.model.Persona;
 
-public class VentanaUsuario extends javax.swing.JFrame {
+public class VentanaEmpleado extends javax.swing.JFrame {
 
     Controlador control;
     Persona person;
     
-    public VentanaUsuario(Controlador control, Persona person) {
+    public VentanaEmpleado(Controlador control, Persona person) {
         initComponents();
         this.control = control;
         this.person = person;
