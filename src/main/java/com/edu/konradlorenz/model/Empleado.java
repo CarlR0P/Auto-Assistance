@@ -1,7 +1,11 @@
 package com.edu.konradlorenz.model;
 
 import java.time.LocalDateTime;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
+@Entity
+@DiscriminatorValue("EMPLEADO")
 public class Empleado extends Persona implements Trabajador {
     
     private Horario horario;
@@ -9,22 +13,26 @@ public class Empleado extends Persona implements Trabajador {
     private int calificacion;
 
     public Empleado() {
-    }
-
-    @Override
-    public void iniciarSesion() {
-
-    }
+    }   
 
     public Empleado(Horario horario, int calificacion) {
         this.horario = horario;
         this.calificacion = calificacion;
     }
 
-    public Empleado(Horario horario, int calificacion, String nombre, int id, String tipoDocumento, int cedula, String correo, int telefono, int salario) {
-        super(nombre, id, tipoDocumento, cedula, correo, telefono, salario);
+    public Empleado(String nombreUsuario, String nombre, String contrasena, String tipoDocumento, int numeroDocumento, String correo, int telefono) {
+        super(nombreUsuario, nombre, contrasena, tipoDocumento, numeroDocumento, correo, telefono);
+    }
+
+    public Empleado(Horario horario, int calificacion, String nombreUsuario, String nombre, String contrasena, String tipoDocumento, int cedula, String correo, int telefono) {
+        super(nombreUsuario, nombre, contrasena, tipoDocumento, cedula, correo, telefono);
         this.horario = horario;
         this.calificacion = calificacion;
+    }
+
+    @Override
+    public void iniciarSesion() {
+
     }
     
     public LocalDateTime verHorario() {

@@ -1,14 +1,31 @@
 package com.edu.konradlorenz.model;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("ADMINISTRADOR")
 public class Administrador extends Persona implements Trabajador {
 
     public Administrador() {
-    }
+    }  
+    
+    public Administrador(String nombreUsuario, String nombre, String contrasena, String tipoDocumento, int numeroDocumento, String correo, int telefono) {
+        super(nombreUsuario, nombre, contrasena, tipoDocumento, numeroDocumento, correo, telefono);
+    }  
 
-    public Administrador(String nombre, int id, String tipoDocumento, int cedula, String correo, int telefono, int salario) {
-        super(nombre, id, tipoDocumento, cedula, correo, telefono, salario);
+    public void crearUsuario(){
+        
     }
-
+    
+    public void editarUsuario(){
+        
+    }
+    
+     public void eliminarUsuario() {
+       
+    }
+     
     public void registrarHorario() {
         
     }
@@ -25,10 +42,6 @@ public class Administrador extends Persona implements Trabajador {
         return 0;
     }
     
-    public void eliminarEmpleado() {
-       
-    }
-
     @Override
     public void iniciarSesion() {
 

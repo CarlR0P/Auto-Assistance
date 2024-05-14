@@ -1,40 +1,49 @@
 package com.edu.konradlorenz.model;
 
-public abstract class Persona {
-    
-    private String nombre;
-    
-    private int id;
-    
-    private String tipoDocumento;
-    
-    private int cedula;
-    
-    private String correo;
-    
-    private int telefono;
-    
-    private int salario;
+import java.io.Serializable;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+/*import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;*/
 
+@Entity
+@Table(name = "PERSONA")
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "ROL", discriminatorType = DiscriminatorType.STRING)
+public abstract class Persona implements Serializable {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;   
+    private String nombreUsuario;
+    private String nombre;   
+    private String contrasena;     
+    private String tipoDocumento;  
+    private int numeroDocumento;  
+    private String correo;  
+    private int telefono;  
+    private int salario;
+    
     public Persona () {
     }
 
-    public Persona(String nombre, int id, String tipoDocumento, int cedula, String correo, int telefono, int salario) {
+    public Persona(String nombreUsuario, String nombre, String contrasena, String tipoDocumento, int numeroDocumento, String correo, int telefono) {
+        this.nombreUsuario = nombreUsuario;
         this.nombre = nombre;
-        this.id = id;
+        this.contrasena = contrasena;
         this.tipoDocumento = tipoDocumento;
-        this.cedula = cedula;
+        this.numeroDocumento = numeroDocumento;
         this.correo = correo;
         this.telefono = telefono;
-        this.salario = salario;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+  
     }
 
     public int getId() {
@@ -45,6 +54,30 @@ public abstract class Persona {
         this.id = id;
     }
 
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
     public String getTipoDocumento() {
         return tipoDocumento;
     }
@@ -53,12 +86,12 @@ public abstract class Persona {
         this.tipoDocumento = tipoDocumento;
     }
 
-    public int getCedula() {
-        return cedula;
+    public int getNumeroDocumento() {
+        return numeroDocumento;
     }
 
-    public void setCedula(int cedula) {
-        this.cedula = cedula;
+    public void setNumeroDocumento(int numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
     }
 
     public String getCorreo() {
@@ -85,15 +118,7 @@ public abstract class Persona {
         this.salario = salario;
     }
 
-    @Override
-    public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", id=" + id + ", tipoDocumento=" + tipoDocumento + ", cedula=" + cedula + ", correo=" + correo + ", telefono=" + telefono + ", salario=" + salario + '}';
-    }
-    
-    public String registrarUsuario() {
-        return " ";
-    }
-    
     public abstract void iniciarSesion();
 
+    
 }
