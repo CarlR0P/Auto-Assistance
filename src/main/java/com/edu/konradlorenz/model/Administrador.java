@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue("administrador")
 public class Administrador extends Persona implements Trabajador {
+    
+    
 
     public Administrador() {
     }  
@@ -13,18 +15,6 @@ public class Administrador extends Persona implements Trabajador {
     public Administrador(String nombreUsuario, String nombre, String contrasena, String tipoDocumento, int numeroDocumento, String correo, int telefono) {
         super(nombreUsuario, nombre, contrasena, tipoDocumento, numeroDocumento, correo, telefono);
     }  
-
-    public void crearUsuario(){
-        
-    }
-    
-    public void editarUsuario(){
-        
-    }
-    
-     public void eliminarUsuario() {
-       
-    }
      
     public void registrarHorario() {
         

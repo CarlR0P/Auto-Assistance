@@ -8,9 +8,11 @@ import java.util.List;
 public class Controlador {
     
     ControladorPersistencia controlPersistencia;
+    Administrador objAdmin;
     
     public Controlador () {
         controlPersistencia = new ControladorPersistencia();
+        objAdmin = new Administrador();
     }
 
     public void funcionar() {
@@ -39,6 +41,14 @@ public class Controlador {
             }
         }        
         return person;
+    }
+
+    public List<Persona> traerUsuarios() {
+        return controlPersistencia.traerUsuarios();
+    }
+
+    public void eliminarUsuario(int id_usuario) {
+        controlPersistencia.eliminarUsuario(id_usuario);
     }
     
     

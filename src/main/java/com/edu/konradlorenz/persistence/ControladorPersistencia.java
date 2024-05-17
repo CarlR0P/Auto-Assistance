@@ -11,15 +11,12 @@ public class ControladorPersistencia {
     PersonaJpaController personJpa = new PersonaJpaController();
     AdministradorJpaController adminJpa = new AdministradorJpaController();
 
-    public List<Persona> traerUsuarios() {
-        
+    public List<Persona> traerUsuarios() {      
         List<Persona> listaUsuarios = personJpa.findPersonaEntities();
-        return personJpa.findPersonaEntities();
-    
+        return personJpa.findPersonaEntities();   
     }
     
-    public Persona traerUsuario(int id_usuario) {
-        
+    public Persona traerUsuario(int id_usuario) {        
         return personJpa.findPersona(id_usuario);
     }
     
