@@ -1,6 +1,7 @@
 package com.edu.konradlorenz.view;
 
 import com.edu.konradlorenz.controller.Controlador;
+import com.edu.konradlorenz.model.Persona;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -8,7 +9,8 @@ import javax.swing.JOptionPane;
 public class VenAdminCrearU extends javax.swing.JFrame {
     
     Controlador control;
-
+    Persona person;
+    
     public VenAdminCrearU(Controlador control) {
         this.control = control;
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

@@ -31,7 +31,7 @@ public class VenAdminUsuario extends javax.swing.JFrame {
         btnEliminarUsuario = new javax.swing.JButton();
         btnCrearUsuario = new javax.swing.JButton();
         btnEditarUsuario = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
+        btnMenuPrincipal = new javax.swing.JButton();
         btnRecargarTabla = new javax.swing.JButton();
         lblUserLogged = new javax.swing.JLabel();
 
@@ -85,11 +85,11 @@ public class VenAdminUsuario extends javax.swing.JFrame {
             }
         });
 
-        btnSalir.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
-        btnSalir.setText("Salir");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+        btnMenuPrincipal.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
+        btnMenuPrincipal.setText("Menu Principal");
+        btnMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
+                btnMenuPrincipalActionPerformed(evt);
             }
         });
 
@@ -117,7 +117,7 @@ public class VenAdminUsuario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnEliminarUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                                     .addComponent(btnEditarUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -153,7 +153,7 @@ public class VenAdminUsuario extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnRecargarTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
@@ -177,9 +177,13 @@ public class VenAdminUsuario extends javax.swing.JFrame {
         cargarTablaUsuarios();
     }//GEN-LAST:event_formWindowOpened
    
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+    private void btnMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuPrincipalActionPerformed
+        VentanaAdministrador ventaAdmin = new VentanaAdministrador(control, person);
+        ventaAdmin.setVisible(true);
+        ventaAdmin.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_btnSalirActionPerformed
+        
+    }//GEN-LAST:event_btnMenuPrincipalActionPerformed
 
     private void btnCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUsuarioActionPerformed
         
@@ -189,15 +193,16 @@ public class VenAdminUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearUsuarioActionPerformed
 
     private void btnEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarUsuarioActionPerformed
-        
-        if (tblaUsuarios.getRowCount() > 0){
+               
             if (tblaUsuarios.getSelectedRow() != -1){
                 short id_user = (short) Integer.parseInt(String.valueOf(tblaUsuarios.getValueAt(tblaUsuarios.getSelectedRow(), 0)));
                 VenAdminEditarU venEditarUser = new VenAdminEditarU(id_user, control);
                 venEditarUser.setVisible(true);
                 venEditarUser.setLocationRelativeTo(null);
+            } else {
+                mostrarMensaje("No selecciono ningun registro", "Error", "Error al editar");
             }
-        }
+     
         
     }//GEN-LAST:event_btnEditarUsuarioActionPerformed
 
@@ -263,8 +268,8 @@ public class VenAdminUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btnCrearUsuario;
     private javax.swing.JButton btnEditarUsuario;
     private javax.swing.JButton btnEliminarUsuario;
+    private javax.swing.JButton btnMenuPrincipal;
     private javax.swing.JButton btnRecargarTabla;
-    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
