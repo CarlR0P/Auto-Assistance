@@ -190,9 +190,15 @@ public class VenAdminUsuario extends javax.swing.JFrame {
 
     private void btnEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarUsuarioActionPerformed
         
-        VenAdminEditarU venEditarUser = new VenAdminEditarU(control);
-        venEditarUser.setVisible(true);
-        venEditarUser.setLocationRelativeTo(null);
+        if (tblaUsuarios.getRowCount() > 0){
+            if (tblaUsuarios.getSelectedRow() != -1){
+                short id_user = (short) Integer.parseInt(String.valueOf(tblaUsuarios.getValueAt(tblaUsuarios.getSelectedRow(), 0)));
+                VenAdminEditarU venEditarUser = new VenAdminEditarU(id_user, control);
+                venEditarUser.setVisible(true);
+                venEditarUser.setLocationRelativeTo(null);
+            }
+        }
+        
     }//GEN-LAST:event_btnEditarUsuarioActionPerformed
 
      private void cargarTablaUsuarios() {

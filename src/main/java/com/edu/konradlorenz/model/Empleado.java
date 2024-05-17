@@ -20,11 +20,11 @@ public class Empleado extends Persona implements Trabajador {
         this.calificacion = calificacion;
     }
 
-    public Empleado(String nombreUsuario, String nombre, String contrasena, String tipoDocumento, int numeroDocumento, String correo, int telefono) {
+    public Empleado(String nombreUsuario, String nombre, String contrasena, String tipoDocumento, long numeroDocumento, String correo, long telefono) {
         super(nombreUsuario, nombre, contrasena, tipoDocumento, numeroDocumento, correo, telefono);
     }
 
-    public Empleado(Horario horario, int calificacion, String nombreUsuario, String nombre, String contrasena, String tipoDocumento, int cedula, String correo, int telefono) {
+    public Empleado(Horario horario, int calificacion, String nombreUsuario, String nombre, String contrasena, String tipoDocumento, long cedula, String correo, long telefono) {
         super(nombreUsuario, nombre, contrasena, tipoDocumento, cedula, correo, telefono);
         this.horario = horario;
         this.calificacion = calificacion;

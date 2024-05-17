@@ -12,7 +12,7 @@ public class Administrador extends Persona implements Trabajador {
     public Administrador() {
     }  
     
-    public Administrador(String nombreUsuario, String nombre, String contrasena, String tipoDocumento, int numeroDocumento, String correo, int telefono) {
+    public Administrador(String nombreUsuario, String nombre, String contrasena, String tipoDocumento, long numeroDocumento, String correo, long telefono) {
         super(nombreUsuario, nombre, contrasena, tipoDocumento, numeroDocumento, correo, telefono);
     }  
      

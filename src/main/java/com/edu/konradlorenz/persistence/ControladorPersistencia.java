@@ -9,7 +9,6 @@ import java.util.logging.Logger;
 public class ControladorPersistencia {
     
     PersonaJpaController personJpa = new PersonaJpaController();
-    AdministradorJpaController adminJpa = new AdministradorJpaController();
 
     public List<Persona> traerUsuarios() {      
         List<Persona> listaUsuarios = personJpa.findPersonaEntities();
@@ -17,7 +16,7 @@ public class ControladorPersistencia {
     }
     
     public Persona traerUsuario(int id_usuario) {        
-        return personJpa.findPersona(id_usuario);
+        return personJpa.findPersona((short) id_usuario);
     }
     
     
@@ -41,8 +40,16 @@ public class ControladorPersistencia {
     public void eliminarUsuario(int id_usuario) {
         
         try {
-            personJpa.destroy(id_usuario);
+            personJpa.destroy((short) id_usuario);
         } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void eliminarUsuario(Persona person) {
+        try {
+            personJpa.destroy(person.getId());
+        } catch (Exception ex) {
             Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

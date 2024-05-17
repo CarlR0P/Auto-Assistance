@@ -22,23 +22,23 @@ import javax.persistence.SequenceGenerator;*/
 public abstract class Persona implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;   
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private short id;   
     private String nombreUsuario;
     private String nombre;   
     private String contrasena;     
     private String tipoDocumento;  
-    private int numeroDocumento;  
+    private long numeroDocumento;  
     private String correo;  
-    private int telefono;  
-    private int salario;
+    private long telefono;  
+    private long salario;
     @Column(name = "ROL", insertable = false, updatable = false)
     private String rol;
     
     public Persona () {
     }
 
-    public Persona(String nombreUsuario, String nombre, String contrasena, String tipoDocumento, int numeroDocumento, String correo, int telefono) {
+    public Persona(String nombreUsuario, String nombre, String contrasena, String tipoDocumento, long numeroDocumento, String correo, long telefono) {
         this.nombreUsuario = nombreUsuario;
         this.nombre = nombre;
         this.contrasena = contrasena;
@@ -49,11 +49,11 @@ public abstract class Persona implements Serializable {
   
     }
 
-    public int getId() {
+    public short getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(short id) {
         this.id = id;
     }
 
@@ -89,11 +89,11 @@ public abstract class Persona implements Serializable {
         this.tipoDocumento = tipoDocumento;
     }
 
-    public int getNumeroDocumento() {
+    public long getNumeroDocumento() {
         return numeroDocumento;
     }
 
-    public void setNumeroDocumento(int numeroDocumento) {
+    public void setNumeroDocumento(long numeroDocumento) {
         this.numeroDocumento = numeroDocumento;
     }
 
@@ -105,19 +105,19 @@ public abstract class Persona implements Serializable {
         this.correo = correo;
     }
 
-    public int getTelefono() {
+    public long getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(long telefono) {
         this.telefono = telefono;
     }
 
-    public int getSalario() {
+    public long getSalario() {
         return salario;
     }
 
-    public void setSalario(int salario) {
+    public void setSalario(long salario) {
         this.salario = salario;
     }
 

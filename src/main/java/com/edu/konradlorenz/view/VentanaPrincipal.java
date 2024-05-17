@@ -2,7 +2,6 @@ package com.edu.konradlorenz.view;
 
 import com.edu.konradlorenz.controller.Controlador;
 import com.edu.konradlorenz.model.*;
-import javax.swing.JOptionPane;
 
 public class VentanaPrincipal extends javax.swing.JFrame {
     
@@ -11,6 +10,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public VentanaPrincipal() {
         initComponents();
         control = new Controlador();
+        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     @SuppressWarnings("unchecked")
