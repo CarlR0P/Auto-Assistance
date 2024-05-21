@@ -47,7 +47,7 @@ public class Controlador {
         return controlPersistencia.traerUsuario(id_user);
     }
 
-    public void eliminarUsuario(int id_usuario) {
+    public void eliminarUsuario(short id_usuario) {
         controlPersistencia.eliminarUsuario(id_usuario);
     }
     

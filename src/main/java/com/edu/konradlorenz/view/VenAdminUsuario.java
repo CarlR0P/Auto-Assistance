@@ -235,19 +235,28 @@ public class VenAdminUsuario extends javax.swing.JFrame {
 
     private void btnEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioActionPerformed
         
-        if (tblaUsuarios.getRowCount() > 0){
-            
-            if (tblaUsuarios.getSelectedRow() != -1){
-                int id_usuario = Integer.parseInt(String.valueOf(tblaUsuarios.getValueAt(tblaUsuarios.getSelectedRow(), 0)));
+        if (tblaUsuarios.getRowCount() > 0) {
+            if (tblaUsuarios.getSelectedRow() != -1) {
+                short id_usuario = Short.parseShort(String.valueOf(tblaUsuarios.getValueAt(tblaUsuarios.getSelectedRow(), 0)));
                 
-                control.eliminarUsuario(id_usuario);
-                
-                mostrarMensaje("Se elimino el usuario correctamente", "Info", "Eliminacion correcta");
+                Object[] options = {"Sí", "No"};
+                int confirmacion = JOptionPane.showOptionDialog(this, "¿Está seguro de que desea eliminar este usuario?", "Confirmar eliminación", 
+                        JOptionPane.YES_NO_OPTION, 
+                        JOptionPane.QUESTION_MESSAGE, 
+                        null, 
+                        options, 
+                        options[0]);
+
+                // Si el usuario selecciona "Sí"
+                if (confirmacion == JOptionPane.YES_OPTION) {
+                    control.eliminarUsuario(id_usuario);
+                    mostrarMensaje("Se eliminó el usuario correctamente", "Info", "Eliminación correcta");
+                }
             } else {
-                mostrarMensaje("No selecciono ningun registro", "Error", "Error al eliminar");
-            }           
+            mostrarMensaje("No seleccionó ningún registro", "Error", "Error al eliminar");
+            }
         } else {
-            mostrarMensaje("La tabla esta vacia", "Error", "Error al eliminar");
+        mostrarMensaje("La tabla está vacía", "Error", "Error al eliminar");
         }
                 
     }//GEN-LAST:event_btnEliminarUsuarioActionPerformed
