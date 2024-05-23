@@ -108,4 +108,12 @@ public class Controlador {
         }
     }    
 
+    public void cambiarContra(Persona person, String contrasena) {
+        
+        objPerson = person;
+        objPerson.setContrasena(contrasena);
+        controlPersistencia.editarUsuario(person);
+        
+    }
+
 }
