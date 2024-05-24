@@ -1,7 +1,11 @@
 package com.edu.konradlorenz.view;
 
 import com.edu.konradlorenz.controller.Controlador;
+import com.edu.konradlorenz.model.EmpleadoVacioException;
+import com.edu.konradlorenz.model.ExageradosException;
+import com.edu.konradlorenz.model.NoLeenException;
 import com.edu.konradlorenz.model.Persona;
+import com.edu.konradlorenz.model.YaExisteException;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -235,9 +239,7 @@ public class VenAdminCrearU extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
-        
-        
+  
     }//GEN-LAST:event_formWindowOpened
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
@@ -251,8 +253,34 @@ public class VenAdminCrearU extends javax.swing.JFrame {
         String telefono = txtTelefono.getText();
         String rol = (String) cmbRol.getSelectedItem();
         
-        control.crearUsuario(nombreUser, contra, nombresApellidos, tipoDoc, numeroDoc, correo, telefono, rol);
-        mostrarMensaje("Usuario creado correctamente", "Info", "Creacion Exitosa");
+        try {
+            EmpleadoVacioException.validarCampos(nombreUser, contra, nombresApellidos, numeroDoc, correo, telefono); //Validacion si hay campos vacios 
+            boolean usuarioExiste = YaExisteException.usuarioYaExiste(nombreUser); //Validacion el usuario ya existe   
+            
+            if (usuarioExiste){
+                mostrarMensaje("El nombre de usuario ya está en uso", "Error", "Error al crear usuario");
+            } else {
+                NoLeenException.validarTextos(nombresApellidos);
+                NoLeenException.validarCorreo(correo);
+                NoLeenException.validarNumeros(telefono);
+                NoLeenException.validarNumeros(numeroDoc);
+                ExageradosException.validarContrasena(contra);
+                ExageradosException.validarTelefono(telefono);
+                ExageradosException.validarNumeroDocumento(numeroDoc);
+                //Creacion de Usuario
+                control.crearUsuario(nombreUser, contra, nombresApellidos, tipoDoc, numeroDoc, correo, telefono, rol);
+                mostrarMensaje("Usuario creado correctamente", "Info", "Creacion Exitosa");
+            }
+        } catch (EmpleadoVacioException a) {
+            mostrarMensaje("Todos los campos son obligatorios.", "Error", "Error al guardar");
+        } catch (YaExisteException e){ 
+            mostrarMensaje("El nombre de Usuario ya fue asignado previamente.", "Error", "Error al guardar");
+        } catch (NoLeenException c) { 
+            mostrarMensaje(c.getMessage(), "Error", "Error al guardar");
+        } catch (ExageradosException d) {
+            mostrarMensaje(d.getMessage(), "Error", "Error al guardar");
+        }
+        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed

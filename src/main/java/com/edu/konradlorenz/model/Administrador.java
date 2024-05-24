@@ -6,8 +6,6 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue("administrador")
 public class Administrador extends Persona implements Trabajador {
-    
-    
 
     public Administrador() {
     }  

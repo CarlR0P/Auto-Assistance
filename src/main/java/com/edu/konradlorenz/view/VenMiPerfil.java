@@ -1,4 +1,3 @@
-
 package com.edu.konradlorenz.view;
 
 import com.edu.konradlorenz.controller.Controlador;
@@ -192,6 +191,7 @@ public class VenMiPerfil extends javax.swing.JFrame {
         venEmple.setVisible(true);
         venEmple.setLocationRelativeTo(null);
         this.dispose();
+        
     }//GEN-LAST:event_btnMenuPrincipalActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

@@ -1,7 +1,11 @@
 package com.edu.konradlorenz.view;
 
 import com.edu.konradlorenz.controller.Controlador;
+import com.edu.konradlorenz.model.EmpleadoVacioException;
+import com.edu.konradlorenz.model.ExageradosException;
+import com.edu.konradlorenz.model.NoLeenException;
 import com.edu.konradlorenz.model.Persona;
+import com.edu.konradlorenz.model.YaExisteException;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
@@ -36,11 +40,11 @@ public class VenAdminEditarU extends javax.swing.JFrame {
         lblTipoDoc = new javax.swing.JLabel();
         lblNombreApellido = new javax.swing.JLabel();
         txtNombreApellido = new javax.swing.JTextField();
-        txtContrasena = new javax.swing.JPasswordField();
         lblContrasena = new javax.swing.JLabel();
         lblNombreUser = new javax.swing.JLabel();
         txtNombreUser = new javax.swing.JTextField();
         lblEdicionUser = new javax.swing.JLabel();
+        btnResetearContrasena = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -110,10 +114,7 @@ public class VenAdminEditarU extends javax.swing.JFrame {
 
         txtNombreApellido.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
 
-        txtContrasena.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-
         lblContrasena.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        lblContrasena.setText("Contraseña:");
 
         lblNombreUser.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         lblNombreUser.setText("Nombre de Usuario:");
@@ -122,6 +123,14 @@ public class VenAdminEditarU extends javax.swing.JFrame {
 
         lblEdicionUser.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         lblEdicionUser.setText("Edicion de Usuario");
+
+        btnResetearContrasena.setFont(new java.awt.Font("sansserif", 1, 16)); // NOI18N
+        btnResetearContrasena.setText("Resetear Contraseña");
+        btnResetearContrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetearContrasenaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,39 +143,38 @@ public class VenAdminEditarU extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblContrasena)
-                                    .addComponent(lblNombreUser)
-                                    .addComponent(lblNombreApellido)
-                                    .addComponent(lblTipoDoc)
-                                    .addComponent(lblNumeroDoc)
-                                    .addComponent(lblCorreo)
-                                    .addComponent(lblTelefono)
-                                    .addComponent(lblRol))
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtContrasena)
-                                .addComponent(cmbTipoDoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtNumeroDoc)
-                                .addComponent(txtNombreApellido)
-                                .addComponent(txtCorreo)
-                                .addComponent(txtTelefono)
-                                .addComponent(cmbRol, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtNombreUser))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(9, 9, 9))))
+                                .addComponent(lblContrasena)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblNombreApellido))
+                            .addComponent(lblNombreUser)
+                            .addComponent(lblTipoDoc)
+                            .addComponent(lblNumeroDoc)
+                            .addComponent(lblCorreo)
+                            .addComponent(lblTelefono)
+                            .addComponent(lblRol))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cmbTipoDoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtNumeroDoc)
+                            .addComponent(txtNombreApellido)
+                            .addComponent(txtCorreo)
+                            .addComponent(txtTelefono)
+                            .addComponent(cmbRol, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtNombreUser)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(207, 207, 207)
-                        .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(52, 52, 52)
+                        .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59)
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(196, 196, 196)
+                        .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(151, 151, 151)
+                        .addComponent(btnResetearContrasena)))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -180,12 +188,10 @@ public class VenAdminEditarU extends javax.swing.JFrame {
                     .addComponent(lblNombreUser, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNombreApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNombreApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblNombreApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNombreApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTipoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,25 +200,27 @@ public class VenAdminEditarU extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNumeroDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNumeroDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRol, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addComponent(btnResetearContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -230,7 +238,6 @@ public class VenAdminEditarU extends javax.swing.JFrame {
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         
         txtNombreUser.setText("");
-        txtContrasena.setText("");
         txtNombreApellido.setText("");
         txtNumeroDoc.setText("");
         txtCorreo.setText("");
@@ -241,17 +248,43 @@ public class VenAdminEditarU extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         
         String nombreUser = txtNombreUser.getText();
-        String contra = txtContrasena.getText();
         String nombresApellidos = txtNombreApellido.getText();
         String tipoDoc = (String) cmbTipoDoc.getSelectedItem();
         String numeroDoc = txtNumeroDoc.getText();
         String correo = txtCorreo.getText();
         String telefono = txtTelefono.getText();
         String rol = (String) cmbRol.getSelectedItem();
-        
-        control.editarUsuario(person, nombreUser, contra, nombresApellidos, tipoDoc, numeroDoc, correo, telefono, rol);
-        mostrarMensaje("Usuario editado correctamente", "Info", "Edicion Exitosa");
-        this.dispose();
+
+        try {
+            // Validación de campos vacíos
+            EmpleadoVacioException.validarCampos(nombreUser, nombresApellidos, numeroDoc, correo, telefono);
+            boolean usuarioExiste = YaExisteException.usuarioYaExiste(nombreUser, person.getId()); // Validación de existencia de usuario
+            
+            if (usuarioExiste) {
+                mostrarMensaje("El nombre de usuario ya está en uso", "Error", "Error al editar usuario");
+            } else {
+                // Validaciones de los campos con reglas específicas
+                NoLeenException.validarTextos(nombresApellidos);
+                NoLeenException.validarCorreo(correo);
+                NoLeenException.validarNumeros(numeroDoc); 
+                NoLeenException.validarNumeros(telefono);
+                ExageradosException.validarTelefono(telefono);
+                ExageradosException.validarNumeroDocumento(numeroDoc);
+                // Edición del usuario
+                control.editarUsuario(person, nombreUser, nombresApellidos, tipoDoc, numeroDoc, correo, telefono, rol);
+                mostrarMensaje("Usuario editado correctamente", "Info", "Edición Exitosa");
+                this.dispose();
+            }
+        } catch (EmpleadoVacioException e) {
+            mostrarMensaje("Todos los campos son obligatorios.", "Error", "Error al guardar");
+        } catch (YaExisteException e) { 
+            mostrarMensaje("El nombre de usuario ya fue asignado previamente.", "Error", "Error al guardar");
+        } catch (NoLeenException e) { 
+            mostrarMensaje(e.getMessage(), "Error", "Error al guardar");
+        } catch (ExageradosException e) {
+            mostrarMensaje(e.getMessage(), "Error", "Error al guardar");
+        }
+       
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -259,7 +292,6 @@ public class VenAdminEditarU extends javax.swing.JFrame {
         person = control.traerUsuario(id_user);
         
         txtNombreUser.setText(person.getNombreUsuario());
-        txtContrasena.setText(person.getContrasena());
         txtNombreApellido.setText(person.getNombre());
         cmbTipoDoc.setSelectedItem(person.getTipoDocumento());
         txtNumeroDoc.setText(String.valueOf(person.getNumeroDocumento()));
@@ -268,6 +300,24 @@ public class VenAdminEditarU extends javax.swing.JFrame {
         cmbRol.setSelectedItem(person.getRol());
                 
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnResetearContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetearContrasenaActionPerformed
+       
+        String contrasena = "Colombia123";
+       
+        Object[] options = {"Sí", "No"};
+        int confirmacion = JOptionPane.showOptionDialog(this, "¿Está seguro de que desea cambiar su contraseña?", "Cambio Contraseña", 
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, 
+                options, options[0]);
+
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            control.cambiarContra(person, contrasena);
+            mostrarMensaje("Se reseteo la contraseña correctamente", "Info", "Cambio de Contraseña");
+            this.dispose();
+        } else {
+            mostrarMensaje("No se reseteo la contraseña", "Info", "Cambio de Contraseña");
+        }
+    }//GEN-LAST:event_btnResetearContrasenaActionPerformed
 
     public void mostrarMensaje (String mensaje, String tipo, String titulo) {
         JOptionPane optionPane = new JOptionPane(mensaje);
@@ -283,6 +333,7 @@ public class VenAdminEditarU extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnResetearContrasena;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox<String> cmbRol;
     private javax.swing.JComboBox<String> cmbTipoDoc;
@@ -295,7 +346,6 @@ public class VenAdminEditarU extends javax.swing.JFrame {
     private javax.swing.JLabel lblRol;
     private javax.swing.JLabel lblTelefono;
     private javax.swing.JLabel lblTipoDoc;
-    private javax.swing.JPasswordField txtContrasena;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtNombreApellido;
     private javax.swing.JTextField txtNombreUser;

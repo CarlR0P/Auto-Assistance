@@ -34,47 +34,44 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lblContrasena" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblNombreUser" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblNombreApellido" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblTipoDoc" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblNumeroDoc" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCorreo" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblTelefono" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblRol" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                          </Group>
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
+                              <Component id="lblContrasena" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnLimpiar" min="-2" pref="162" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="lblNombreApellido" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="lblNombreUser" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblTipoDoc" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNumeroDoc" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCorreo" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblTelefono" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblRol" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtContrasena" alignment="0" max="32767" attributes="0"/>
-                              <Component id="cmbTipoDoc" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtNumeroDoc" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtNombreApellido" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtCorreo" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtTelefono" alignment="0" max="32767" attributes="0"/>
-                              <Component id="cmbRol" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtNombreUser" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="btnGuardar" min="-2" pref="162" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="cmbTipoDoc" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtNumeroDoc" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtNombreApellido" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtCorreo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtTelefono" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cmbRol" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtNombreUser" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="207" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="btnLimpiar" min="-2" pref="162" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                      <Component id="btnGuardar" min="-2" pref="162" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
                       <Component id="btnVolver" min="-2" pref="89" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
+                      <Component id="btnResetearContrasena" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="55" max="32767" attributes="0"/>
@@ -93,13 +90,11 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtContrasena" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblContrasena" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtNombreApellido" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblNombreApellido" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="lblContrasena" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblNombreApellido" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="txtNombreApellido" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -111,29 +106,31 @@
                   <Component id="lblNumeroDoc" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="txtNumeroDoc" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblCorreo" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="txtCorreo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblTelefono" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                  <Component id="txtTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="txtTelefono" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblTelefono" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblRol" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="cmbRol" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnResetearContrasena" min="-2" pref="41" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnLimpiar" alignment="3" min="-2" pref="62" max="-2" attributes="0"/>
                   <Component id="btnGuardar" alignment="3" min="-2" pref="62" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnVolver" min="-2" pref="35" max="-2" attributes="0"/>
-              <EmptySpace pref="17" max="32767" attributes="0"/>
+              <EmptySpace pref="25" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -284,19 +281,11 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="txtContrasena">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="sansserif" size="18" style="0"/>
-        </Property>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="lblContrasena">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="sansserif" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNombreUser">
@@ -321,6 +310,17 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Edicion de Usuario"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnResetearContrasena">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="sansserif" size="16" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Resetear Contrase&#xf1;a"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnResetearContrasenaActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

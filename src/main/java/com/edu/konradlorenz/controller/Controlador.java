@@ -57,9 +57,8 @@ public class Controlador {
         return perso.getId();
     }
     
-    private void setearDatosPersona(String nombreUser, String contra, String nombresApellidos, String tipoDoc, String numeroDoc, String correo, String telefono) {   
+    private void setearDatosPersona(String nombreUser, String nombresApellidos, String tipoDoc, String numeroDoc, String correo, String telefono) {   
         objPerson.setNombreUsuario(nombreUser);
-        objPerson.setContrasena(contra);
         objPerson.setNombre(nombresApellidos);
         objPerson.setTipoDocumento(tipoDoc);
         objPerson.setNumeroDocumento(Long.parseLong(numeroDoc));  // Asegúrate de manejar la conversión de String a long adecuadamente
@@ -67,21 +66,23 @@ public class Controlador {
         objPerson.setTelefono(Long.parseLong(telefono));
     } 
    
-    public void crearUsuario(String nombreUser, String contra, String nombresApellidos, String tipoDoc, String numeroDoc, String correo, String telefono, String rol) {
+    public void crearUsuario(String nombreUser, String contra, String nombresApellidos, String tipoDoc, String numeroDoc, String correo, String telefono, String rol) { 
         
         if (rol.equals("administrador")) {
             objPerson = new Administrador();
         } else if (rol.equals("empleado")) {
             objPerson = new Empleado();
         }
-            setearDatosPersona(nombreUser, contra, nombresApellidos, tipoDoc, numeroDoc, correo, telefono);
+            setearDatosPersona(nombreUser, nombresApellidos, tipoDoc, numeroDoc, correo, telefono);
+            objPerson.setContrasena(contra);  
             objPerson.setRol(rol);       
             short id = this.buscarUltimoIdUsuario();
             objPerson.setId((short) (id+1));
             controlPersistencia.crearUsuario(objPerson);
     }
     
-    public void editarUsuario(Persona person, String nombreUser, String contra, String nombresApellidos, String tipoDoc, String numeroDoc, String correo, String telefono, String rol) {        
+    public void editarUsuario(Persona person, String nombreUser, String nombresApellidos, String tipoDoc, String numeroDoc, String correo, String telefono, String rol) throws EmpleadoVacioException  {        
+        
         try {     
         short originalId = person.getId();
             if (!person.getRol().equals(rol)) {
@@ -95,25 +96,26 @@ public class Controlador {
                 }
                 person.setId(originalId);
                 objPerson = person;
-                setearDatosPersona(nombreUser, contra, nombresApellidos, tipoDoc, numeroDoc, correo, telefono);           
+                setearDatosPersona(nombreUser, nombresApellidos, tipoDoc, numeroDoc, correo, telefono);
+                person.setContrasena("Colombia123");
                 person.setRol(rol);
                 controlPersistencia.crearUsuario(person);
             } else {
                 objPerson = person;
-                setearDatosPersona(nombreUser, contra, nombresApellidos, tipoDoc, numeroDoc, correo, telefono);
+                setearDatosPersona(nombreUser, nombresApellidos, tipoDoc, numeroDoc, correo, telefono);
                 controlPersistencia.editarUsuario(person);
             }
         } catch (NumberFormatException e) {
-        e.printStackTrace(); // Manejo adecuado de la excepción
+        e.printStackTrace(); 
         }
-    }    
-
-    public void cambiarContra(Persona person, String contrasena) {
         
+    }    
+    
+    public void cambiarContra(Persona person, String contrasena) {
         objPerson = person;
         objPerson.setContrasena(contrasena);
         controlPersistencia.editarUsuario(person);
-        
     }
+
 
 }

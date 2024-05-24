@@ -2,6 +2,8 @@ package com.edu.konradlorenz.view;
 
 import com.edu.konradlorenz.controller.Controlador;
 import com.edu.konradlorenz.model.*;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 public class VentanaPrincipal extends javax.swing.JFrame {
     
@@ -24,8 +26,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         txtContrasena = new javax.swing.JPasswordField();
         btnIniciar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtMensaje = new javax.swing.JTextArea();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
 
@@ -61,11 +61,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        txtMensaje.setEditable(false);
-        txtMensaje.setColumns(20);
-        txtMensaje.setRows(5);
-        jScrollPane1.setViewportView(txtMensaje);
-
         jSeparator1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jSeparator2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -78,8 +73,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
-                        .addComponent(jSeparator1)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -120,18 +114,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(btnLimpiar))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        
         txtUsuario.setText("");
         txtContrasena.setText("");
-        txtMensaje.setText("");
+        
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
@@ -154,59 +147,32 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 this.dispose();
             }
         } else {
-            txtMensaje.setText("Usuario o contraseña incorrecto");
+            mostrarMensaje("Usuario o contraseña incorrectos", "Error", "Error al iniciar sesion");
         }    
         
     }//GEN-LAST:event_btnIniciarActionPerformed
-
-    /*if (person != null) {
-            if (person instanceof Administrador) {
-                VentanaAdministrador ventanaAdmin = new VentanaAdministrador(control, person);
-                ventanaAdmin.setVisible(true);
-                ventanaAdmin.setLocationRelativeTo(null);
-            } else if (person instanceof Empleado) {
-                VentanaEmpleado ventanaUser = new VentanaEmpleado(control, person);
-                ventanaUser.setVisible(true);
-                ventanaUser.setLocationRelativeTo(null);
-                } else {
-                JOptionPane.showMessageDialog(this, "Tipo de usuario desconocido.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-            this.setVisible(false);  // Opcional: Ocultar el login frame
-        } else {
-            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.", "Error", JOptionPane.ERROR_MESSAGE);
+    
+    public void mostrarMensaje (String mensaje, String tipo, String titulo) {
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if (tipo.equals("Info")) {
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        } else if (tipo.equals("Error")) {
+           optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
         }
-        if (person != null) {
-        switch (person.getTipo()) {
-            case "ADMINISTRADOR":
-                VentanaAdministrador ventanaAdmin = new VentanaAdministrador(control, person);
-                ventanaAdmin.setVisible(true);
-                ventanaAdmin.setLocationRelativeTo(null);
-                break;
-            case "EMPLEADO":
-                VentanaEmpleado ventanaUser = new VentanaEmpleado(control, person);
-                ventanaUser.setVisible(true);
-                ventanaUser.setLocationRelativeTo(null);
-                break;
-            default:
-                JOptionPane.showMessageDialog(this, "Tipo de usuario desconocido.", "Error", JOptionPane.ERROR_MESSAGE);
-                break;
-        }
-        this.setVisible(false);  // Opcional: Ocultar el login frame
-    } else {
-        JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.", "Error", JOptionPane.ERROR_MESSAGE);
-    }*/
+        JDialog dialog = optionPane.createDialog(titulo);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciar;
     private javax.swing.JButton btnLimpiar;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblContrasena;
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JPasswordField txtContrasena;
-    private javax.swing.JTextArea txtMensaje;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

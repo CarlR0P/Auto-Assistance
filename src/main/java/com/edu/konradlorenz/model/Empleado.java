@@ -8,8 +8,7 @@ import javax.persistence.Entity;
 @DiscriminatorValue("empleado")
 public class Empleado extends Persona implements Trabajador {
     
-    private Horario horario;
-    
+    private Horario horario;   
     private int calificacion;
 
     public Empleado() {

@@ -128,7 +128,9 @@ public class VentanaEmpleado extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMiHorarioActionPerformed
 
     private void btnSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalir1ActionPerformed
+        
         System.exit(0);
+        
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
     private void btnMiPerfil1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiPerfil1ActionPerformed

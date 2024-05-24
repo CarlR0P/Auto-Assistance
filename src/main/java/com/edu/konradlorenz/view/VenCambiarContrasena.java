@@ -1,7 +1,7 @@
-
 package com.edu.konradlorenz.view;
 
 import com.edu.konradlorenz.controller.Controlador;
+import com.edu.konradlorenz.model.ExageradosException;
 import com.edu.konradlorenz.model.Persona;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -122,24 +122,31 @@ public class VenCambiarContrasena extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        
+                                              
         String contrasena = txtContrasena.getText();
-        
-        Object[] options = {"Sí", "No"};
-        int confirmacion = JOptionPane.showOptionDialog(this, "¿Está seguro de que desea cambiar su contraseña?", "Cambio Contraseña", 
-        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, 
-        options, options[0]);
-                // Si el usuario selecciona "Sí"
-        if (confirmacion == JOptionPane.YES_OPTION) {
-            control.cambiarContra(person, contrasena);
-            mostrarMensaje("Se modifico la contraseña correctamente", "Info", "Cambio de Contrasena");
-            this.dispose();
-        } else {
-        mostrarMensaje("No se modifico contrasena", "Info", "Cambio de Contrasena");
-        }
+
+        try {
+            ExageradosException.validarContrasena(contrasena);
             
+            Object[] options = {"Sí", "No"};
+            int confirmacion = JOptionPane.showOptionDialog(this, "¿Está seguro de que desea cambiar su contraseña?", "Cambio Contraseña", 
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, 
+                    options, options[0]);
+            if (confirmacion == JOptionPane.YES_OPTION) {
+                control.cambiarContra(person, contrasena);
+                mostrarMensaje("Se modificó la contraseña correctamente", "Info", "Cambio de Contraseña");
+                this.dispose();
+            } else {
+                mostrarMensaje("No se modificó la contraseña", "Info", "Cambio de Contraseña");
+            }
+
+        } catch (ExageradosException ex) {
+            mostrarMensaje(ex.getMessage(), "Error", "Cambio de Contraseña");
+            return; 
+        }
+                   
     }
-        
+
     public void mostrarMensaje (String mensaje, String tipo, String titulo) {
         JOptionPane optionPane = new JOptionPane(mensaje);
         if (tipo.equals("Info")) {
@@ -150,15 +157,12 @@ public class VenCambiarContrasena extends javax.swing.JFrame {
         JDialog dialog = optionPane.createDialog(titulo);
         dialog.setAlwaysOnTop(true);
         dialog.setVisible(true);
-
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
         person = control.traerUsuario(id_user);
         txtContrasena.setText(person.getContrasena());
     }//GEN-LAST:event_formWindowOpened
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;

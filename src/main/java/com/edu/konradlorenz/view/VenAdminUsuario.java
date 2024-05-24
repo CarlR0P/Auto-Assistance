@@ -243,11 +243,8 @@ public class VenAdminUsuario extends javax.swing.JFrame {
                 int confirmacion = JOptionPane.showOptionDialog(this, "¿Está seguro de que desea eliminar este usuario?", "Confirmar eliminación", 
                         JOptionPane.YES_NO_OPTION, 
                         JOptionPane.QUESTION_MESSAGE, 
-                        null, 
-                        options, 
-                        options[0]);
+                        null, options, options[0]);
 
-                // Si el usuario selecciona "Sí"
                 if (confirmacion == JOptionPane.YES_OPTION) {
                     control.eliminarUsuario(id_usuario);
                     mostrarMensaje("Se eliminó el usuario correctamente", "Info", "Eliminación correcta");
@@ -286,6 +283,4 @@ public class VenAdminUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel lblUserLogged;
     private javax.swing.JTable tblaUsuarios;
     // End of variables declaration//GEN-END:variables
-
-    
 }

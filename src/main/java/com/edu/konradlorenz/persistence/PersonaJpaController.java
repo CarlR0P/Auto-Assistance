@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.edu.konradlorenz.persistence;
 
 import com.edu.konradlorenz.model.Persona;
@@ -16,10 +12,6 @@ import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-/**
- *
- * @author david
- */
 public class PersonaJpaController implements Serializable {
 
     public PersonaJpaController(EntityManagerFactory emf) {

@@ -124,6 +124,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         venAdminUser.setVisible(true);
         venAdminUser.setLocationRelativeTo(null);
         this.dispose();
+        
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -131,7 +132,6 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         System.exit(0);
         
     }//GEN-LAST:event_btnSalirActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHorarios;
