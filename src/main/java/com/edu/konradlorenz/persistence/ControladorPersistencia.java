@@ -2,6 +2,7 @@ package com.edu.konradlorenz.persistence;
 
 import com.edu.konradlorenz.model.Persona;
 import com.edu.konradlorenz.persistence.exceptions.NonexistentEntityException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,6 +20,19 @@ public class ControladorPersistencia {
         return personJpa.findPersona((short) id_usuario);
     }
     
+    public List<Persona> traerEmpleados() {
+        
+        List<Persona> listaUsuarios = personJpa.findPersonaEntities();
+    
+        // Filtra solo aquellos que tienen el rol de empleado
+        List<Persona> listaEmpleados = new ArrayList<>();
+        for (Persona persona : listaUsuarios) {
+            if ("empleado".equals(persona.getRol())) {
+                listaEmpleados.add(persona);
+            }
+        }
+        return listaEmpleados;
+    }
     
     public void crearUsuario(Persona person) {
         
