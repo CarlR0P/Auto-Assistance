@@ -151,7 +151,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
 
     private void btnHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHorariosActionPerformed
 
-        VenAHorarios venAdminHorarios = new VenAHorarios(control, person);
+        VenAHorariosOpc venAdminHorarios = new VenAHorariosOpc(control, person);
         venAdminHorarios.setVisible(true);
         venAdminHorarios.setLocationRelativeTo(null);
         this.dispose();

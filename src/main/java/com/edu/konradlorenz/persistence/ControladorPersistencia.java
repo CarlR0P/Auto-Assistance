@@ -1,5 +1,6 @@
 package com.edu.konradlorenz.persistence;
 
+import com.edu.konradlorenz.model.HistorialHorario;
 import com.edu.konradlorenz.model.Persona;
 import com.edu.konradlorenz.persistence.exceptions.NonexistentEntityException;
 import java.util.ArrayList;
@@ -10,6 +11,8 @@ import java.util.logging.Logger;
 public class ControladorPersistencia {
     
     PersonaJpaController personJpa = new PersonaJpaController();
+    EmpleadoJpaController empleJpa = new EmpleadoJpaController();
+    HistorialHorarioJpaController historialJpa = new HistorialHorarioJpaController();
 
     public List<Persona> traerUsuarios() {      
         List<Persona> listaUsuarios = personJpa.findPersonaEntities();
@@ -66,6 +69,21 @@ public class ControladorPersistencia {
         } catch (Exception ex) {
             Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public void crearRegistroHorario(HistorialHorario objHistorialHorario) {
+        
+        historialJpa.create(objHistorialHorario);
+    }
+
+    public void editarRegistroHorario(HistorialHorario objHistorialHorario) {
+        
+        try {
+            historialJpa.edit(objHistorialHorario);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
 }

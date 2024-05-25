@@ -181,7 +181,7 @@ public class VenAEditarHorario extends javax.swing.JFrame {
         // Obtener la hora de salida
         LocalTime horaSalida = LocalTime.parse((String) cmbHoraSal.getSelectedItem(), formatter);
 
-        control.crearHorario(id_user, fecha_sqlIni, fecha_sqlFin, horaEntrada, horaSalida);
+        control.editarHorario(id_user, fecha_sqlIni, fecha_sqlFin, horaEntrada, horaSalida);
 
         /*Mostrar un mensaje con la hora de entrada para prueba
         JOptionPane.showMessageDialog(null, "Hora de Entrada: " + horaEntrada + "\nHora de Salida: " + horaSalida

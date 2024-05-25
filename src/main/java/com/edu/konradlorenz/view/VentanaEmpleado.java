@@ -132,7 +132,11 @@ public class VentanaEmpleado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMiHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiHorarioActionPerformed
-
+        
+        VenEHorarioOpc venEHorarioOpc = new VenEHorarioOpc(control, person, person.getId());
+        venEHorarioOpc.setVisible(true);
+        venEHorarioOpc.setLocationRelativeTo(null);
+        this.dispose();
 
     }//GEN-LAST:event_btnMiHorarioActionPerformed
 

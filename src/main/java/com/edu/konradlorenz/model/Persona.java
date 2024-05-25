@@ -1,6 +1,8 @@
 package com.edu.konradlorenz.model;
 
 import java.io.Serializable;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -11,12 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
-/*import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;*/
+import javax.persistence.OneToMany;
 
 @Entity
-@Table(name = "PERSONA")
+@Table(name = "persona")
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "ROL", discriminatorType = DiscriminatorType.STRING)
 public abstract class Persona implements Serializable {
@@ -34,6 +34,8 @@ public abstract class Persona implements Serializable {
     private long salario;
     @Column(name = "ROL", insertable = false, updatable = false)
     private String rol;
+    @OneToMany(mappedBy = "id_user", cascade = CascadeType.ALL)
+    private Set<HistorialHorario> historialHorarios;
     
     public Persona () {
     }
@@ -127,6 +129,14 @@ public abstract class Persona implements Serializable {
 
     public void setRol(String rol) {
         this.rol = rol;
+    }
+
+    public Set<HistorialHorario> getHistorialHorarios() {
+        return historialHorarios;
+    }
+
+    public void setHistorialHorarios(Set<HistorialHorario> historialHorarios) {
+        this.historialHorarios = historialHorarios;
     }
     
     public abstract void iniciarSesion();

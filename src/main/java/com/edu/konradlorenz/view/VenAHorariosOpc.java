@@ -7,12 +7,12 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class VenAHorarios extends javax.swing.JFrame {
+public class VenAHorariosOpc extends javax.swing.JFrame {
 
     Controlador control;
     Persona person;
 
-    public VenAHorarios(Controlador control, Persona person) {
+    public VenAHorariosOpc(Controlador control, Persona person) {
         initComponents();
         this.control = control;
         this.person = person;
@@ -207,6 +207,13 @@ public class VenAHorarios extends javax.swing.JFrame {
 
     private void btnEliminarHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarHorarioActionPerformed
 
+        if (tblAEmpleados.getSelectedRow() != -1) {
+                
+            //Logica
+            
+        } else {
+            mostrarMensaje("No selecciono ningun registro", "Error", "Error al eliminar");
+        }
 
     }//GEN-LAST:event_btnEliminarHorarioActionPerformed
 

@@ -4,6 +4,7 @@ import com.edu.konradlorenz.persistence.ControladorPersistencia;
 import com.edu.konradlorenz.view.*;
 import com.edu.konradlorenz.model.*;
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -11,6 +12,8 @@ public class Controlador {
     
     ControladorPersistencia controlPersistencia;
     Persona objPerson;
+    Empleado objEmpleado;
+    HistorialHorario objHistorialHorario;
     
     public Controlador () {       
         controlPersistencia = new ControladorPersistencia();   
@@ -124,7 +127,34 @@ public class Controlador {
     }
 
     public void crearHorario(short id_user, Date fecha_sqlIni, Date fecha_sqlFin, LocalTime horaEntrada, LocalTime horaSalida) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
+        
+        
+    }
+
+    public void editarHorario(short id_user, Date fecha_sqlIni, Date fecha_sqlFin, LocalTime horaEntrada, LocalTime horaSalida) {
+        
+        
+        
+    }
+
+    public void registrarLlegada(Persona person, LocalDateTime llegada) {
+        
+        objHistorialHorario = new HistorialHorario();
+        objHistorialHorario.setFechaHoraIni(llegada);
+        objHistorialHorario.setId_user(person);
+        controlPersistencia.crearRegistroHorario(objHistorialHorario);
+    }
+
+    public void registrarSalida(short person, LocalDateTime salida) {
+        
+        controlPersistencia.editarRegistroHorario(objHistorialHorario);
+    }
+
+    public void registrarLabores(String labores) {
+        
+        
+        
     }
 
 }
