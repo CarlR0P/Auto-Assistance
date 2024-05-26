@@ -1,6 +1,7 @@
 package com.edu.konradlorenz.view;
 
 import com.edu.konradlorenz.controller.Controlador;
+import com.edu.konradlorenz.model.HistorialHorario;
 import com.edu.konradlorenz.model.Persona;
 import javax.swing.JFrame;
 
@@ -8,6 +9,7 @@ public class VentanaEmpleado extends javax.swing.JFrame {
 
     Controlador control;
     Persona person;
+    HistorialHorario historialHorario = new HistorialHorario();
 
     public VentanaEmpleado(Controlador control, Persona person) {
         initComponents();
@@ -46,7 +48,7 @@ public class VentanaEmpleado extends javax.swing.JFrame {
 
         btnMiHorario.setBackground(new java.awt.Color(108, 152, 197));
         btnMiHorario.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnMiHorario.setForeground(new java.awt.Color(225, 225, 225));
+        btnMiHorario.setForeground(new java.awt.Color(255, 255, 255));
         btnMiHorario.setText("Mi horario");
         btnMiHorario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(165, 206, 246), null, null));
         btnMiHorario.addActionListener(new java.awt.event.ActionListener() {
@@ -57,7 +59,7 @@ public class VentanaEmpleado extends javax.swing.JFrame {
 
         btnSalir1.setBackground(new java.awt.Color(108, 152, 197));
         btnSalir1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        btnSalir1.setForeground(new java.awt.Color(225, 225, 225));
+        btnSalir1.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir1.setText("Salir");
         btnSalir1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(163, 209, 255), null, null));
         btnSalir1.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +70,7 @@ public class VentanaEmpleado extends javax.swing.JFrame {
 
         btnMiPerfil1.setBackground(new java.awt.Color(108, 152, 197));
         btnMiPerfil1.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
-        btnMiPerfil1.setForeground(new java.awt.Color(225, 225, 225));
+        btnMiPerfil1.setForeground(new java.awt.Color(255, 255, 255));
         btnMiPerfil1.setText("Mi perfil");
         btnMiPerfil1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(165, 208, 250), null, null));
         btnMiPerfil1.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +135,7 @@ public class VentanaEmpleado extends javax.swing.JFrame {
 
     private void btnMiHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiHorarioActionPerformed
         
-        VenEHorarioOpc venEHorarioOpc = new VenEHorarioOpc(control, person, person.getId());
+        VenEHorarioOpc venEHorarioOpc = new VenEHorarioOpc(control, person, historialHorario,person.getId());
         venEHorarioOpc.setVisible(true);
         venEHorarioOpc.setLocationRelativeTo(null);
         this.dispose();

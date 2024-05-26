@@ -1,9 +1,21 @@
 package com.edu.konradlorenz.view;
 
-public class VenAProducDia extends javax.swing.JFrame {
+import com.edu.konradlorenz.controller.Controlador;
+import com.edu.konradlorenz.model.Empleado;
+import com.edu.konradlorenz.model.Persona;
+import javax.swing.JOptionPane;
 
-    public VenAProducDia() {
+public class VenAProducDia extends javax.swing.JFrame {
+    
+    Empleado emple;
+    Controlador control;
+    short id_user;
+    Persona person;
+    
+    public VenAProducDia(Controlador control, short id_user) {
         initComponents();
+        this.control = control;
+        this.id_user = id_user;
     }
 
     @SuppressWarnings("unchecked")
@@ -11,10 +23,10 @@ public class VenAProducDia extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblProductividadEmple = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        btnSalir = new javax.swing.JButton();
+        txtProductivadDelEmpleado = new javax.swing.JTextArea();
+        btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -23,19 +35,24 @@ public class VenAProducDia extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel1.setText("Productividad del Empleado");
+        jPanel1.setBackground(new java.awt.Color(192, 214, 250));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        lblProductividadEmple.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
+        lblProductividadEmple.setText("Productividad del Empleado");
 
-        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnSalir.setText("Volver");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+        txtProductivadDelEmpleado.setColumns(20);
+        txtProductivadDelEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtProductivadDelEmpleado.setRows(5);
+        jScrollPane1.setViewportView(txtProductivadDelEmpleado);
+
+        btnVolver.setBackground(new java.awt.Color(108, 152, 197));
+        btnVolver.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
+        btnVolver.setText("Volver");
+        btnVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(187, 218, 249), null, null));
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
+                btnVolverActionPerformed(evt);
             }
         });
 
@@ -50,21 +67,21 @@ public class VenAProducDia extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(84, 84, 84)
-                        .addComponent(jLabel1))
+                        .addComponent(lblProductividadEmple))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(145, 145, 145)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblProductividadEmple, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -82,20 +99,30 @@ public class VenAProducDia extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         this.dispose();
-    }//GEN-LAST:event_btnSalirActionPerformed
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
+        
+        person = control.traerUsuario(id_user);
+
+        if (person instanceof Empleado) {
+            emple =  (Empleado) person; 
+            txtProductivadDelEmpleado.setText(emple.getRegistroLabor());
+        } else {
+            // Manejar el caso donde la persona no es un Empleado
+            JOptionPane.showMessageDialog(this, "El usuario no es un empleado.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_formWindowOpened
 
-
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSalir;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lblProductividadEmple;
+    private javax.swing.JTextArea txtProductivadDelEmpleado;
     // End of variables declaration//GEN-END:variables
 }

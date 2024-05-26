@@ -1,6 +1,7 @@
 package com.edu.konradlorenz.view;
 
 import com.edu.konradlorenz.controller.Controlador;
+import com.edu.konradlorenz.model.Empleado;
 import com.edu.konradlorenz.model.Persona;
 import java.util.List;
 import javax.swing.JDialog;
@@ -43,10 +44,12 @@ public class VenAHorariosOpc extends javax.swing.JFrame {
             }
         });
 
-        lblSistAdmin.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(192, 214, 250));
+
+        lblSistAdmin.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         lblSistAdmin.setText("Sistema Administrador");
 
-        lblEmpleadosDispo.setFont(new java.awt.Font("sansserif", 1, 16)); // NOI18N
+        lblEmpleadosDispo.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         lblEmpleadosDispo.setText("Empleados disponibles:");
 
         tblAEmpleados.setModel(new javax.swing.table.DefaultTableModel(
@@ -62,56 +65,77 @@ public class VenAHorariosOpc extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblAEmpleados);
 
-        btnEliminarHorario.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
+        btnEliminarHorario.setBackground(new java.awt.Color(108, 152, 197));
+        btnEliminarHorario.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        btnEliminarHorario.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminarHorario.setText("Eliminar Horario");
+        btnEliminarHorario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(185, 217, 249), null, null));
         btnEliminarHorario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarHorarioActionPerformed(evt);
             }
         });
 
-        btnCrearHorario.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
+        btnCrearHorario.setBackground(new java.awt.Color(108, 152, 197));
+        btnCrearHorario.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        btnCrearHorario.setForeground(new java.awt.Color(255, 255, 255));
         btnCrearHorario.setText("Crear Horario");
+        btnCrearHorario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(185, 217, 249), null, null));
         btnCrearHorario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearHorarioActionPerformed(evt);
             }
         });
 
-        btnEditarHorario.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
+        btnEditarHorario.setBackground(new java.awt.Color(108, 152, 197));
+        btnEditarHorario.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        btnEditarHorario.setForeground(new java.awt.Color(255, 255, 255));
         btnEditarHorario.setText("Editar Horario");
+        btnEditarHorario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(185, 217, 249), null, null));
         btnEditarHorario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarHorarioActionPerformed(evt);
             }
         });
 
-        btnRecargarTabla.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
+        btnRecargarTabla.setBackground(new java.awt.Color(108, 152, 197));
+        btnRecargarTabla.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        btnRecargarTabla.setForeground(new java.awt.Color(255, 255, 255));
         btnRecargarTabla.setText("Recargar Tabla");
+        btnRecargarTabla.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(185, 217, 249), null, null));
         btnRecargarTabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRecargarTablaActionPerformed(evt);
             }
         });
 
-        btnMenuPrincipal.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
+        btnMenuPrincipal.setBackground(new java.awt.Color(108, 152, 197));
+        btnMenuPrincipal.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        btnMenuPrincipal.setForeground(new java.awt.Color(255, 255, 255));
         btnMenuPrincipal.setText("Menu Principal");
+        btnMenuPrincipal.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(185, 217, 249), null, null));
         btnMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMenuPrincipalActionPerformed(evt);
             }
         });
 
-        btnProductividadEmple.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
+        btnProductividadEmple.setBackground(new java.awt.Color(108, 152, 197));
+        btnProductividadEmple.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        btnProductividadEmple.setForeground(new java.awt.Color(255, 255, 255));
         btnProductividadEmple.setText("Productividad del Dia");
+        btnProductividadEmple.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(185, 217, 249), null, null));
         btnProductividadEmple.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProductividadEmpleActionPerformed(evt);
             }
         });
 
-        btnHistorialEmple.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
+        btnHistorialEmple.setBackground(new java.awt.Color(108, 152, 197));
+        btnHistorialEmple.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        btnHistorialEmple.setForeground(new java.awt.Color(255, 255, 255));
         btnHistorialEmple.setText("Historial Empleado");
+        btnHistorialEmple.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(185, 217, 249), null, null));
         btnHistorialEmple.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHistorialEmpleActionPerformed(evt);
@@ -207,12 +231,30 @@ public class VenAHorariosOpc extends javax.swing.JFrame {
 
     private void btnEliminarHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarHorarioActionPerformed
 
-        if (tblAEmpleados.getSelectedRow() != -1) {
-                
-            //Logica
-            
+        if (tblAEmpleados.getRowCount() > 0) {
+            if (tblAEmpleados.getSelectedRow() != -1) {
+                short id_empleado = Short.parseShort(String.valueOf(tblAEmpleados.getValueAt(tblAEmpleados.getSelectedRow(), 0)));
+
+                Object[] options = {"Sí", "No"};
+                int confirmacion = JOptionPane.showOptionDialog(this, "¿Está seguro de que desea eliminar el horario de este empleado?", "Confirmar eliminación",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null, options, options[0]);
+
+                if (confirmacion == JOptionPane.YES_OPTION) {
+                    try {
+                        control.eliminarHorario(person);
+                        mostrarMensaje("Se eliminó el horario correctamente", "Info", "Eliminación correcta");
+                        cargarTablaEmpleados();
+                    } catch (Exception ex) {
+                        mostrarMensaje("Error al eliminar el horario: " + ex.getMessage(), "Error", "Error al eliminar");
+                    }
+                }
+            } else {
+                mostrarMensaje("No seleccionó ningún registro", "Error", "Error al eliminar");
+            }
         } else {
-            mostrarMensaje("No selecciono ningun registro", "Error", "Error al eliminar");
+            mostrarMensaje("La tabla está vacía", "Error", "Error al eliminar");
         }
 
     }//GEN-LAST:event_btnEliminarHorarioActionPerformed
@@ -221,7 +263,7 @@ public class VenAHorariosOpc extends javax.swing.JFrame {
 
         if (tblAEmpleados.getSelectedRow() != -1) {
             short id_user = (short) Integer.parseInt(String.valueOf(tblAEmpleados.getValueAt(tblAEmpleados.getSelectedRow(), 0)));
-            VenACrearHorario venCrearHorario = new VenACrearHorario(control, id_user);
+            VenACrearHorario venCrearHorario = new VenACrearHorario(control, id_user, person);
             venCrearHorario.setVisible(true);
             venCrearHorario.setLocationRelativeTo(null);
 
@@ -236,7 +278,7 @@ public class VenAHorariosOpc extends javax.swing.JFrame {
 
         if (tblAEmpleados.getSelectedRow() != -1) {
             short id_user = (short) Integer.parseInt(String.valueOf(tblAEmpleados.getValueAt(tblAEmpleados.getSelectedRow(), 0)));
-            VenAEditarHorario venEditarHorario = new VenAEditarHorario(control, id_user);
+            VenAEditarHorario venEditarHorario = new VenAEditarHorario(control, id_user, person);
             venEditarHorario.setVisible(true);
             venEditarHorario.setLocationRelativeTo(null);
 
@@ -262,17 +304,26 @@ public class VenAHorariosOpc extends javax.swing.JFrame {
 
     private void btnProductividadEmpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductividadEmpleActionPerformed
 
-        VenAProducDia venAProducDia = new VenAProducDia();
-        venAProducDia.setVisible(true);
-        venAProducDia.setLocationRelativeTo(null);
+        if (tblAEmpleados.getSelectedRow() != -1) {
+            short id_user = (short) Integer.parseInt(String.valueOf(tblAEmpleados.getValueAt(tblAEmpleados.getSelectedRow(), 0)));
+            VenAProducDia venAProducDia = new VenAProducDia(control, id_user);
+            venAProducDia.setVisible(true);
+            venAProducDia.setLocationRelativeTo(null);
+        } else {
+            mostrarMensaje("No selecciono ningun registro", "Error", "Error al Ver campo Seleccionado");
+        }
 
     }//GEN-LAST:event_btnProductividadEmpleActionPerformed
 
     private void btnHistorialEmpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialEmpleActionPerformed
 
-        VenAHistorialEmple venAHistorialEmple = new VenAHistorialEmple();
-        venAHistorialEmple.setVisible(true);
-        venAHistorialEmple.setLocationRelativeTo(null);
+        if (tblAEmpleados.getSelectedRow() != -1) {
+            VenAHistorialEmple venAHistorialEmple = new VenAHistorialEmple(person);
+            venAHistorialEmple.setVisible(true);
+            venAHistorialEmple.setLocationRelativeTo(null);
+        } else {
+            mostrarMensaje("No selecciono ningun registro", "Error", "Error al Ver campo Seleccionado");
+        }
 
     }//GEN-LAST:event_btnHistorialEmpleActionPerformed
 

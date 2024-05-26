@@ -179,7 +179,8 @@ public class PersonaJpaController implements Serializable {
     public Persona findPersona(short id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Persona.class, id);
+            Persona persona = em.find(Persona.class, id);
+            return persona;
         } finally {
             em.close();
         }

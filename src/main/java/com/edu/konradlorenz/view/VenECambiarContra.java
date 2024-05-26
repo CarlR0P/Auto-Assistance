@@ -55,7 +55,7 @@ public class VenECambiarContra extends javax.swing.JFrame {
 
         btnCancelar.setBackground(new java.awt.Color(108, 152, 197));
         btnCancelar.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
-        btnCancelar.setForeground(new java.awt.Color(225, 225, 225));
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(166, 207, 249), null, null));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -66,7 +66,7 @@ public class VenECambiarContra extends javax.swing.JFrame {
 
         btnGuardar.setBackground(new java.awt.Color(108, 152, 197));
         btnGuardar.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
-        btnGuardar.setForeground(new java.awt.Color(225, 225, 225));
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardar.setText("Guardar");
         btnGuardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(164, 209, 253), null, null));
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {

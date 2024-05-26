@@ -1,8 +1,12 @@
 package com.edu.konradlorenz.view;
 
+import com.edu.konradlorenz.model.Persona;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 public class VenAHistorialEmple extends javax.swing.JFrame {
 
-    public VenAHistorialEmple() {
+    public VenAHistorialEmple(Persona person) {
         initComponents();
     }
 
@@ -10,6 +14,7 @@ public class VenAHistorialEmple extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         lblHistorialEmpleado = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblHistorialEmple = new javax.swing.JTable();
@@ -22,7 +27,9 @@ public class VenAHistorialEmple extends javax.swing.JFrame {
             }
         });
 
-        lblHistorialEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(192, 214, 250));
+
+        lblHistorialEmpleado.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         lblHistorialEmpleado.setText("Historial del empleado:");
 
         tblHistorialEmple.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -39,42 +46,57 @@ public class VenAHistorialEmple extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblHistorialEmple);
 
-        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnSalir.setBackground(new java.awt.Color(108, 152, 197));
+        btnSalir.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Volver");
+        btnSalir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(170, 208, 245), null, null));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(208, 208, 208)
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addComponent(lblHistorialEmpleado)))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(lblHistorialEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(23, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblHistorialEmpleado)
-                .addGap(126, 126, 126))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(lblHistorialEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -85,12 +107,36 @@ public class VenAHistorialEmple extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
+        
+        cargarTablaEmpleados();
+        
     }//GEN-LAST:event_formWindowOpened
+    
+    private void cargarTablaEmpleados() {
+        
+        DefaultTableModel modeloTabla = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        String titulos[] = {"Id", "Usuario", "Entradas", "Salidas"};
+        modeloTabla.setColumnIdentifiers(titulos);
 
+
+        /*if (listaEmpleados != null) {
+            for (Persona perso : listaEmpleados) {
+                Object[] objeto = {perso.getId(), perso.getNombreUsuario()};
+                modeloTabla.addRow(objeto);
+            }
+        }*/
+        tblHistorialEmple.setModel(modeloTabla);
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalir;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblHistorialEmpleado;
     private javax.swing.JTable tblHistorialEmple;

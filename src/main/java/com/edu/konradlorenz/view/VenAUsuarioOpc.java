@@ -65,8 +65,6 @@ public class VenAUsuarioOpc extends javax.swing.JFrame {
         ));
         tblaUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tblaUsuarios.setGridColor(new java.awt.Color(121, 183, 246));
-        tblaUsuarios.setSelectionBackground(new java.awt.Color(202, 225, 249));
-        tblaUsuarios.setSelectionForeground(new java.awt.Color(194, 222, 250));
         jScrollPane1.setViewportView(tblaUsuarios);
 
         btnEliminarUsuario.setBackground(new java.awt.Color(108, 152, 197));

@@ -1,29 +1,34 @@
 package com.edu.konradlorenz.model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.time.LocalTime;
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
 @DiscriminatorValue("empleado")
 public class Empleado extends Persona implements Trabajador {
-    
-    
-    private Date fechaInicial;
-    private Date fechaFinal;
+    @Column(name = "FECHAINICIAL", nullable = true)  
+    private LocalDate  fechaInicial;
+    @Column(name = "FECHAFINAL", nullable = true)
+    private LocalDate  fechaFinal;
+    @Column(name = "HORAENTRADA", nullable = true) 
     private LocalTime horaEntrada;
+    @Column(name = "HORASALIDA", nullable = true) 
     private LocalTime horaSalida;
+    private String registroLabor;
     private int calificacion;
 
     public Empleado() {
     }   
 
-    public Empleado(Date fechaInicial, Date fechaFinal, LocalTime horaEntrada, LocalTime horaSalida, int calificacion) {
+    public Empleado(LocalDate fechaInicial, LocalDate fechaFinal, LocalTime horaEntrada, LocalTime horaSalida, String registroLabor, int calificacion) {
         this.fechaInicial = fechaInicial;
         this.fechaFinal = fechaFinal;
         this.horaEntrada = horaEntrada;
         this.horaSalida = horaSalida;
+        this.registroLabor = registroLabor;
         this.calificacion = calificacion;
     }
 
@@ -31,16 +36,15 @@ public class Empleado extends Persona implements Trabajador {
         super(nombreUsuario, nombre, contrasena, tipoDocumento, numeroDocumento, correo, telefono);
     }
 
-    public Empleado(Date fechaInicial, Date fechaFinal, LocalTime horaEntrada, LocalTime horaSalida, int calificacion, String nombreUsuario, String nombre, String contrasena, String tipoDocumento, long numeroDocumento, String correo, long telefono) {
+    public Empleado(LocalDate fechaInicial, LocalDate fechaFinal, LocalTime horaEntrada, LocalTime horaSalida, String registroLabor, int calificacion, String nombreUsuario, String nombre, String contrasena, String tipoDocumento, long numeroDocumento, String correo, long telefono) {
         super(nombreUsuario, nombre, contrasena, tipoDocumento, numeroDocumento, correo, telefono);
         this.fechaInicial = fechaInicial;
         this.fechaFinal = fechaFinal;
         this.horaEntrada = horaEntrada;
         this.horaSalida = horaSalida;
+        this.registroLabor = registroLabor;
         this.calificacion = calificacion;
     }
-
-    
 
     @Override
     public void iniciarSesion() {
@@ -51,22 +55,22 @@ public class Empleado extends Persona implements Trabajador {
         
     }
 
-    public Date getFechaInicial() {
+    public LocalDate getFechaInicial() {
         return fechaInicial;
     }
 
-    public void setFechaInicial(Date fechaInicial) {
+    public void setFechaInicial(LocalDate fechaInicial) {
         this.fechaInicial = fechaInicial;
     }
 
-    public Date getFechaFinal() {
+    public LocalDate getFechaFinal() {
         return fechaFinal;
     }
 
-    public void setFechaFinal(Date fechaFinal) {
+    public void setFechaFinal(LocalDate fechaFinal) {
         this.fechaFinal = fechaFinal;
     }
-
+    
     public LocalTime getHoraEntrada() {
         return horaEntrada;
     }
@@ -81,6 +85,14 @@ public class Empleado extends Persona implements Trabajador {
 
     public void setHoraSalida(LocalTime horaSalida) {
         this.horaSalida = horaSalida;
+    }
+
+    public String getRegistroLabor() {
+        return registroLabor;
+    }
+
+    public void setRegistroLabor(String registroLabor) {
+        this.registroLabor = registroLabor;
     }
     
     public int getCalificacion() {

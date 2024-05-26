@@ -8,6 +8,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowOpened"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -23,55 +26,61 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" min="-2" pref="316" max="-2" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="326" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="fa" green="d6" red="c0" type="rgb"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                  <Component id="btnGuardar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="btnVolver" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="lblFechaIni" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblFechaFin" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblHoraEnt" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="lblHoraSal" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <Component id="btnVolver" min="-2" pref="95" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                  <Component id="lblFechaIni" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblFechaFin" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblHoraEnt" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblHoraSal" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                  <Component id="btnGuardar" min="-2" pref="95" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="cmbHoraEnt" min="-2" max="-2" attributes="0"/>
+                              <Component id="jdcFechaFin" min="-2" pref="118" max="-2" attributes="0"/>
+                              <Component id="jdcFechaIni" min="-2" pref="118" max="-2" attributes="0"/>
+                              <Component id="cmbHoraSal" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="cmbHoraEnt" min="-2" max="-2" attributes="0"/>
-                      <Component id="jdcFechaFin" min="-2" pref="118" max="-2" attributes="0"/>
-                      <Component id="jdcFechaIni" min="-2" pref="118" max="-2" attributes="0"/>
-                      <Component id="cmbHoraSal" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="45" max="32767" attributes="0"/>
+                  <EmptySpace pref="28" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="lblCreacionHor" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -100,10 +109,10 @@
                       <Component id="lblHoraSal" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="cmbHoraSal" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnVolver" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="btnGuardar" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="btnGuardar" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="btnVolver" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
               </Group>
@@ -122,17 +131,27 @@
         <Component class="javax.swing.JLabel" name="lblHoraEnt">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="1"/>
+              <Font name="Century Gothic" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Hora entrada:"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                <EmptyBorder/>
+              </Border>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblHoraSal">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="1"/>
+              <Font name="Century Gothic" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Hora Salida:"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                <EmptyBorder/>
+              </Border>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="cmbHoraSal">
@@ -141,23 +160,27 @@
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="16">
-                <StringItem index="0" value="06:00"/>
-                <StringItem index="1" value="07:00"/>
-                <StringItem index="2" value="08:00"/>
-                <StringItem index="3" value="09:00"/>
-                <StringItem index="4" value="10:00"/>
-                <StringItem index="5" value="11:00"/>
-                <StringItem index="6" value="12:00"/>
-                <StringItem index="7" value="13:00"/>
-                <StringItem index="8" value="14:00"/>
-                <StringItem index="9" value="15:00"/>
-                <StringItem index="10" value="16:00"/>
-                <StringItem index="11" value="17:00"/>
-                <StringItem index="12" value="18:00"/>
-                <StringItem index="13" value="19:00"/>
-                <StringItem index="14" value="20:00"/>
-                <StringItem index="15" value=" "/>
+              <StringArray count="20">
+                <StringItem index="0" value="01:00"/>
+                <StringItem index="1" value="02:00"/>
+                <StringItem index="2" value="03:00"/>
+                <StringItem index="3" value="04:00"/>
+                <StringItem index="4" value="05:00"/>
+                <StringItem index="5" value="06:00"/>
+                <StringItem index="6" value="07:00"/>
+                <StringItem index="7" value="08:00"/>
+                <StringItem index="8" value="09:00"/>
+                <StringItem index="9" value="10:00"/>
+                <StringItem index="10" value="11:00"/>
+                <StringItem index="11" value="12:00"/>
+                <StringItem index="12" value="13:00"/>
+                <StringItem index="13" value="14:00"/>
+                <StringItem index="14" value="15:00"/>
+                <StringItem index="15" value="16:00"/>
+                <StringItem index="16" value="17:00"/>
+                <StringItem index="17" value="18:00"/>
+                <StringItem index="18" value="19:00"/>
+                <StringItem index="19" value="20:00"/>
               </StringArray>
             </Property>
           </Properties>
@@ -171,35 +194,56 @@
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="15">
-                <StringItem index="0" value="06:00"/>
-                <StringItem index="1" value="07:00"/>
-                <StringItem index="2" value="08:00"/>
-                <StringItem index="3" value="09:00"/>
-                <StringItem index="4" value="10:00"/>
-                <StringItem index="5" value="11:00"/>
-                <StringItem index="6" value="12:00"/>
-                <StringItem index="7" value="13:00"/>
-                <StringItem index="8" value="14:00"/>
-                <StringItem index="9" value="15:00"/>
-                <StringItem index="10" value="16:00"/>
-                <StringItem index="11" value="17:00"/>
-                <StringItem index="12" value="18:00"/>
-                <StringItem index="13" value="19:00"/>
-                <StringItem index="14" value="20:00"/>
+              <StringArray count="20">
+                <StringItem index="0" value="01:00"/>
+                <StringItem index="1" value="02:00"/>
+                <StringItem index="2" value="03:00"/>
+                <StringItem index="3" value="04:00"/>
+                <StringItem index="4" value="05:00"/>
+                <StringItem index="5" value="06:00"/>
+                <StringItem index="6" value="07:00"/>
+                <StringItem index="7" value="08:00"/>
+                <StringItem index="8" value="09:00"/>
+                <StringItem index="9" value="10:00"/>
+                <StringItem index="10" value="11:00"/>
+                <StringItem index="11" value="12:00"/>
+                <StringItem index="12" value="13:00"/>
+                <StringItem index="13" value="14:00"/>
+                <StringItem index="14" value="15:00"/>
+                <StringItem index="15" value="16:00"/>
+                <StringItem index="16" value="17:00"/>
+                <StringItem index="17" value="18:00"/>
+                <StringItem index="18" value="19:00"/>
+                <StringItem index="19" value="20:00"/>
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbHoraEntActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="btnVolver">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="c5" green="98" red="6c" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="16" style="1"/>
+              <Font name="Century Gothic" size="16" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Volver"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder>
+                  <Color PropertyName="highlightInner" blue="f6" green="d2" red="af" type="rgb"/>
+                </BevelBorder>
+              </Border>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVolverActionPerformed"/>
@@ -207,10 +251,23 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnGuardar">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="c5" green="98" red="6c" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="16" style="1"/>
+              <Font name="Century Gothic" size="16" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Guardar"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder>
+                  <Color PropertyName="highlightInner" blue="f6" green="d2" red="af" type="rgb"/>
+                </BevelBorder>
+              </Border>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarActionPerformed"/>
@@ -218,6 +275,14 @@
         </Component>
         <Component class="com.toedter.calendar.JDateChooser" name="jdcFechaIni">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f7" green="eb" red="e4" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                <EmptyBorder/>
+              </Border>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
@@ -226,7 +291,7 @@
         <Component class="javax.swing.JLabel" name="lblFechaIni">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="1"/>
+              <Font name="Century Gothic" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Fecha Inicial:"/>
           </Properties>
@@ -234,13 +299,26 @@
         <Component class="javax.swing.JLabel" name="lblFechaFin">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="1"/>
+              <Font name="Century Gothic" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Fecha Final:"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                <EmptyBorder/>
+              </Border>
+            </Property>
           </Properties>
         </Component>
         <Component class="com.toedter.calendar.JDateChooser" name="jdcFechaFin">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f7" green="eb" red="e4" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                <EmptyBorder/>
+              </Border>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>

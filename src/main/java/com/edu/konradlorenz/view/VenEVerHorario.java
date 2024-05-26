@@ -29,35 +29,48 @@ public class VenEVerHorario extends javax.swing.JFrame {
             }
         });
 
-        lblHorarioAsignado.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(192, 214, 250));
+
+        lblHorarioAsignado.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         lblHorarioAsignado.setText("Horario Asignado");
 
-        lblDesde.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblDesde.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lblDesde.setText("Desde el:");
 
         txtFechaIni.setEditable(false);
-        txtFechaIni.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtFechaIni.setBackground(new java.awt.Color(228, 235, 247));
+        txtFechaIni.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        txtFechaIni.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        lblHasta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblHasta.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lblHasta.setText("Hasta el:");
 
         txtFechaFin.setEditable(false);
-        txtFechaFin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtFechaFin.setBackground(new java.awt.Color(228, 235, 247));
+        txtFechaFin.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        txtFechaFin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        lblHoraEnt.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblHoraEnt.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lblHoraEnt.setText("Hora Entrada:");
 
         txtHoraEnt.setEditable(false);
-        txtHoraEnt.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtHoraEnt.setBackground(new java.awt.Color(228, 235, 247));
+        txtHoraEnt.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        txtHoraEnt.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        lblHoraEnt1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblHoraEnt1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lblHoraEnt1.setText("Hora Entrada:");
 
         txtHoraEnt1.setEditable(false);
-        txtHoraEnt1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtHoraEnt1.setBackground(new java.awt.Color(228, 235, 247));
+        txtHoraEnt1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        txtHoraEnt1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        btnVolver.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnVolver.setBackground(new java.awt.Color(108, 152, 197));
+        btnVolver.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("Volver");
+        btnVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(175, 211, 248), null, null));
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverActionPerformed(evt);
@@ -91,8 +104,8 @@ public class VenEVerHorario extends javax.swing.JFrame {
                         .addGap(182, 182, 182)
                         .addComponent(lblHorarioAsignado))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(208, 208, 208)
-                        .addComponent(btnVolver)))
+                        .addGap(196, 196, 196)
+                        .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -113,8 +126,8 @@ public class VenEVerHorario extends javax.swing.JFrame {
                     .addComponent(lblHoraEnt1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtHoraEnt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnVolver)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -137,7 +150,8 @@ public class VenEVerHorario extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         
-        // TODO add your handling code here:
+        
+        
 
     }//GEN-LAST:event_formWindowOpened
 

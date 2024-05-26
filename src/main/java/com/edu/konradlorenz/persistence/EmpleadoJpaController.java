@@ -34,7 +34,6 @@ public class EmpleadoJpaController implements Serializable {
     public EmpleadoJpaController(){
         emf = Persistence.createEntityManagerFactory("autoAssistancePU");
     }
-    
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();

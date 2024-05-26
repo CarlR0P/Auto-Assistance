@@ -1,5 +1,6 @@
 package com.edu.konradlorenz.persistence;
 
+import com.edu.konradlorenz.model.Empleado;
 import com.edu.konradlorenz.model.HistorialHorario;
 import com.edu.konradlorenz.model.Persona;
 import com.edu.konradlorenz.persistence.exceptions.NonexistentEntityException;
@@ -22,6 +23,7 @@ public class ControladorPersistencia {
     public Persona traerUsuario(int id_usuario) {        
         return personJpa.findPersona((short) id_usuario);
     }
+    
     
     public List<Persona> traerEmpleados() {
         
@@ -70,7 +72,11 @@ public class ControladorPersistencia {
             Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
+    public HistorialHorario traerRegistro(short id_user) {
+        return historialJpa.findHistorialHorario(id_user);
+    }
+    
     public void crearRegistroHorario(HistorialHorario objHistorialHorario) {
         
         historialJpa.create(objHistorialHorario);
@@ -85,5 +91,15 @@ public class ControladorPersistencia {
         }
         
     }
+
+    public void editarEmpleado(Empleado empleado) {
+        try {
+            empleJpa.edit(empleado);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    
     
 }

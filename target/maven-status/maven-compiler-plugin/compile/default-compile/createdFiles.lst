@@ -42,6 +42,7 @@ com\edu\konradlorenz\view\VenACrearHorario$1.class
 com\edu\konradlorenz\view\VenAUsuarioOpc$5.class
 com\edu\konradlorenz\view\VentanaAdministrador$2.class
 com\edu\konradlorenz\persistence\exceptions\NonexistentEntityException.class
+com\edu\konradlorenz\view\VenAProducDia$2.class
 com\edu\konradlorenz\view\VenAHorariosOpc$4.class
 com\edu\konradlorenz\view\VenAEditarUser$6.class
 com\edu\konradlorenz\model\NoLeenException.class
@@ -57,6 +58,7 @@ com\edu\konradlorenz\view\VentanaEmpleado$1.class
 com\edu\konradlorenz\model\Persona_.class
 com\edu\konradlorenz\view\VenACrearUser$5.class
 com\edu\konradlorenz\view\VenAEditarHorario$2.class
+com\edu\konradlorenz\view\VenAHistorialEmple$3.class
 com\edu\konradlorenz\view\VenEHorarioOpc$2.class
 com\edu\konradlorenz\model\Empleado.class
 com\edu\konradlorenz\view\VenAHorariosOpc$2.class
@@ -77,10 +79,13 @@ com\edu\konradlorenz\view\VenAHorariosOpc$1.class
 com\edu\konradlorenz\view\VenACrearUser$3.class
 com\edu\konradlorenz\view\VenAEditarUser$3.class
 com\edu\konradlorenz\view\VenAHistorialEmple.class
+com\edu\konradlorenz\view\VenAHistorialEmple$2.class
+com\edu\konradlorenz\view\VenACrearHorario$4.class
 com\edu\konradlorenz\view\VenAEditarUser.class
 com\edu\konradlorenz\view\VenAHorariosOpc$8.class
 com\edu\konradlorenz\view\VenEHorarioOpc$4.class
 com\edu\konradlorenz\view\VenAUsuarioOpc$7.class
+com\edu\konradlorenz\view\VenACrearHorario$3.class
 com\edu\konradlorenz\view\VenEVerHorario$2.class
 com\edu\konradlorenz\view\VenAHorariosOpc$7.class
 com\edu\konradlorenz\view\VentanaEmpleado.class
@@ -94,5 +99,6 @@ com\edu\konradlorenz\view\VenEMiPerfil.class
 com\edu\konradlorenz\view\VenAEditarHorario.class
 com\edu\konradlorenz\persistence\exceptions\PreexistingEntityException.class
 com\edu\konradlorenz\view\VenEVerHorario.class
+com\edu\konradlorenz\view\VenAEditarHorario$3.class
 com\edu\konradlorenz\view\VenEHorarioOpc$3.class
 com\edu\konradlorenz\view\VenACrearUser.class
