@@ -3,7 +3,6 @@ package com.edu.konradlorenz.controller;
 import com.edu.konradlorenz.persistence.ControladorPersistencia;
 import com.edu.konradlorenz.view.*;
 import com.edu.konradlorenz.model.*;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -128,12 +127,12 @@ public class Controlador {
         controlPersistencia.editarUsuario(person);
     }
 
-    public void crearHorario(Persona person, LocalDate fecha_Ini, LocalDate fecha_Fin, LocalTime horaEntrada, LocalTime horaSalida) {
+    public void establecerHorario(Persona person, LocalDate fechaInicial, LocalDate fechaFinal, LocalTime horaEntrada, LocalTime horaSalida) {
 
         if (person instanceof Empleado) {
             objEmpleado = (Empleado) person;
-            objEmpleado.setFechaInicial(fecha_Ini);
-            objEmpleado.setFechaFinal(fecha_Fin);
+            objEmpleado.setFechaInicial(fechaInicial);
+            objEmpleado.setFechaFinal(fechaFinal);
             objEmpleado.setHoraEntrada(horaEntrada);
             objEmpleado.setHoraSalida(horaSalida);
             controlPersistencia.editarEmpleado(objEmpleado);
@@ -141,30 +140,18 @@ public class Controlador {
 
     }
 
-    public void editarHorario(Persona person, LocalDate fecha_Ini, LocalDate fecha_Fin, LocalTime horaEntrada, LocalTime horaSalida) {
-        
-        if (person instanceof Empleado) {
-            objEmpleado = (Empleado) person;
-            objEmpleado.setFechaInicial(fecha_Ini);
-            objEmpleado.setFechaFinal(fecha_Fin);
-            objEmpleado.setHoraEntrada(horaEntrada);
-            objEmpleado.setHoraSalida(horaSalida);
-            controlPersistencia.editarEmpleado(objEmpleado);
-        }
-        
-    }
+    public void eliminarHorario(short id_empleado) {
 
-    public void eliminarHorario(Persona person) {
-        
-        if (person instanceof Empleado) {
-            objEmpleado = (Empleado) person;
+        objEmpleado = (Empleado) traerUsuario(id_empleado);
+
+        if (objEmpleado != null) {
             objEmpleado.setFechaInicial(null);
             objEmpleado.setFechaFinal(null);
             objEmpleado.setHoraEntrada(null);
             objEmpleado.setHoraSalida(null);
             controlPersistencia.editarEmpleado(objEmpleado);
         }
-        
+
     }
 
     public HistorialHorario traerRegistro(short id_user) {
@@ -201,7 +188,7 @@ public class Controlador {
             objEmpleado.setRegistroLabor(labores);
             controlPersistencia.editarEmpleado(objEmpleado);
         }
-        
+
     }
 
 }

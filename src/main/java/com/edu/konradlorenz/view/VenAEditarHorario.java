@@ -1,12 +1,14 @@
 package com.edu.konradlorenz.view;
 
 import com.edu.konradlorenz.controller.Controlador;
+import com.edu.konradlorenz.model.Empleado;
 import com.edu.konradlorenz.model.Persona;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 public class VenAEditarHorario extends javax.swing.JFrame {
@@ -58,10 +60,10 @@ public class VenAEditarHorario extends javax.swing.JFrame {
         lblHoraSal.setText("Hora Salida:");
 
         cmbHoraSal.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        cmbHoraSal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" }));
+        cmbHoraSal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00" }));
 
         cmbHoraEnt.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        cmbHoraEnt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" }));
+        cmbHoraEnt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00" }));
 
         btnVolver.setBackground(new java.awt.Color(108, 152, 197));
         btnVolver.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
@@ -193,27 +195,71 @@ public class VenAEditarHorario extends javax.swing.JFrame {
         LocalDate fechaFinLocal = fechaFinal.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
         // Obtener la hora de entrada
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-        LocalTime horaEntrada = LocalTime.parse((String) cmbHoraEnt.getSelectedItem());
+        String horaEntradaStr = (String) cmbHoraEnt.getSelectedItem();
+        LocalTime horaEntrada = LocalTime.parse(horaEntradaStr);
 
         // Obtener la hora de salida
-        LocalTime horaSalida = LocalTime.parse((String) cmbHoraSal.getSelectedItem());
+        String horaSalidaStr = (String) cmbHoraSal.getSelectedItem();
+        LocalTime horaSalida = LocalTime.parse(horaSalidaStr);
 
-        control.editarHorario(person, fechaIniLocal, fechaFinLocal, horaEntrada, horaSalida);
+        Object[] options = {"Sí", "No"};
+        int confirmacion = JOptionPane.showOptionDialog(this, "¿Está seguro de que desea asignar este horario al empleado?", "Asignacion de Horario",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null, options, options[0]);
 
-        //Mostrar un mensaje con la hora de entrada para prueba
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            try {
+                control.establecerHorario(person, fechaIniLocal, fechaFinLocal, horaEntrada, horaSalida);
+                mostrarMensaje("Se asigno el horario correctamente", "Info", "Asignacion de Horario");
+            } catch (Exception ex) {
+                mostrarMensaje("Error al asignar el horario" + ex.getMessage(), "Error", "Asignacion de Horario");
+            }
+        } else {
+            mostrarMensaje("No se asigno horario", "Info", "Asignacion de Horario");
+        }
+        /*Mostrar un mensaje con la hora de entrada para prueba
         JOptionPane.showMessageDialog(null, "Hora de Entrada: " + horaEntrada + "\nHora de Salida: " + horaSalida
-                + "\nFecha Inicial: " + fechaIniLocal + "\nFecha Final: " + fechaFinLocal);
-        
+                + "\nFecha Inicial: " + fechaIniLocal + "\nFecha Final: " + fechaFinLocal);*/
         this.dispose();
+        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
+
         person = control.traerUsuario(id_user);
         
+        if (person instanceof Empleado) {
+            Empleado emple;
+            emple =  (Empleado) person;
+            LocalDate fechaInicial = emple.getFechaInicial();
+            Date fechaInicialDate = Date.from(fechaInicial.atStartOfDay(ZoneId.systemDefault()).toInstant());
+            jdcFechaIni.setDate(fechaInicialDate);
+            LocalDate fechaFinal = emple.getFechaFinal();
+            Date fechaFinalDate = Date.from(fechaFinal.atStartOfDay(ZoneId.systemDefault()).toInstant());
+            jdcFechaFin.setDate(fechaFinalDate);
+            cmbHoraEnt.setSelectedItem(emple.getHoraEntrada().toString());
+            cmbHoraSal.setSelectedItem(emple.getHoraSalida().toString());
+            
+        } else {
+            // Manejar el caso donde la persona no es un Empleado
+            JOptionPane.showMessageDialog(this, "El usuario no es un empleado.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_formWindowOpened
 
+    public void mostrarMensaje(String mensaje, String tipo, String titulo) {
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if (tipo.equals("Info")) {
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        } else if (tipo.equals("Error")) {
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }
+        JDialog dialog = optionPane.createDialog(titulo);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnVolver;

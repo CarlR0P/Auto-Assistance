@@ -236,18 +236,17 @@ public class VenAHorariosOpc extends javax.swing.JFrame {
                 short id_empleado = Short.parseShort(String.valueOf(tblAEmpleados.getValueAt(tblAEmpleados.getSelectedRow(), 0)));
 
                 Object[] options = {"Sí", "No"};
-                int confirmacion = JOptionPane.showOptionDialog(this, "¿Está seguro de que desea eliminar el horario de este empleado?", "Confirmar eliminación",
+                int confirmacion = JOptionPane.showOptionDialog(this, "¿Está seguro de que desea eliminar el horario de este empleado?", "Eliminacion de Horario",
                         JOptionPane.YES_NO_OPTION,
                         JOptionPane.QUESTION_MESSAGE,
                         null, options, options[0]);
 
                 if (confirmacion == JOptionPane.YES_OPTION) {
                     try {
-                        control.eliminarHorario(person);
-                        mostrarMensaje("Se eliminó el horario correctamente", "Info", "Eliminación correcta");
-                        cargarTablaEmpleados();
+                        control.eliminarHorario(id_empleado);
+                        mostrarMensaje("Se eliminó el horario correctamente", "Info", "Eliminacion de Horario");
                     } catch (Exception ex) {
-                        mostrarMensaje("Error al eliminar el horario: " + ex.getMessage(), "Error", "Error al eliminar");
+                        mostrarMensaje("Error al eliminar el horario: " + ex.getMessage(), "Error", "Eliminacion de Horario");
                     }
                 }
             } else {
@@ -277,15 +276,23 @@ public class VenAHorariosOpc extends javax.swing.JFrame {
     private void btnEditarHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarHorarioActionPerformed
 
         if (tblAEmpleados.getSelectedRow() != -1) {
-            short id_user = (short) Integer.parseInt(String.valueOf(tblAEmpleados.getValueAt(tblAEmpleados.getSelectedRow(), 0)));
-            VenAEditarHorario venEditarHorario = new VenAEditarHorario(control, id_user, person);
-            venEditarHorario.setVisible(true);
-            venEditarHorario.setLocationRelativeTo(null);
+            int selectedRow = tblAEmpleados.getSelectedRow();
+            Object horaEntrada = tblAEmpleados.getValueAt(selectedRow, 2);
+            Object horaSalida = tblAEmpleados.getValueAt(selectedRow, 3);
 
+            if (horaEntrada != null && !horaEntrada.toString().isEmpty()
+                    && horaSalida != null && !horaSalida.toString().isEmpty()) {
+
+                short id_user = (short) Integer.parseInt(String.valueOf(tblAEmpleados.getValueAt(selectedRow, 0)));
+                VenAEditarHorario venEditarHorario = new VenAEditarHorario(control, id_user, person);
+                venEditarHorario.setVisible(true);
+                venEditarHorario.setLocationRelativeTo(null);
+            } else {
+                mostrarMensaje("Horario de entrada y salida vacios, no se ha creado horario para el empleado.", "Error", "Error al editar");
+            }
         } else {
-            mostrarMensaje("No selecciono ningun registro", "Error", "Error al editar");
+            mostrarMensaje("No seleccionó ningún registro", "Error", "Error al editar");
         }
-
 
     }//GEN-LAST:event_btnEditarHorarioActionPerformed
 
@@ -349,7 +356,8 @@ public class VenAHorariosOpc extends javax.swing.JFrame {
 
         if (listaEmpleados != null) {
             for (Persona perso : listaEmpleados) {
-                Object[] objeto = {perso.getId(), perso.getNombreUsuario()};
+                Empleado emple = (Empleado) perso;
+                Object[] objeto = {emple.getId(), emple.getNombreUsuario(), emple.getHoraEntrada(), emple.getHoraSalida()};
                 modeloTabla.addRow(objeto);
             }
         }

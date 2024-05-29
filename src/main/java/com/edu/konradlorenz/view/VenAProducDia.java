@@ -7,7 +7,6 @@ import javax.swing.JOptionPane;
 
 public class VenAProducDia extends javax.swing.JFrame {
     
-    Empleado emple;
     Controlador control;
     short id_user;
     Persona person;
@@ -108,6 +107,7 @@ public class VenAProducDia extends javax.swing.JFrame {
         person = control.traerUsuario(id_user);
 
         if (person instanceof Empleado) {
+            Empleado emple;
             emple =  (Empleado) person; 
             txtProductivadDelEmpleado.setText(emple.getRegistroLabor());
         } else {

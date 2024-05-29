@@ -7,7 +7,7 @@
     <class>com.edu.konradlorenz.model.Empleado</class>
     <class>com.edu.konradlorenz.model.HistorialHorario</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/auto_assistance?serverTimezone=UTC"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/auto_assistance?serverTimezone=GMT-5"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.password" value=""/>
