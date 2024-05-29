@@ -325,7 +325,8 @@ public class VenAHorariosOpc extends javax.swing.JFrame {
     private void btnHistorialEmpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialEmpleActionPerformed
 
         if (tblAEmpleados.getSelectedRow() != -1) {
-            VenAHistorialEmple venAHistorialEmple = new VenAHistorialEmple(person);
+            short id_user = (short) Integer.parseInt(String.valueOf(tblAEmpleados.getValueAt(tblAEmpleados.getSelectedRow(), 0)));
+            VenAHistorialEmple venAHistorialEmple = new VenAHistorialEmple(person, control, id_user);
             venAHistorialEmple.setVisible(true);
             venAHistorialEmple.setLocationRelativeTo(null);
         } else {

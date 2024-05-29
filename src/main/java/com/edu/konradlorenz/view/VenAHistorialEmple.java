@@ -1,13 +1,22 @@
 package com.edu.konradlorenz.view;
 
+import com.edu.konradlorenz.controller.Controlador;
+import com.edu.konradlorenz.model.HistorialHorario;
 import com.edu.konradlorenz.model.Persona;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class VenAHistorialEmple extends javax.swing.JFrame {
 
-    public VenAHistorialEmple(Persona person) {
+    Controlador control;
+    short id_user;
+    Persona person;
+
+    public VenAHistorialEmple(Persona person, Controlador control, short id_user) {
         initComponents();
+        this.control = control;
+        this.id_user = id_user;
+        this.person = person;
     }
 
     @SuppressWarnings("unchecked")
@@ -64,15 +73,15 @@ public class VenAHistorialEmple extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(208, 208, 208)
                         .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(132, 132, 132)
-                        .addComponent(lblHistorialEmpleado)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                        .addComponent(lblHistorialEmpleado))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,8 +100,8 @@ public class VenAHistorialEmple extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,13 +116,14 @@ public class VenAHistorialEmple extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
+
+        person = control.traerUsuario(id_user);
         cargarTablaEmpleados();
-        
+
     }//GEN-LAST:event_formWindowOpened
-    
+
     private void cargarTablaEmpleados() {
-        
+
         DefaultTableModel modeloTabla = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -123,15 +133,18 @@ public class VenAHistorialEmple extends javax.swing.JFrame {
         String titulos[] = {"Id", "Usuario", "Entradas", "Salidas"};
         modeloTabla.setColumnIdentifiers(titulos);
 
+        List<HistorialHorario> listaHistorial = control.traerRegistros();
 
-        /*if (listaEmpleados != null) {
-            for (Persona perso : listaEmpleados) {
-                Object[] objeto = {perso.getId(), perso.getNombreUsuario()};
-                modeloTabla.addRow(objeto);
+        if (listaHistorial != null) {
+            for (HistorialHorario historial : listaHistorial) {
+                if (id_user == historial.getId_user().getId()) {
+                    Object[] objeto = {person.getId(), person.getNombreUsuario(), historial.getFechaHoraIni(), historial.getFechaHoraFin()};
+                    modeloTabla.addRow(objeto);
+                }
             }
-        }*/
+        }
         tblHistorialEmple.setModel(modeloTabla);
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

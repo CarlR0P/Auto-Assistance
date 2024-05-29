@@ -20,8 +20,8 @@ public class ControladorPersistencia {
         return personJpa.findPersonaEntities();   
     }
     
-    public Persona traerUsuario(int id_usuario) {        
-        return personJpa.findPersona((short) id_usuario);
+    public Persona traerUsuario(short id_usuario) {        
+        return personJpa.findPersona(id_usuario);
     }
     
     
@@ -75,6 +75,12 @@ public class ControladorPersistencia {
     
     public HistorialHorario traerRegistro(short id_user) {
         return historialJpa.findHistorialHorario(id_user);
+    }
+    
+    public List<HistorialHorario> traerRegistros() {
+        
+        List<HistorialHorario> listaRegistros = historialJpa.findHistorialHorarioEntities();
+        return historialJpa.findHistorialHorarioEntities();
     }
     
     public void crearRegistroHorario(HistorialHorario objHistorialHorario) {

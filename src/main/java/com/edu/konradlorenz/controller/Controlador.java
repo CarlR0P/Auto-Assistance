@@ -57,6 +57,14 @@ public class Controlador {
         return controlPersistencia.traerEmpleados();
     }
 
+    public HistorialHorario traerRegistro(short id_user) {
+        return controlPersistencia.traerRegistro(id_user);
+    }
+    
+    public List<HistorialHorario> traerRegistros() {
+        return controlPersistencia.traerRegistros();
+    }
+
     private short buscarUltimoIdUsuario() {
         List<Persona> listaUsuarios = this.traerUsuarios();
         Persona perso = listaUsuarios.get(listaUsuarios.size() - 1);
@@ -154,10 +162,6 @@ public class Controlador {
 
     }
 
-    public HistorialHorario traerRegistro(short id_user) {
-        return controlPersistencia.traerRegistro(id_user);
-    }
-
     public void registrarLlegada(Persona person, LocalDateTime llegada) {
 
         objHistorialHorario = new HistorialHorario();
@@ -166,18 +170,15 @@ public class Controlador {
         controlPersistencia.crearRegistroHorario(objHistorialHorario);
     }
 
-    public void registrarSalida(HistorialHorario historial, LocalDateTime salida) {
+    public void registrarSalida(short id_historial, LocalDateTime salida) {
 
-        if (historial == null) {
-            throw new IllegalArgumentException("El historial no puede ser nulo");
-        }
-        if (salida == null) {
-            throw new IllegalArgumentException("La fecha de salida no puede ser nula");
-        }
+        objHistorialHorario = traerRegistro(id_historial);
+        
 
-        objHistorialHorario = historial;
-        objHistorialHorario.setFechaHoraFin(salida);
-        controlPersistencia.editarRegistroHorario(objHistorialHorario);
+        if (objHistorialHorario != null) {
+            objHistorialHorario.setFechaHoraFin(salida);
+            controlPersistencia.editarRegistroHorario(objHistorialHorario);
+        }
 
     }
 

@@ -18,8 +18,8 @@ public class HistorialHorario implements Serializable {
     @ManyToOne
     @JoinColumn(name = "PERSONA_ID", referencedColumnName = "id")
     private Persona id_user;
-    LocalDateTime fechaHoraIni;
-    LocalDateTime fechaHoraFin;
+    private LocalDateTime fechaHoraIni;
+    private LocalDateTime fechaHoraFin;
 
     public HistorialHorario() {
     }
@@ -27,7 +27,7 @@ public class HistorialHorario implements Serializable {
     public HistorialHorario(LocalDateTime fechaHoraIni, LocalDateTime fechaHoraFin) {
         this.fechaHoraIni = fechaHoraIni;
         this.fechaHoraFin = fechaHoraFin;
-    }
+   }
 
     public short getId_historial() {
         return id_historial;

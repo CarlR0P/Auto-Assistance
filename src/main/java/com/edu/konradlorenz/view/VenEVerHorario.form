@@ -61,13 +61,13 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="lblHoraEnt1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblHoraSal" min="-2" max="-2" attributes="0"/>
                               <Component id="lblHasta" min="-2" pref="72" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="txtFechaFin" min="-2" pref="120" max="-2" attributes="0"/>
-                              <Component id="txtHoraEnt1" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="txtHoraSal" min="-2" pref="120" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -99,8 +99,8 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblHoraEnt" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="txtHoraEnt" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblHoraEnt1" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="txtHoraEnt1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblHoraSal" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="txtHoraSal" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnVolver" min="-2" pref="33" max="-2" attributes="0"/>
@@ -190,15 +190,15 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblHoraEnt1">
+        <Component class="javax.swing.JLabel" name="lblHoraSal">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Hora Entrada:"/>
+            <Property name="text" type="java.lang.String" value="Hora Salida:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtHoraEnt1">
+        <Component class="javax.swing.JTextField" name="txtHoraSal">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

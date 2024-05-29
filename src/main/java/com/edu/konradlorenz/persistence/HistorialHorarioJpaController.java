@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.edu.konradlorenz.persistence;
 
 import com.edu.konradlorenz.model.HistorialHorario;
@@ -17,25 +13,21 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-/**
- *
- * @author david
- */
 public class HistorialHorarioJpaController implements Serializable {
 
     public HistorialHorarioJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
-    
-    public HistorialHorarioJpaController(){
+
+    public HistorialHorarioJpaController() {
         emf = Persistence.createEntityManagerFactory("autoAssistancePU");
     }
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-
+    
     public void create(HistorialHorario historialHorario) {
         EntityManager em = null;
         try {
@@ -58,7 +50,7 @@ public class HistorialHorarioJpaController implements Serializable {
             }
         }
     }
-
+    
     public void edit(HistorialHorario historialHorario) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -96,7 +88,8 @@ public class HistorialHorarioJpaController implements Serializable {
             }
         }
     }
-
+      
+    /*
     public void destroy(short id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -122,6 +115,7 @@ public class HistorialHorarioJpaController implements Serializable {
             }
         }
     }
+    */
 
     public List<HistorialHorario> findHistorialHorarioEntities() {
         return findHistorialHorarioEntities(true, -1, -1);
@@ -168,5 +162,5 @@ public class HistorialHorarioJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

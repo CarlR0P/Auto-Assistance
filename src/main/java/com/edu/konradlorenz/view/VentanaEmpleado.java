@@ -9,7 +9,6 @@ public class VentanaEmpleado extends javax.swing.JFrame {
 
     Controlador control;
     Persona person;
-    HistorialHorario historialHorario = new HistorialHorario();
 
     public VentanaEmpleado(Controlador control, Persona person) {
         initComponents();
@@ -135,7 +134,8 @@ public class VentanaEmpleado extends javax.swing.JFrame {
 
     private void btnMiHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiHorarioActionPerformed
         
-        VenEHorarioOpc venEHorarioOpc = new VenEHorarioOpc(control, person, historialHorario,person.getId());
+        short id_user = person.getId();
+        VenEHorarioOpc venEHorarioOpc = new VenEHorarioOpc(control, person,id_user);
         venEHorarioOpc.setVisible(true);
         venEHorarioOpc.setLocationRelativeTo(null);
         this.dispose();

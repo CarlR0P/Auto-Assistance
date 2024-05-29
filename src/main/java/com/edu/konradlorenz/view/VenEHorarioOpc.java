@@ -7,6 +7,7 @@ import java.sql.Date;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
@@ -17,11 +18,10 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
     HistorialHorario historial;
     short id_user;
 
-    public VenEHorarioOpc(Controlador control, Persona person, HistorialHorario historial, short id_user) {
+    public VenEHorarioOpc(Controlador control, Persona person, short id_user) {
         initComponents();
         this.control = control;
         this.person = person;
-        this.historial = historial;
         this.id_user = id_user;
     }
 
@@ -239,23 +239,37 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarLlegadaActionPerformed
 
     private void btnRegistrarSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarSalidaActionPerformed
+
         LocalDateTime salida = LocalDateTime.now();
 
-        Object[] options = {"Sí", "No"};
-        int confirmacion = JOptionPane.showOptionDialog(this,
-                "¿Está seguro de que desea registrar la salida en "
-                + salida.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "?",
-                "Registro Salida",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null, options, options[0]);
+        List<HistorialHorario> listaHistorial = control.traerRegistros();
 
-        if (confirmacion == JOptionPane.YES_OPTION) {
-            control.registrarSalida(historial, salida);
-            mostrarMensaje("Se registró la salida exitosamente", "Info", "Registro Salida");
-        } else {
-            mostrarMensaje("No se guardó la hora de salida", "Info", "Registro Salida");
+        if (listaHistorial != null) {
+
+            for (HistorialHorario historial : listaHistorial) {
+                if (id_user == historial.getId_user().getId()) {
+                    short id_historial = historial.getId_historial();
+
+                    Object[] options = {"Sí", "No"};
+                    int confirmacion = JOptionPane.showOptionDialog(this,
+                            "¿Está seguro de que desea registrar la salida en "
+                            + salida.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "?",
+                            "Registro Salida",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.QUESTION_MESSAGE,
+                            null, options, options[0]);
+
+                    if (confirmacion == JOptionPane.YES_OPTION) {
+                        control.registrarSalida(id_historial, salida);
+                        mostrarMensaje("Se registró la salida exitosamente", "Info", "Registro Salida");
+                    } else {
+                        mostrarMensaje("No se guardó la hora de salida", "Info", "Registro Salida");
+                    }
+                }
+            }
+
         }
+
     }//GEN-LAST:event_btnRegistrarSalidaActionPerformed
 
     private void btnRegistrarLaboresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarLaboresActionPerformed
@@ -277,14 +291,13 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         person = control.traerUsuario(id_user);
-        historial = control.traerRegistro(id_user);
         this.lblUserLogged.setText(person.getNombreUsuario());
-        JOptionPane.showMessageDialog(null, historial);
+
     }//GEN-LAST:event_formWindowOpened
 
     private void btnVerHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerHorarioActionPerformed
 
-        VenEVerHorario venEVerHorario = new VenEVerHorario();
+        VenEVerHorario venEVerHorario = new VenEVerHorario(id_user, control);
         venEVerHorario.setVisible(true);
         venEVerHorario.setLocationRelativeTo(null);
 

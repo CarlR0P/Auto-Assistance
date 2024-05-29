@@ -1,9 +1,24 @@
 package com.edu.konradlorenz.view;
 
-public class VenEVerHorario extends javax.swing.JFrame {
+import com.edu.konradlorenz.controller.Controlador;
+import com.edu.konradlorenz.model.Empleado;
+import com.edu.konradlorenz.model.Persona;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+import javax.swing.JOptionPane;
 
-    public VenEVerHorario() {
+public class VenEVerHorario extends javax.swing.JFrame {
+    
+    Controlador control;
+    short id_user;
+    Persona person;
+    
+
+    public VenEVerHorario(short id_user, Controlador control) {
         initComponents();
+        this.id_user = id_user;
+        this.control = control;
     }
 
     @SuppressWarnings("unchecked")
@@ -18,8 +33,8 @@ public class VenEVerHorario extends javax.swing.JFrame {
         txtFechaFin = new javax.swing.JTextField();
         lblHoraEnt = new javax.swing.JLabel();
         txtHoraEnt = new javax.swing.JTextField();
-        lblHoraEnt1 = new javax.swing.JLabel();
-        txtHoraEnt1 = new javax.swing.JTextField();
+        lblHoraSal = new javax.swing.JLabel();
+        txtHoraSal = new javax.swing.JTextField();
         btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,13 +73,13 @@ public class VenEVerHorario extends javax.swing.JFrame {
         txtHoraEnt.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         txtHoraEnt.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        lblHoraEnt1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        lblHoraEnt1.setText("Hora Entrada:");
+        lblHoraSal.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblHoraSal.setText("Hora Salida:");
 
-        txtHoraEnt1.setEditable(false);
-        txtHoraEnt1.setBackground(new java.awt.Color(228, 235, 247));
-        txtHoraEnt1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        txtHoraEnt1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtHoraSal.setEditable(false);
+        txtHoraSal.setBackground(new java.awt.Color(228, 235, 247));
+        txtHoraSal.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        txtHoraSal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         btnVolver.setBackground(new java.awt.Color(108, 152, 197));
         btnVolver.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -94,12 +109,12 @@ public class VenEVerHorario extends javax.swing.JFrame {
                             .addComponent(txtHoraEnt, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblHoraEnt1)
+                            .addComponent(lblHoraSal)
                             .addComponent(lblHasta, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtHoraEnt1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtHoraSal, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(182, 182, 182)
                         .addComponent(lblHorarioAsignado))
@@ -123,8 +138,8 @@ public class VenEVerHorario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHoraEnt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtHoraEnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblHoraEnt1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtHoraEnt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblHoraSal, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHoraSal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(15, Short.MAX_VALUE))
@@ -150,12 +165,22 @@ public class VenEVerHorario extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         
+        person = control.traerUsuario(id_user);
         
-        
+        if (person instanceof Empleado) {
+            Empleado emple;
+            emple =  (Empleado) person;
+            txtFechaIni.setText(emple.getFechaInicial().toString());
+            txtFechaFin.setText(emple.getFechaFinal().toString());
+            txtHoraEnt.setText(emple.getHoraEntrada().toString());
+            txtHoraSal.setText(emple.getHoraSalida().toString());
+            
+        } else {
+            // Manejar el caso donde la persona no es un Empleado
+            JOptionPane.showMessageDialog(this, "El usuario no es un empleado.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
 
     }//GEN-LAST:event_formWindowOpened
-
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVolver;
@@ -163,11 +188,11 @@ public class VenEVerHorario extends javax.swing.JFrame {
     private javax.swing.JLabel lblDesde;
     private javax.swing.JLabel lblHasta;
     private javax.swing.JLabel lblHoraEnt;
-    private javax.swing.JLabel lblHoraEnt1;
+    private javax.swing.JLabel lblHoraSal;
     private javax.swing.JLabel lblHorarioAsignado;
     private javax.swing.JTextField txtFechaFin;
     private javax.swing.JTextField txtFechaIni;
     private javax.swing.JTextField txtHoraEnt;
-    private javax.swing.JTextField txtHoraEnt1;
+    private javax.swing.JTextField txtHoraSal;
     // End of variables declaration//GEN-END:variables
 }
