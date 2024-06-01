@@ -3,11 +3,14 @@ package com.edu.konradlorenz.view;
 import com.edu.konradlorenz.controller.Controlador;
 import com.edu.konradlorenz.model.HistorialHorario;
 import com.edu.konradlorenz.model.Persona;
+import com.edu.konradlorenz.model.TrampososException;
 import java.sql.Date;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
@@ -220,22 +223,18 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
                 null, options, options[0]);
 
         if (confirmacion == JOptionPane.YES_OPTION) {
-            // Asegurarse de que 'person' y 'control' están inicializados y no son nulos
             if (person != null && control != null) {
                 try {
-                    control.registrarLlegada(person, llegada);
-                    mostrarMensaje("Se registró la llegada exitosamente", "Info", "Registro Llegada");
-                } catch (Exception e) {
-                    mostrarMensaje("Error al registrar la llegada: " + e.getMessage(), "Error", "Registro Llegada");
-                    e.printStackTrace();
-                }
-            } else {
-                mostrarMensaje("Error: persona o controlador no inicializados", "Error", "Registro Llegada");
-            }
-        } else {
-            mostrarMensaje("No se guardó la hora de llegada", "Info", "Registro Llegada");
+            control.registrarLlegada(person, llegada);
+            mostrarMensaje("Se registró la llegada exitosamente", "Info", "Registro Llegada");
+        } catch (TrampososException e) {
+            mostrarMensaje(e.getMessage(), "Error", "Error al registrar la llegada");
         }
-
+    } else {
+        mostrarMensaje("No se guardó la hora de llegada", "Info", "Registro Llegada");
+    
+            }
+        }
     }//GEN-LAST:event_btnRegistrarLlegadaActionPerformed
 
     private void btnRegistrarSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarSalidaActionPerformed
@@ -260,8 +259,13 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
                             null, options, options[0]);
 
                     if (confirmacion == JOptionPane.YES_OPTION) {
-                        control.registrarSalida(id_historial, salida);
-                        mostrarMensaje("Se registró la salida exitosamente", "Info", "Registro Salida");
+                        try {
+                            control.registrarSalida(id_historial, salida);
+                            mostrarMensaje("Se registró la salida exitosamente", "Info", "Registro Salida");
+                        } catch (TrampososException ex) {
+                            mostrarMensaje(ex.getMessage(), "Error", "Error al registrar la salida");
+        
+                        }
                     } else {
                         mostrarMensaje("No se guardó la hora de salida", "Info", "Registro Salida");
                     }

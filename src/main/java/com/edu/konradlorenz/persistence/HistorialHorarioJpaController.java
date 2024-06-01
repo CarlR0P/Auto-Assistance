@@ -8,10 +8,14 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import com.edu.konradlorenz.model.Persona;
 import com.edu.konradlorenz.persistence.exceptions.NonexistentEntityException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 public class HistorialHorarioJpaController implements Serializable {
 
@@ -162,5 +166,20 @@ public class HistorialHorarioJpaController implements Serializable {
             em.close();
         }
     }
-
+        public HistorialHorario obtenerUltimaEntradaPorPersona(Persona persona) {
+        EntityManager em = getEntityManager();
+        try {
+            
+            String jpql = "SELECT h FROM HistorialHorario h WHERE h.id_user = :persona "
+                        + "AND h.fechaHoraIni = (SELECT MAX(h2.fechaHoraIni) FROM HistorialHorario h2 WHERE h2.id_user = :persona)";
+            TypedQuery<HistorialHorario> query = em.createQuery(jpql, HistorialHorario.class);
+            query.setParameter("persona", persona);
+            return query.getSingleResult();
+        } catch (NoResultException e) {
+            return null; 
+        } finally {
+        em.close();
+    }
+}
+        
 }

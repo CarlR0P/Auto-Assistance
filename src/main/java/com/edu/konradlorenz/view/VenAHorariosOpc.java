@@ -233,21 +233,31 @@ public class VenAHorariosOpc extends javax.swing.JFrame {
 
         if (tblAEmpleados.getRowCount() > 0) {
             if (tblAEmpleados.getSelectedRow() != -1) {
-                short id_empleado = Short.parseShort(String.valueOf(tblAEmpleados.getValueAt(tblAEmpleados.getSelectedRow(), 0)));
+                int selectedRow = tblAEmpleados.getSelectedRow();
+                Object horaEntrada = tblAEmpleados.getValueAt(selectedRow, 2);
+                Object horaSalida = tblAEmpleados.getValueAt(selectedRow, 3);
 
-                Object[] options = {"Sí", "No"};
-                int confirmacion = JOptionPane.showOptionDialog(this, "¿Está seguro de que desea eliminar el horario de este empleado?", "Eliminacion de Horario",
-                        JOptionPane.YES_NO_OPTION,
-                        JOptionPane.QUESTION_MESSAGE,
-                        null, options, options[0]);
+                if (horaEntrada != null && !horaEntrada.toString().isEmpty()
+                        && horaSalida != null && !horaSalida.toString().isEmpty()) {
 
-                if (confirmacion == JOptionPane.YES_OPTION) {
-                    try {
-                        control.eliminarHorario(id_empleado);
-                        mostrarMensaje("Se eliminó el horario correctamente", "Info", "Eliminacion de Horario");
-                    } catch (Exception ex) {
-                        mostrarMensaje("Error al eliminar el horario: " + ex.getMessage(), "Error", "Eliminacion de Horario");
+                    short id_empleado = Short.parseShort(String.valueOf(tblAEmpleados.getValueAt(tblAEmpleados.getSelectedRow(), 0)));
+
+                    Object[] options = {"Sí", "No"};
+                    int confirmacion = JOptionPane.showOptionDialog(this, "¿Está seguro de que desea eliminar el horario de este empleado?", "Eliminacion de Horario",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.QUESTION_MESSAGE,
+                            null, options, options[0]);
+
+                    if (confirmacion == JOptionPane.YES_OPTION) {
+                        try {
+                            control.eliminarHorario(id_empleado);
+                            mostrarMensaje("Se eliminó el horario correctamente", "Info", "Eliminacion de Horario");
+                        } catch (Exception ex) {
+                            mostrarMensaje("Error al eliminar el horario: " + ex.getMessage(), "Error", "Eliminacion de Horario");
+                        }
                     }
+                } else {
+                    mostrarMensaje("Horario de entrada y salida vacios, no se ha creado horario para el empleado.", "Error", "Error al eliminar");
                 }
             } else {
                 mostrarMensaje("No seleccionó ningún registro", "Error", "Error al eliminar");

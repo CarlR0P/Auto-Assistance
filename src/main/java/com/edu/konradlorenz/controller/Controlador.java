@@ -162,7 +162,13 @@ public class Controlador {
 
     }
 
-    public void registrarLlegada(Persona person, LocalDateTime llegada) {
+    public void registrarLlegada(Persona person, LocalDateTime llegada) throws TrampososException {
+        
+        TrampososException tramposos = new TrampososException(controlPersistencia);
+        if (tramposos.verificarUltimoRegistro(person)) {
+        throw new TrampososException("Su hora de llegada de hoy ya fue registrada.");
+    }
+
 
         objHistorialHorario = new HistorialHorario();
         objHistorialHorario.setFechaHoraIni(llegada);
@@ -170,11 +176,14 @@ public class Controlador {
         controlPersistencia.crearRegistroHorario(objHistorialHorario);
     }
 
-    public void registrarSalida(short id_historial, LocalDateTime salida) {
+    public void registrarSalida(short id_historial, LocalDateTime salida) throws TrampososException {
+        TrampososException tramposos = new TrampososException(controlPersistencia);
+        if (tramposos.verificarUltimoRegistro(id_historial)) {
+        throw new TrampososException("Su hora de salida de hoy ya fue registrada.");
+    }
 
         objHistorialHorario = traerRegistro(id_historial);
         
-
         if (objHistorialHorario != null) {
             objHistorialHorario.setFechaHoraFin(salida);
             controlPersistencia.editarRegistroHorario(objHistorialHorario);
@@ -191,5 +200,5 @@ public class Controlador {
         }
 
     }
-
+   
 }

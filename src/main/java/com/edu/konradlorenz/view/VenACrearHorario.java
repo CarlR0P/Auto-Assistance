@@ -2,10 +2,13 @@ package com.edu.konradlorenz.view;
 
 import com.edu.konradlorenz.controller.Controlador;
 import com.edu.konradlorenz.model.Persona;
+import com.edu.konradlorenz.model.ViajesEnElTiempoException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
@@ -206,27 +209,36 @@ public class VenACrearHorario extends javax.swing.JFrame {
         // Obtener la hora de salida
         String horaSalidaStr = (String) cmbHoraSal.getSelectedItem();
         LocalTime horaSalida = LocalTime.parse(horaSalidaStr);
+        
+       try {
+           
+            ViajesEnElTiempoException.viajeAlPasado(fechaInicial, fechaFinal);
+            ViajesEnElTiempoException.viajeAlPasado(horaEntradaStr, horaSalidaStr);
 
-        Object[] options = {"Sí", "No"};
-        int confirmacion = JOptionPane.showOptionDialog(this, "¿Está seguro de que desea asignar este horario al empleado?", "Asignacion de Horario",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null, options, options[0]);
+            Object[] options = {"Sí", "No"};
+            int confirmacion = JOptionPane.showOptionDialog(this, "¿Está seguro de que desea asignar este horario al empleado?", "Asignacion de Horario",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null, options, options[0]);
 
-        if (confirmacion == JOptionPane.YES_OPTION) {
-            try {
+            if (confirmacion == JOptionPane.YES_OPTION) {
                 control.establecerHorario(person, fechaIniLocal, fechaFinLocal, horaEntrada, horaSalida);
                 mostrarMensaje("Se asigno el horario correctamente", "Info", "Asignacion de Horario");
-            } catch (Exception ex) {
-                mostrarMensaje("Error al asignar el horario" + ex.getMessage(), "Error", "Asignacion de Horario");
+                this.dispose();
+            } else {
+                mostrarMensaje("No se asigno horario", "Info", "Asignacion de Horario");
             }
-        } else {
-            mostrarMensaje("No se asigno horario", "Info", "Asignacion de Horario");
+        } catch (ViajesEnElTiempoException ex) {
+            // Manejar la excepción
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error Asignacion de Horario", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) {
+            // Manejar otras posibles excepciones
+            mostrarMensaje("Error al asignar el horario: " + ex.getMessage(), "Error", "Asignacion de Horario");
         }
+        
         /*Mostrar un mensaje con la hora de entrada para prueba
         JOptionPane.showMessageDialog(null, "Hora de Entrada: " + horaEntrada + "\nHora de Salida: " + horaSalida
                 + "\nFecha Inicial: " + fechaIniLocal + "\nFecha Final: " + fechaFinLocal);*/
-        this.dispose();
 
     }//GEN-LAST:event_btnGuardarActionPerformed
 

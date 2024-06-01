@@ -4,6 +4,7 @@ import com.edu.konradlorenz.model.Empleado;
 import com.edu.konradlorenz.model.HistorialHorario;
 import com.edu.konradlorenz.model.Persona;
 import com.edu.konradlorenz.persistence.exceptions.NonexistentEntityException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -105,7 +106,23 @@ public class ControladorPersistencia {
             Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public LocalDateTime obtenerFechaUltimaEntradaDesdeBaseDeDatos(Persona persona) {
+        HistorialHorario ultimaEntrada = historialJpa.obtenerUltimaEntradaPorPersona(persona);
+        if (ultimaEntrada != null) {
+            return ultimaEntrada.getFechaHoraIni();
+        } else {
+            return null; 
+        }
+    }
+    public LocalDateTime obtenerFechaUltimaSalidaDesdeBaseDeDatos(short id_historial) {
+        HistorialHorario historial = historialJpa.findHistorialHorario(id_historial);
+        if (historial != null) {
+            return historial.getFechaHoraFin();
+        } else {
+            return null;
+        }
+    }
+}
 
     
     
-}
