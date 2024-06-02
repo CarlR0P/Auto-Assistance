@@ -4,6 +4,7 @@ import com.edu.konradlorenz.controller.Controlador;
 import com.edu.konradlorenz.model.Empleado;
 import com.edu.konradlorenz.model.Persona;
 import javax.swing.JOptionPane;
+import java.awt.*;
 
 public class VenAProducDia extends javax.swing.JFrame {
     
@@ -21,39 +22,36 @@ public class VenAProducDia extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        lblProductividadEmple = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
+        javax.swing.JLabel lblProductividadEmple = new javax.swing.JLabel();
+        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         txtProductivadDelEmpleado = new javax.swing.JTextArea();
-        btnVolver = new javax.swing.JButton();
+        // Variables declaration - do not modify//GEN-BEGIN:variables
+        javax.swing.JButton btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
+                formWindowOpened();
             }
         });
 
         jPanel1.setBackground(new java.awt.Color(192, 214, 250));
 
-        lblProductividadEmple.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
+        lblProductividadEmple.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 16)); // NOI18N
         lblProductividadEmple.setText("Productividad del Empleado");
 
         txtProductivadDelEmpleado.setColumns(20);
-        txtProductivadDelEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtProductivadDelEmpleado.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 14)); // NOI18N
         txtProductivadDelEmpleado.setRows(5);
         jScrollPane1.setViewportView(txtProductivadDelEmpleado);
 
         btnVolver.setBackground(new java.awt.Color(108, 152, 197));
-        btnVolver.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
+        btnVolver.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 16)); // NOI18N
         btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("Volver");
         btnVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(187, 218, 249), null, null));
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
-            }
-        });
+        btnVolver.addActionListener(this::btnVolverActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -98,31 +96,25 @@ public class VenAProducDia extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnVolverActionPerformed
+    private void formWindowOpened() {//GEN-FIRST:event_formWindowOpened
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
         person = control.traerUsuario(id_user);
 
         if (person instanceof Empleado) {
             Empleado emple;
-            emple =  (Empleado) person; 
+            emple =  (Empleado) person;
             txtProductivadDelEmpleado.setText(emple.getRegistroLabor());
         } else {
             // Manejar el caso donde la persona no es un Empleado
             JOptionPane.showMessageDialog(this, "El usuario no es un empleado.", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
+
     }//GEN-LAST:event_formWindowOpened
 
-        
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnVolver;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblProductividadEmple;
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
+
     private javax.swing.JTextArea txtProductivadDelEmpleado;
     // End of variables declaration//GEN-END:variables
 }

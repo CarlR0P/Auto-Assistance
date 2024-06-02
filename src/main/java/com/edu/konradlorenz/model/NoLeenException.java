@@ -22,7 +22,7 @@ public class NoLeenException extends Exception {
     
     public static void validarNumeros(String numero)throws NoLeenException{
         if (!numero.matches("\\d+")) {
-            throw new NoLeenException("El campo debe contener solo dígitos.");
+            throw new NoLeenException("Los campos de Numero de Documento y/o Telefono deben contener solo dígitos.");
         }
     }
     

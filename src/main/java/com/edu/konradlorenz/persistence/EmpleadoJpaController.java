@@ -1,18 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.edu.konradlorenz.persistence;
 
 import com.edu.konradlorenz.model.Empleado;
 import java.io.Serializable;
 import javax.persistence.Query;
-import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import com.edu.konradlorenz.model.HistorialHorario;
 import com.edu.konradlorenz.persistence.exceptions.NonexistentEntityException;
-import com.edu.konradlorenz.persistence.exceptions.PreexistingEntityException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -20,16 +14,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-/**
- *
- * @author david
- */
 public class EmpleadoJpaController implements Serializable {
 
     public EmpleadoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    private EntityManagerFactory emf = null;
+    private final EntityManagerFactory emf;
     
     public EmpleadoJpaController(){
         emf = Persistence.createEntityManagerFactory("autoAssistancePU");
@@ -39,44 +29,7 @@ public class EmpleadoJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Empleado empleado) throws PreexistingEntityException, Exception {
-        if (empleado.getHistorialHorarios() == null) {
-            empleado.setHistorialHorarios(new HashSet<HistorialHorario>());
-        }
-        EntityManager em = null;
-        try {
-            em = getEntityManager();
-            em.getTransaction().begin();
-            Set<HistorialHorario> attachedHistorialHorarios = new HashSet<HistorialHorario>();
-            for (HistorialHorario historialHorariosHistorialHorarioToAttach : empleado.getHistorialHorarios()) {
-                historialHorariosHistorialHorarioToAttach = em.getReference(historialHorariosHistorialHorarioToAttach.getClass(), historialHorariosHistorialHorarioToAttach.getId_historial());
-                attachedHistorialHorarios.add(historialHorariosHistorialHorarioToAttach);
-            }
-            empleado.setHistorialHorarios(attachedHistorialHorarios);
-            em.persist(empleado);
-            for (HistorialHorario historialHorariosHistorialHorario : empleado.getHistorialHorarios()) {
-                com.edu.konradlorenz.model.Persona oldId_userOfHistorialHorariosHistorialHorario = historialHorariosHistorialHorario.getId_user();
-                historialHorariosHistorialHorario.setId_user(empleado);
-                historialHorariosHistorialHorario = em.merge(historialHorariosHistorialHorario);
-                if (oldId_userOfHistorialHorariosHistorialHorario != null) {
-                    oldId_userOfHistorialHorariosHistorialHorario.getHistorialHorarios().remove(historialHorariosHistorialHorario);
-                    oldId_userOfHistorialHorariosHistorialHorario = em.merge(oldId_userOfHistorialHorariosHistorialHorario);
-                }
-            }
-            em.getTransaction().commit();
-        } catch (Exception ex) {
-            if (findEmpleado(empleado.getId()) != null) {
-                throw new PreexistingEntityException("Empleado " + empleado + " already exists.", ex);
-            }
-            throw ex;
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }
-
-    public void edit(Empleado empleado) throws NonexistentEntityException, Exception {
+    public void edit(Empleado empleado) throws Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -84,7 +37,7 @@ public class EmpleadoJpaController implements Serializable {
             Empleado persistentEmpleado = em.find(Empleado.class, empleado.getId());
             Set<HistorialHorario> historialHorariosOld = persistentEmpleado.getHistorialHorarios();
             Set<HistorialHorario> historialHorariosNew = empleado.getHistorialHorarios();
-            Set<HistorialHorario> attachedHistorialHorariosNew = new HashSet<HistorialHorario>();
+            Set<HistorialHorario> attachedHistorialHorariosNew = new HashSet<>();
             for (HistorialHorario historialHorariosNewHistorialHorarioToAttach : historialHorariosNew) {
                 historialHorariosNewHistorialHorarioToAttach = em.getReference(historialHorariosNewHistorialHorarioToAttach.getClass(), historialHorariosNewHistorialHorarioToAttach.getId_historial());
                 attachedHistorialHorariosNew.add(historialHorariosNewHistorialHorarioToAttach);
@@ -112,7 +65,7 @@ public class EmpleadoJpaController implements Serializable {
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
-            if (msg == null || msg.length() == 0) {
+            if (msg == null || msg.isEmpty()) {
                 short id = empleado.getId();
                 if (findEmpleado(id) == null) {
                     throw new NonexistentEntityException("The empleado with id " + id + " no longer exists.");
@@ -126,44 +79,18 @@ public class EmpleadoJpaController implements Serializable {
         }
     }
 
-    public void destroy(short id) throws NonexistentEntityException {
-        EntityManager em = null;
-        try {
-            em = getEntityManager();
-            em.getTransaction().begin();
-            Empleado empleado;
-            try {
-                empleado = em.getReference(Empleado.class, id);
-                empleado.getId();
-            } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The empleado with id " + id + " no longer exists.", enfe);
-            }
-            Set<HistorialHorario> historialHorarios = empleado.getHistorialHorarios();
-            for (HistorialHorario historialHorariosHistorialHorario : historialHorarios) {
-                historialHorariosHistorialHorario.setId_user(null);
-                historialHorariosHistorialHorario = em.merge(historialHorariosHistorialHorario);
-            }
-            em.remove(empleado);
-            em.getTransaction().commit();
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }
-
     public List<Empleado> findEmpleadoEntities() {
         return findEmpleadoEntities(true, -1, -1);
     }
 
-    public List<Empleado> findEmpleadoEntities(int maxResults, int firstResult) {
+    public List findEmpleadoEntities(int maxResults, int firstResult) {
         return findEmpleadoEntities(false, maxResults, firstResult);
     }
 
-    private List<Empleado> findEmpleadoEntities(boolean all, int maxResults, int firstResult) {
+    private List findEmpleadoEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            CriteriaQuery<Object> cq = em.getCriteriaBuilder().createQuery();
             cq.select(cq.from(Empleado.class));
             Query q = em.createQuery(cq);
             if (!all) {
@@ -188,7 +115,7 @@ public class EmpleadoJpaController implements Serializable {
     public int getEmpleadoCount() {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            CriteriaQuery<Object> cq = em.getCriteriaBuilder().createQuery();
             Root<Empleado> rt = cq.from(Empleado.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);

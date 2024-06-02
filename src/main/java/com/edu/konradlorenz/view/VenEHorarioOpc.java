@@ -4,13 +4,10 @@ import com.edu.konradlorenz.controller.Controlador;
 import com.edu.konradlorenz.model.HistorialHorario;
 import com.edu.konradlorenz.model.Persona;
 import com.edu.konradlorenz.model.TrampososException;
-import java.sql.Date;
+import java.awt.*;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
@@ -18,7 +15,6 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
 
     Controlador control;
     Persona person;
-    HistorialHorario historial;
     short id_user;
 
     public VenEHorarioOpc(Controlador control, Persona person, short id_user) {
@@ -32,96 +28,77 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        lblSistEmple = new javax.swing.JLabel();
-        btnRegistrarSalida = new javax.swing.JButton();
-        btnRegistrarLlegada = new javax.swing.JButton();
-        btnRegistrarLabores = new javax.swing.JButton();
-        btnMenuPrincipal = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
+        javax.swing.JLabel lblSistEmple = new javax.swing.JLabel();
+        javax.swing.JButton btnRegistrarSalida = new javax.swing.JButton();
+        javax.swing.JButton btnRegistrarLlegada = new javax.swing.JButton();
+        javax.swing.JButton btnRegistrarLabores = new javax.swing.JButton();
+        // Variables declaration - do not modify//GEN-BEGIN:variables
+        javax.swing.JButton btnMenuPrincipal = new javax.swing.JButton();
+        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         txtRegistroLabores = new javax.swing.JTextArea();
-        lblRegistrarLabores = new javax.swing.JLabel();
+        javax.swing.JLabel lblRegistrarLabores = new javax.swing.JLabel();
         lblUserLogged = new javax.swing.JLabel();
-        btnVerHorario = new javax.swing.JButton();
+        javax.swing.JButton btnVerHorario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
+                formWindowOpened();
             }
         });
 
         jPanel1.setBackground(new java.awt.Color(192, 214, 250));
 
-        lblSistEmple.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        lblSistEmple.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 24)); // NOI18N
         lblSistEmple.setText("Sistema Empleado");
 
         btnRegistrarSalida.setBackground(new java.awt.Color(108, 152, 197));
-        btnRegistrarSalida.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnRegistrarSalida.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 16)); // NOI18N
         btnRegistrarSalida.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarSalida.setText("Registrar Salida");
         btnRegistrarSalida.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(186, 218, 251), null, null));
-        btnRegistrarSalida.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarSalidaActionPerformed(evt);
-            }
-        });
+        btnRegistrarSalida.addActionListener(this::btnRegistrarSalidaActionPerformed);
 
         btnRegistrarLlegada.setBackground(new java.awt.Color(108, 152, 197));
-        btnRegistrarLlegada.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnRegistrarLlegada.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 16)); // NOI18N
         btnRegistrarLlegada.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarLlegada.setText("Registrar Llegada");
         btnRegistrarLlegada.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(186, 218, 251), null, null));
-        btnRegistrarLlegada.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarLlegadaActionPerformed(evt);
-            }
-        });
+        btnRegistrarLlegada.addActionListener(this::btnRegistrarLlegadaActionPerformed);
 
         btnRegistrarLabores.setBackground(new java.awt.Color(108, 152, 197));
-        btnRegistrarLabores.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnRegistrarLabores.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 16)); // NOI18N
         btnRegistrarLabores.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarLabores.setText("Registrar Labores");
         btnRegistrarLabores.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(186, 218, 251), null, null));
-        btnRegistrarLabores.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarLaboresActionPerformed(evt);
-            }
-        });
+        btnRegistrarLabores.addActionListener(this::btnRegistrarLaboresActionPerformed);
 
         btnMenuPrincipal.setBackground(new java.awt.Color(108, 152, 197));
-        btnMenuPrincipal.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        btnMenuPrincipal.setFont(new java.awt.Font("sansserif", Font.BOLD, 14)); // NOI18N
         btnMenuPrincipal.setForeground(new java.awt.Color(255, 255, 255));
         btnMenuPrincipal.setText("Menu Principal");
         btnMenuPrincipal.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(186, 218, 251), null, null));
-        btnMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuPrincipalActionPerformed(evt);
-            }
-        });
+        btnMenuPrincipal.addActionListener(this::btnMenuPrincipalActionPerformed);
 
         txtRegistroLabores.setColumns(20);
-        txtRegistroLabores.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtRegistroLabores.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 14)); // NOI18N
         txtRegistroLabores.setRows(5);
         jScrollPane1.setViewportView(txtRegistroLabores);
 
-        lblRegistrarLabores.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblRegistrarLabores.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 14)); // NOI18N
         lblRegistrarLabores.setText("Registro de Labores:");
 
-        lblUserLogged.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblUserLogged.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 14)); // NOI18N
         lblUserLogged.setForeground(new java.awt.Color(10, 10, 10));
         lblUserLogged.setText("jLabel1");
 
         btnVerHorario.setBackground(new java.awt.Color(108, 152, 197));
-        btnVerHorario.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnVerHorario.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 16)); // NOI18N
         btnVerHorario.setForeground(new java.awt.Color(255, 255, 255));
         btnVerHorario.setText("Ver mi Horario");
         btnVerHorario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(186, 218, 251), null, null));
-        btnVerHorario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerHorarioActionPerformed(evt);
-            }
-        });
+        btnVerHorario.addActionListener(this::btnVerHorarioActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -202,13 +179,18 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuPrincipalActionPerformed
+    private void formWindowOpened() {//GEN-FIRST:event_formWindowOpened
+        person = control.traerUsuario(id_user);
+        this.lblUserLogged.setText(person.getNombreUsuario());
+    }//GEN-LAST:event_formWindowOpened
 
-        VentanaEmpleado ventanaEmpleado = new VentanaEmpleado(control, person);
-        ventanaEmpleado.setVisible(true);
-        ventanaEmpleado.setLocationRelativeTo(null);
-        this.dispose();
-    }//GEN-LAST:event_btnMenuPrincipalActionPerformed
+    private void btnVerHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerHorarioActionPerformed
+
+        VenEVerHorario venEVerHorario = new VenEVerHorario(id_user, control);
+        venEVerHorario.setVisible(true);
+        venEVerHorario.setLocationRelativeTo(null);
+
+    }//GEN-LAST:event_btnVerHorarioActionPerformed
 
     private void btnRegistrarLlegadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarLlegadaActionPerformed
 
@@ -293,19 +275,14 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnRegistrarLaboresActionPerformed
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        person = control.traerUsuario(id_user);
-        this.lblUserLogged.setText(person.getNombreUsuario());
+    private void btnMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuPrincipalActionPerformed
 
-    }//GEN-LAST:event_formWindowOpened
+        VentanaEmpleado ventanaEmpleado = new VentanaEmpleado(control, person);
+        ventanaEmpleado.setVisible(true);
+        ventanaEmpleado.setLocationRelativeTo(null);
+        this.dispose();
 
-    private void btnVerHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerHorarioActionPerformed
-
-        VenEVerHorario venEVerHorario = new VenEVerHorario(id_user, control);
-        venEVerHorario.setVisible(true);
-        venEVerHorario.setLocationRelativeTo(null);
-
-    }//GEN-LAST:event_btnVerHorarioActionPerformed
+    }//GEN-LAST:event_btnMenuPrincipalActionPerformed
 
     public void mostrarMensaje(String mensaje, String tipo, String titulo) {
         JOptionPane optionPane = new JOptionPane(mensaje);
@@ -319,16 +296,6 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
         dialog.setVisible(true);
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnMenuPrincipal;
-    private javax.swing.JButton btnRegistrarLabores;
-    private javax.swing.JButton btnRegistrarLlegada;
-    private javax.swing.JButton btnRegistrarSalida;
-    private javax.swing.JButton btnVerHorario;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblRegistrarLabores;
-    private javax.swing.JLabel lblSistEmple;
     private javax.swing.JLabel lblUserLogged;
     private javax.swing.JTextArea txtRegistroLabores;
     // End of variables declaration//GEN-END:variables

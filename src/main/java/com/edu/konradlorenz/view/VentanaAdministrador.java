@@ -3,6 +3,7 @@ package com.edu.konradlorenz.view;
 import com.edu.konradlorenz.controller.Controlador;
 import com.edu.konradlorenz.model.Persona;
 import javax.swing.JFrame;
+import java.awt.*;
 
 public class VentanaAdministrador extends javax.swing.JFrame {
 
@@ -20,62 +21,51 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        lblSistAdmin = new javax.swing.JLabel();
-        btnHorarios = new javax.swing.JButton();
-        btnUsuarios = new javax.swing.JButton();
+        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
+        javax.swing.JLabel lblSistAdmin = new javax.swing.JLabel();
+        // Variables declaration - do not modify//GEN-BEGIN:variables
+        javax.swing.JButton btnHorarios = new javax.swing.JButton();
+        javax.swing.JButton btnUsuarios = new javax.swing.JButton();
         lblUserLogged = new javax.swing.JLabel();
-        btnSalir = new javax.swing.JButton();
+        javax.swing.JButton btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
+                formWindowOpened();
             }
         });
 
         jPanel1.setBackground(new java.awt.Color(192, 214, 250));
 
-        lblSistAdmin.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        lblSistAdmin.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 24)); // NOI18N
         lblSistAdmin.setForeground(new java.awt.Color(10, 10, 10));
         lblSistAdmin.setText("Sistema Administrador");
 
         btnHorarios.setBackground(new java.awt.Color(108, 152, 197));
-        btnHorarios.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnHorarios.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 18)); // NOI18N
         btnHorarios.setForeground(new java.awt.Color(255, 255, 255));
         btnHorarios.setText("Horarios");
         btnHorarios.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(165, 208, 250), null, null))));
-        btnHorarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHorariosActionPerformed(evt);
-            }
-        });
+        btnHorarios.addActionListener(this::btnHorariosActionPerformed);
 
         btnUsuarios.setBackground(new java.awt.Color(108, 152, 197));
-        btnUsuarios.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnUsuarios.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 18)); // NOI18N
         btnUsuarios.setForeground(new java.awt.Color(255, 255, 255));
         btnUsuarios.setText("Usuarios");
         btnUsuarios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(167, 209, 250), null, null));
-        btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUsuariosActionPerformed(evt);
-            }
-        });
+        btnUsuarios.addActionListener(this::btnUsuariosActionPerformed);
 
-        lblUserLogged.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblUserLogged.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 14)); // NOI18N
         lblUserLogged.setForeground(new java.awt.Color(10, 10, 10));
         lblUserLogged.setText("jLabel1");
 
         btnSalir.setBackground(new java.awt.Color(108, 152, 197));
-        btnSalir.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        btnSalir.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Salir");
         btnSalir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(158, 203, 248), null, null));
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
-            }
-        });
+        btnSalir.addActionListener(this::btnSalirActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -130,7 +120,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+    private void formWindowOpened() {//GEN-FIRST:event_formWindowOpened
         this.lblUserLogged.setText(person.getNombreUsuario());
     }//GEN-LAST:event_formWindowOpened
 
@@ -143,12 +133,6 @@ public class VentanaAdministrador extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-
-        System.exit(0);
-
-    }//GEN-LAST:event_btnSalirActionPerformed
-
     private void btnHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHorariosActionPerformed
 
         VenAHorariosOpc venAdminHorarios = new VenAHorariosOpc(control, person);
@@ -158,12 +142,10 @@ public class VentanaAdministrador extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnHorariosActionPerformed
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnHorarios;
-    private javax.swing.JButton btnSalir;
-    private javax.swing.JButton btnUsuarios;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblSistAdmin;
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirActionPerformed
+
     private javax.swing.JLabel lblUserLogged;
     // End of variables declaration//GEN-END:variables
 }

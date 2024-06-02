@@ -3,13 +3,10 @@ package com.edu.konradlorenz.persistence;
 import com.edu.konradlorenz.model.HistorialHorario;
 import java.io.Serializable;
 import javax.persistence.Query;
-import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import com.edu.konradlorenz.model.Persona;
 import com.edu.konradlorenz.persistence.exceptions.NonexistentEntityException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -22,7 +19,7 @@ public class HistorialHorarioJpaController implements Serializable {
     public HistorialHorarioJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    private EntityManagerFactory emf = null;
+    private final EntityManagerFactory emf;
 
     public HistorialHorarioJpaController() {
         emf = Persistence.createEntityManagerFactory("autoAssistancePU");
@@ -55,7 +52,7 @@ public class HistorialHorarioJpaController implements Serializable {
         }
     }
     
-    public void edit(HistorialHorario historialHorario) throws NonexistentEntityException, Exception {
+    public void edit(HistorialHorario historialHorario) throws Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -79,7 +76,7 @@ public class HistorialHorarioJpaController implements Serializable {
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
-            if (msg == null || msg.length() == 0) {
+            if (msg == null || msg.isEmpty()) {
                 short id = historialHorario.getId_historial();
                 if (findHistorialHorario(id) == null) {
                     throw new NonexistentEntityException("The historialHorario with id " + id + " no longer exists.");
@@ -125,14 +122,14 @@ public class HistorialHorarioJpaController implements Serializable {
         return findHistorialHorarioEntities(true, -1, -1);
     }
 
-    public List<HistorialHorario> findHistorialHorarioEntities(int maxResults, int firstResult) {
+    public List findHistorialHorarioEntities(int maxResults, int firstResult) {
         return findHistorialHorarioEntities(false, maxResults, firstResult);
     }
 
-    private List<HistorialHorario> findHistorialHorarioEntities(boolean all, int maxResults, int firstResult) {
+    private List findHistorialHorarioEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            CriteriaQuery<Object> cq = em.getCriteriaBuilder().createQuery();
             cq.select(cq.from(HistorialHorario.class));
             Query q = em.createQuery(cq);
             if (!all) {
@@ -157,7 +154,7 @@ public class HistorialHorarioJpaController implements Serializable {
     public int getHistorialHorarioCount() {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            CriteriaQuery<Object> cq = em.getCriteriaBuilder().createQuery();
             Root<HistorialHorario> rt = cq.from(HistorialHorario.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);

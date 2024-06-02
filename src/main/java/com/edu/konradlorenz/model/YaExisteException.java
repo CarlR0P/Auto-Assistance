@@ -5,7 +5,7 @@ import java.util.List;
 
 public class YaExisteException extends Exception {
     
-    private static ControladorPersistencia controlPersistencia;
+    private static final ControladorPersistencia controlPersistencia;
 
     static {
         controlPersistencia = new ControladorPersistencia();
@@ -15,7 +15,7 @@ public class YaExisteException extends Exception {
         super(message);
     }
     
-    public static List<Persona> traerUsuarios() throws YaExisteException {
+    public static List<Persona> traerUsuarios() {
         return controlPersistencia.traerUsuarios();
     }
     

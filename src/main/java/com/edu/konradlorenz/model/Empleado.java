@@ -9,13 +9,13 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue("empleado")
 public class Empleado extends Persona implements Trabajador {
-    @Column(name = "FECHAINICIAL", nullable = true)  
+    @Column(name = "FECHAINICIAL")
     private LocalDate  fechaInicial;
-    @Column(name = "FECHAFINAL", nullable = true)
+    @Column(name = "FECHAFINAL")
     private LocalDate  fechaFinal;
-    @Column(name = "HORAENTRADA", nullable = true) 
+    @Column(name = "HORAENTRADA")
     private LocalTime horaEntrada;
-    @Column(name = "HORASALIDA", nullable = true) 
+    @Column(name = "HORASALIDA")
     private LocalTime horaSalida;
     private String registroLabor;
     private int calificacion;
@@ -49,10 +49,6 @@ public class Empleado extends Persona implements Trabajador {
     @Override
     public void iniciarSesion() {
 
-    }
-     
-    public void registrarLabor() {
-        
     }
 
     public LocalDate getFechaInicial() {

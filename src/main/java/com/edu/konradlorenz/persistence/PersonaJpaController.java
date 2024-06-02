@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.edu.konradlorenz.persistence;
 
 import java.io.Serializable;
@@ -20,16 +16,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-/**
- *
- * @author david
- */
 public class PersonaJpaController implements Serializable {
 
     public PersonaJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    private EntityManagerFactory emf = null;
+    private final EntityManagerFactory emf;
     
     public PersonaJpaController(){
         emf = Persistence.createEntityManagerFactory("autoAssistancePU");
@@ -39,15 +31,15 @@ public class PersonaJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Persona persona) throws PreexistingEntityException, Exception {
+    public void create(Persona persona) throws Exception {
         if (persona.getHistorialHorarios() == null) {
-            persona.setHistorialHorarios(new HashSet<HistorialHorario>());
+            persona.setHistorialHorarios(new HashSet<>());
         }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Set<HistorialHorario> attachedHistorialHorarios = new HashSet<HistorialHorario>();
+            Set<HistorialHorario> attachedHistorialHorarios = new HashSet<>();
             for (HistorialHorario historialHorariosHistorialHorarioToAttach : persona.getHistorialHorarios()) {
                 historialHorariosHistorialHorarioToAttach = em.getReference(historialHorariosHistorialHorarioToAttach.getClass(), historialHorariosHistorialHorarioToAttach.getId_historial());
                 attachedHistorialHorarios.add(historialHorariosHistorialHorarioToAttach);
@@ -76,7 +68,7 @@ public class PersonaJpaController implements Serializable {
         }
     }
 
-    public void edit(Persona persona) throws NonexistentEntityException, Exception {
+    public void edit(Persona persona) throws Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -84,7 +76,7 @@ public class PersonaJpaController implements Serializable {
             Persona persistentPersona = em.find(Persona.class, persona.getId());
             Set<HistorialHorario> historialHorariosOld = persistentPersona.getHistorialHorarios();
             Set<HistorialHorario> historialHorariosNew = persona.getHistorialHorarios();
-            Set<HistorialHorario> attachedHistorialHorariosNew = new HashSet<HistorialHorario>();
+            Set<HistorialHorario> attachedHistorialHorariosNew = new HashSet<>();
             for (HistorialHorario historialHorariosNewHistorialHorarioToAttach : historialHorariosNew) {
                 historialHorariosNewHistorialHorarioToAttach = em.getReference(historialHorariosNewHistorialHorarioToAttach.getClass(), historialHorariosNewHistorialHorarioToAttach.getId_historial());
                 attachedHistorialHorariosNew.add(historialHorariosNewHistorialHorarioToAttach);
@@ -112,7 +104,7 @@ public class PersonaJpaController implements Serializable {
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
-            if (msg == null || msg.length() == 0) {
+            if (msg == null || msg.isEmpty()) {
                 short id = persona.getId();
                 if (findPersona(id) == null) {
                     throw new NonexistentEntityException("The persona with id " + id + " no longer exists.");
@@ -152,18 +144,18 @@ public class PersonaJpaController implements Serializable {
         }
     }
 
-    public List<Persona> findPersonaEntities() {
+    public List findPersonaEntities() {
         return findPersonaEntities(true, -1, -1);
     }
 
-    public List<Persona> findPersonaEntities(int maxResults, int firstResult) {
+    public List findPersonaEntities(int maxResults, int firstResult) {
         return findPersonaEntities(false, maxResults, firstResult);
     }
 
-    private List<Persona> findPersonaEntities(boolean all, int maxResults, int firstResult) {
+    private List findPersonaEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            CriteriaQuery<Object> cq = em.getCriteriaBuilder().createQuery();
             cq.select(cq.from(Persona.class));
             Query q = em.createQuery(cq);
             if (!all) {
@@ -179,8 +171,7 @@ public class PersonaJpaController implements Serializable {
     public Persona findPersona(short id) {
         EntityManager em = getEntityManager();
         try {
-            Persona persona = em.find(Persona.class, id);
-            return persona;
+            return em.find(Persona.class, id);
         } finally {
             em.close();
         }
@@ -189,7 +180,7 @@ public class PersonaJpaController implements Serializable {
     public int getPersonaCount() {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            CriteriaQuery<Object> cq = em.getCriteriaBuilder().createQuery();
             Root<Persona> rt = cq.from(Persona.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);

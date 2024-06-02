@@ -35,14 +35,11 @@ public class Controlador {
                     person = usu;
                     return person;
                 } else {
-                    person = null;
-                    return person;
+                    return null;
                 }
-            } else {
-                person = null;
             }
         }
-        return person;
+        return null;
     }
 
     public List<Persona> traerUsuarios() {

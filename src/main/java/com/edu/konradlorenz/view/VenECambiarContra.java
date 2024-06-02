@@ -5,6 +5,7 @@ import com.edu.konradlorenz.model.ExageradosException;
 import com.edu.konradlorenz.model.Persona;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import java.awt.*;
 
 public class VenECambiarContra extends javax.swing.JFrame {
 
@@ -22,58 +23,51 @@ public class VenECambiarContra extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        lblCambioContrasena = new javax.swing.JLabel();
-        lblNuevaContrasena = new javax.swing.JLabel();
+        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
+        javax.swing.JLabel lblCambioContrasena = new javax.swing.JLabel();
+        javax.swing.JLabel lblNuevaContrasena = new javax.swing.JLabel();
         txtContrasena = new javax.swing.JPasswordField();
-        btnCancelar = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
+        // Variables declaration - do not modify//GEN-BEGIN:variables
+        javax.swing.JButton btnCancelar = new javax.swing.JButton();
+        javax.swing.JButton btnGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
+                formWindowOpened();
             }
         });
 
         jPanel1.setBackground(new java.awt.Color(192, 214, 250));
 
         lblCambioContrasena.setBackground(new java.awt.Color(10, 10, 10));
-        lblCambioContrasena.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        lblCambioContrasena.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 18)); // NOI18N
         lblCambioContrasena.setForeground(new java.awt.Color(10, 10, 10));
         lblCambioContrasena.setText("Cambio de Contraseña");
 
-        lblNuevaContrasena.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblNuevaContrasena.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 14)); // NOI18N
         lblNuevaContrasena.setForeground(new java.awt.Color(10, 10, 10));
         lblNuevaContrasena.setText("Nueva Contraseña:");
 
         txtContrasena.setBackground(new java.awt.Color(228, 235, 247));
-        txtContrasena.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        txtContrasena.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 14)); // NOI18N
         txtContrasena.setForeground(new java.awt.Color(10, 10, 10));
         txtContrasena.setText("jPa");
         txtContrasena.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         btnCancelar.setBackground(new java.awt.Color(108, 152, 197));
-        btnCancelar.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
+        btnCancelar.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 16)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(166, 207, 249), null, null));
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
-            }
-        });
+        btnCancelar.addActionListener(this::btnCancelarActionPerformed);
 
         btnGuardar.setBackground(new java.awt.Color(108, 152, 197));
-        btnGuardar.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
+        btnGuardar.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 16)); // NOI18N
         btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardar.setText("Guardar");
         btnGuardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(164, 209, 253), null, null));
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
-            }
-        });
+        btnGuardar.addActionListener(this::btnGuardarActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -129,9 +123,10 @@ public class VenECambiarContra extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnCancelarActionPerformed
+    private void formWindowOpened() {//GEN-FIRST:event_formWindowOpened
+        person = control.traerUsuario(id_user);
+        txtContrasena.setText(person.getContrasena());
+    }//GEN-LAST:event_formWindowOpened
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
@@ -154,10 +149,13 @@ public class VenECambiarContra extends javax.swing.JFrame {
 
         } catch (ExageradosException ex) {
             mostrarMensaje(ex.getMessage(), "Error", "Cambio de Contraseña");
-            return;
         }
 
     }
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     public void mostrarMensaje(String mensaje, String tipo, String titulo) {
         JOptionPane optionPane = new JOptionPane(mensaje);
@@ -171,17 +169,6 @@ public class VenECambiarContra extends javax.swing.JFrame {
         dialog.setVisible(true);
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        person = control.traerUsuario(id_user);
-        txtContrasena.setText(person.getContrasena());
-    }//GEN-LAST:event_formWindowOpened
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnGuardar;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblCambioContrasena;
-    private javax.swing.JLabel lblNuevaContrasena;
     private javax.swing.JPasswordField txtContrasena;
     // End of variables declaration//GEN-END:variables
 }

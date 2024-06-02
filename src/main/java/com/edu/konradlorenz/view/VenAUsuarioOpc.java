@@ -2,6 +2,8 @@ package com.edu.konradlorenz.view;
 
 import com.edu.konradlorenz.controller.Controlador;
 import com.edu.konradlorenz.model.Persona;
+
+import java.awt.*;
 import java.util.List;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -22,32 +24,33 @@ public class VenAUsuarioOpc extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        lblSistAdmin = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
+        javax.swing.JLabel lblSistAdmin = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
+        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         tblaUsuarios = new javax.swing.JTable();
-        btnEliminarUsuario = new javax.swing.JButton();
-        btnCrearUsuario = new javax.swing.JButton();
-        btnEditarUsuario = new javax.swing.JButton();
-        btnMenuPrincipal = new javax.swing.JButton();
-        btnRecargarTabla = new javax.swing.JButton();
+        javax.swing.JButton btnEliminarUsuario = new javax.swing.JButton();
+        // Variables declaration - do not modify//GEN-BEGIN:variables
+        javax.swing.JButton btnCrearUsuario = new javax.swing.JButton();
+        javax.swing.JButton btnEditarUsuario = new javax.swing.JButton();
+        javax.swing.JButton btnMenuPrincipal = new javax.swing.JButton();
+        javax.swing.JButton btnRecargarTabla = new javax.swing.JButton();
         lblUserLogged = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
+                formWindowOpened();
             }
         });
 
         jPanel1.setBackground(new java.awt.Color(192, 214, 250));
 
-        lblSistAdmin.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        lblSistAdmin.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 24)); // NOI18N
         lblSistAdmin.setForeground(new java.awt.Color(10, 10, 10));
         lblSistAdmin.setText("Sistema Administrador");
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(10, 10, 10));
         jLabel1.setText("Usuarios Registrados:");
 
@@ -68,61 +71,41 @@ public class VenAUsuarioOpc extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblaUsuarios);
 
         btnEliminarUsuario.setBackground(new java.awt.Color(108, 152, 197));
-        btnEliminarUsuario.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        btnEliminarUsuario.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 15)); // NOI18N
         btnEliminarUsuario.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminarUsuario.setText("Eliminar Usuario");
         btnEliminarUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(163, 204, 246), null, null));
-        btnEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarUsuarioActionPerformed(evt);
-            }
-        });
+        btnEliminarUsuario.addActionListener(this::btnEliminarUsuarioActionPerformed);
 
         btnCrearUsuario.setBackground(new java.awt.Color(108, 152, 197));
-        btnCrearUsuario.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        btnCrearUsuario.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 15)); // NOI18N
         btnCrearUsuario.setForeground(new java.awt.Color(255, 255, 255));
         btnCrearUsuario.setText("Crear Usuario");
         btnCrearUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(170, 209, 249), null, null));
-        btnCrearUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearUsuarioActionPerformed(evt);
-            }
-        });
+        btnCrearUsuario.addActionListener(this::btnCrearUsuarioActionPerformed);
 
         btnEditarUsuario.setBackground(new java.awt.Color(108, 152, 197));
-        btnEditarUsuario.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        btnEditarUsuario.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 15)); // NOI18N
         btnEditarUsuario.setForeground(new java.awt.Color(255, 255, 255));
         btnEditarUsuario.setText("Editar Usuario");
         btnEditarUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(166, 207, 249), null, null));
-        btnEditarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarUsuarioActionPerformed(evt);
-            }
-        });
+        btnEditarUsuario.addActionListener(this::btnEditarUsuarioActionPerformed);
 
         btnMenuPrincipal.setBackground(new java.awt.Color(108, 152, 197));
-        btnMenuPrincipal.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        btnMenuPrincipal.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 15)); // NOI18N
         btnMenuPrincipal.setForeground(new java.awt.Color(255, 255, 255));
         btnMenuPrincipal.setText("Menu Principal");
         btnMenuPrincipal.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(172, 211, 250), null, null));
-        btnMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuPrincipalActionPerformed(evt);
-            }
-        });
+        btnMenuPrincipal.addActionListener(this::btnMenuPrincipalActionPerformed);
 
         btnRecargarTabla.setBackground(new java.awt.Color(108, 152, 197));
-        btnRecargarTabla.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        btnRecargarTabla.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 15)); // NOI18N
         btnRecargarTabla.setForeground(new java.awt.Color(255, 255, 255));
         btnRecargarTabla.setText("Recargar Tabla");
         btnRecargarTabla.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(168, 211, 255), null, null));
-        btnRecargarTabla.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRecargarTablaActionPerformed(evt);
-            }
-        });
+        btnRecargarTabla.addActionListener(this::btnRecargarTablaActionPerformed);
 
-        lblUserLogged.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblUserLogged.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         lblUserLogged.setForeground(new java.awt.Color(10, 10, 10));
         lblUserLogged.setText("jLabel2");
 
@@ -194,24 +177,17 @@ public class VenAUsuarioOpc extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+    private void formWindowOpened() {//GEN-FIRST:event_formWindowOpened
         this.lblUserLogged.setText(person.getNombreUsuario());
         cargarTablaUsuarios();
     }//GEN-LAST:event_formWindowOpened
-
-    private void btnMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuPrincipalActionPerformed
-        VentanaAdministrador ventaAdmin = new VentanaAdministrador(control, person);
-        ventaAdmin.setVisible(true);
-        ventaAdmin.setLocationRelativeTo(null);
-        this.dispose();
-
-    }//GEN-LAST:event_btnMenuPrincipalActionPerformed
 
     private void btnCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUsuarioActionPerformed
 
         VenACrearUser venCrearUser = new VenACrearUser(control);
         venCrearUser.setVisible(true);
         venCrearUser.setLocationRelativeTo(null);
+
     }//GEN-LAST:event_btnCrearUsuarioActionPerformed
 
     private void btnEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarUsuarioActionPerformed
@@ -225,35 +201,7 @@ public class VenAUsuarioOpc extends javax.swing.JFrame {
             mostrarMensaje("No selecciono ningun registro", "Error", "Error al editar");
         }
 
-
     }//GEN-LAST:event_btnEditarUsuarioActionPerformed
-
-    private void cargarTablaUsuarios() {
-
-        DefaultTableModel modeloTabla = new DefaultTableModel() {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        };
-        String titulos[] = {"Id", "Usuario", "Rol"};
-        modeloTabla.setColumnIdentifiers(titulos);
-
-        List<Persona> listaUsuarios = control.traerUsuarios();
-
-        if (listaUsuarios != null) {
-            for (Persona perso : listaUsuarios) {
-                Object[] objeto = {perso.getId(), perso.getNombreUsuario(), perso.getRol()};
-                modeloTabla.addRow(objeto);
-            }
-        }
-        tblaUsuarios.setModel(modeloTabla);
-
-    }
-
-    private void btnRecargarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecargarTablaActionPerformed
-        cargarTablaUsuarios();
-    }//GEN-LAST:event_btnRecargarTablaActionPerformed
 
     private void btnEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioActionPerformed
 
@@ -280,6 +228,42 @@ public class VenAUsuarioOpc extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnEliminarUsuarioActionPerformed
 
+    private void btnRecargarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecargarTablaActionPerformed
+        cargarTablaUsuarios();
+    }//GEN-LAST:event_btnRecargarTablaActionPerformed
+
+    private void btnMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuPrincipalActionPerformed
+
+        VentanaAdministrador ventaAdmin = new VentanaAdministrador(control, person);
+        ventaAdmin.setVisible(true);
+        ventaAdmin.setLocationRelativeTo(null);
+        this.dispose();
+
+    }//GEN-LAST:event_btnMenuPrincipalActionPerformed
+
+    private void cargarTablaUsuarios() {
+
+        DefaultTableModel modeloTabla = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        String[] titulos = {"Id", "Usuario", "Rol"};
+        modeloTabla.setColumnIdentifiers(titulos);
+
+        List<Persona> listaUsuarios = control.traerUsuarios();
+
+        if (listaUsuarios != null) {
+            for (Persona perso : listaUsuarios) {
+                Object[] objeto = {perso.getId(), perso.getNombreUsuario(), perso.getRol()};
+                modeloTabla.addRow(objeto);
+            }
+        }
+        tblaUsuarios.setModel(modeloTabla);
+
+    }
+
     public void mostrarMensaje(String mensaje, String tipo, String titulo) {
         JOptionPane optionPane = new JOptionPane(mensaje);
         if (tipo.equals("Info")) {
@@ -292,16 +276,6 @@ public class VenAUsuarioOpc extends javax.swing.JFrame {
         dialog.setVisible(true);
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCrearUsuario;
-    private javax.swing.JButton btnEditarUsuario;
-    private javax.swing.JButton btnEliminarUsuario;
-    private javax.swing.JButton btnMenuPrincipal;
-    private javax.swing.JButton btnRecargarTabla;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblSistAdmin;
     private javax.swing.JLabel lblUserLogged;
     private javax.swing.JTable tblaUsuarios;
     // End of variables declaration//GEN-END:variables

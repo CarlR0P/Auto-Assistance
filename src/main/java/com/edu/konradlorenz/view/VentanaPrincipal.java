@@ -5,6 +5,7 @@ import com.edu.konradlorenz.model.*;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import java.awt.*;
 
 public class VentanaPrincipal extends javax.swing.JFrame {
 
@@ -20,12 +21,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        lblLogin = new javax.swing.JLabel();
-        btnIniciar = new javax.swing.JButton();
-        btnLimpiar = new javax.swing.JButton();
-        lblUsuario = new javax.swing.JLabel();
-        lblContrasena = new javax.swing.JLabel();
+        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
+        javax.swing.JLabel lblLogin = new javax.swing.JLabel();
+        // Variables declaration - do not modify//GEN-BEGIN:variables
+        javax.swing.JButton btnIniciar = new javax.swing.JButton();
+        javax.swing.JButton btnLimpiar = new javax.swing.JButton();
+        javax.swing.JLabel lblUsuario = new javax.swing.JLabel();
+        javax.swing.JLabel lblContrasena = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         txtContrasena = new javax.swing.JPasswordField();
 
@@ -34,43 +36,35 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(192, 214, 250));
 
-        lblLogin.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        lblLogin.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 36)); // NOI18N
         lblLogin.setText("Login");
 
         btnIniciar.setBackground(new java.awt.Color(108, 152, 197));
-        btnIniciar.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        btnIniciar.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 24)); // NOI18N
         btnIniciar.setForeground(new java.awt.Color(255, 255, 255));
         btnIniciar.setText("Iniciar");
         btnIniciar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(166, 206, 245), null, null));
-        btnIniciar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIniciarActionPerformed(evt);
-            }
-        });
+        btnIniciar.addActionListener(this::btnIniciarActionPerformed);
 
         btnLimpiar.setBackground(new java.awt.Color(108, 152, 197));
-        btnLimpiar.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        btnLimpiar.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 24)); // NOI18N
         btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpiar.setText("Limpiar");
         btnLimpiar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(173, 209, 244), null, null));
-        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarActionPerformed(evt);
-            }
-        });
+        btnLimpiar.addActionListener(this::btnLimpiarActionPerformed);
 
-        lblUsuario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblUsuario.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 18)); // NOI18N
         lblUsuario.setText("Usuario:");
 
-        lblContrasena.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblContrasena.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 18)); // NOI18N
         lblContrasena.setText("Contraseña:");
 
         txtUsuario.setBackground(new java.awt.Color(228, 235, 247));
-        txtUsuario.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txtUsuario.setFont(new java.awt.Font("Century Gothic", Font.PLAIN, 18)); // NOI18N
         txtUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         txtContrasena.setBackground(new java.awt.Color(228, 235, 247));
-        txtContrasena.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txtContrasena.setFont(new java.awt.Font("Century Gothic", Font.PLAIN, 18)); // NOI18N
         txtContrasena.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -133,13 +127,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-
-        txtUsuario.setText("");
-        txtContrasena.setText("");
-
-    }//GEN-LAST:event_btnLimpiarActionPerformed
-
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
 
         String usuario = txtUsuario.getText();
@@ -165,6 +152,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnIniciarActionPerformed
 
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+
+        txtUsuario.setText("");
+        txtContrasena.setText("");
+
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
     public void mostrarMensaje(String mensaje, String tipo, String titulo) {
         JOptionPane optionPane = new JOptionPane(mensaje);
         if (tipo.equals("Info")) {
@@ -177,13 +171,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         dialog.setVisible(true);
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnIniciar;
-    private javax.swing.JButton btnLimpiar;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblContrasena;
-    private javax.swing.JLabel lblLogin;
-    private javax.swing.JLabel lblUsuario;
     private javax.swing.JPasswordField txtContrasena;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

@@ -1,9 +1,9 @@
 package com.edu.konradlorenz.view;
 
 import com.edu.konradlorenz.controller.Controlador;
-import com.edu.konradlorenz.model.HistorialHorario;
 import com.edu.konradlorenz.model.Persona;
 import javax.swing.JFrame;
+import java.awt.*;
 
 public class VentanaEmpleado extends javax.swing.JFrame {
 
@@ -21,62 +21,51 @@ public class VentanaEmpleado extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        lblSistEmpleado = new javax.swing.JLabel();
+        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
+        javax.swing.JLabel lblSistEmpleado = new javax.swing.JLabel();
         lblUserLogged = new javax.swing.JLabel();
-        btnMiHorario = new javax.swing.JButton();
-        btnSalir1 = new javax.swing.JButton();
-        btnMiPerfil1 = new javax.swing.JButton();
+        // Variables declaration - do not modify//GEN-BEGIN:variables
+        javax.swing.JButton btnMiHorario = new javax.swing.JButton();
+        javax.swing.JButton btnSalir1 = new javax.swing.JButton();
+        javax.swing.JButton btnMiPerfil1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
+                formWindowOpened();
             }
         });
 
         jPanel1.setBackground(new java.awt.Color(192, 214, 250));
 
-        lblSistEmpleado.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        lblSistEmpleado.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 24)); // NOI18N
         lblSistEmpleado.setForeground(new java.awt.Color(10, 10, 10));
         lblSistEmpleado.setText("Sistema Empleado");
 
-        lblUserLogged.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblUserLogged.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 14)); // NOI18N
         lblUserLogged.setForeground(new java.awt.Color(10, 10, 10));
         lblUserLogged.setText("jLabel1");
 
         btnMiHorario.setBackground(new java.awt.Color(108, 152, 197));
-        btnMiHorario.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnMiHorario.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 16)); // NOI18N
         btnMiHorario.setForeground(new java.awt.Color(255, 255, 255));
         btnMiHorario.setText("Mi horario");
         btnMiHorario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(165, 206, 246), null, null));
-        btnMiHorario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMiHorarioActionPerformed(evt);
-            }
-        });
+        btnMiHorario.addActionListener(this::btnMiHorarioActionPerformed);
 
         btnSalir1.setBackground(new java.awt.Color(108, 152, 197));
-        btnSalir1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        btnSalir1.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 14)); // NOI18N
         btnSalir1.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir1.setText("Salir");
         btnSalir1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(163, 209, 255), null, null));
-        btnSalir1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalir1ActionPerformed(evt);
-            }
-        });
+        btnSalir1.addActionListener(this::btnSalir1ActionPerformed);
 
         btnMiPerfil1.setBackground(new java.awt.Color(108, 152, 197));
-        btnMiPerfil1.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
+        btnMiPerfil1.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 16)); // NOI18N
         btnMiPerfil1.setForeground(new java.awt.Color(255, 255, 255));
         btnMiPerfil1.setText("Mi perfil");
         btnMiPerfil1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(165, 208, 250), null, null));
-        btnMiPerfil1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMiPerfil1ActionPerformed(evt);
-            }
-        });
+        btnMiPerfil1.addActionListener(this::btnMiPerfil1ActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -132,6 +121,20 @@ public class VentanaEmpleado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowOpened() {//GEN-FIRST:event_formWindowOpened
+        this.lblUserLogged.setText(person.getNombreUsuario());
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnMiPerfil1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiPerfil1ActionPerformed
+
+        short id_user = person.getId();
+        VenEMiPerfil venPerfil = new VenEMiPerfil(id_user, control);
+        venPerfil.setVisible(true);
+        venPerfil.setLocationRelativeTo(null);
+        this.dispose();
+
+    }//GEN-LAST:event_btnMiPerfil1ActionPerformed
+
     private void btnMiHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiHorarioActionPerformed
         
         short id_user = person.getId();
@@ -148,26 +151,6 @@ public class VentanaEmpleado extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
-    private void btnMiPerfil1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiPerfil1ActionPerformed
-
-        short id_user = person.getId();
-        VenEMiPerfil venPerfil = new VenEMiPerfil(id_user, control);
-        venPerfil.setVisible(true);
-        venPerfil.setLocationRelativeTo(null);
-        this.dispose();
-
-    }//GEN-LAST:event_btnMiPerfil1ActionPerformed
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        this.lblUserLogged.setText(person.getNombreUsuario());
-    }//GEN-LAST:event_formWindowOpened
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnMiHorario;
-    private javax.swing.JButton btnMiPerfil1;
-    private javax.swing.JButton btnSalir1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblSistEmpleado;
     private javax.swing.JLabel lblUserLogged;
     // End of variables declaration//GEN-END:variables
 }

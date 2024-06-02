@@ -21,11 +21,13 @@ D:\Documentos\NetBeansProjects\Auto-Assistance\src\main\java\com\edu\konradloren
 D:\Documentos\NetBeansProjects\Auto-Assistance\src\main\java\com\edu\konradlorenz\view\VenAProducDia.java
 D:\Documentos\NetBeansProjects\Auto-Assistance\src\main\java\com\edu\konradlorenz\model\ExageradosException.java
 D:\Documentos\NetBeansProjects\Auto-Assistance\src\main\java\com\edu\konradlorenz\persistence\HistorialHorarioJpaController.java
+D:\Documentos\NetBeansProjects\Auto-Assistance\src\main\java\com\edu\konradlorenz\model\TrampososException.java
 D:\Documentos\NetBeansProjects\Auto-Assistance\src\main\java\com\edu\konradlorenz\model\Empleado.java
 D:\Documentos\NetBeansProjects\Auto-Assistance\src\main\java\com\edu\konradlorenz\view\VenEVerHorario.java
 D:\Documentos\NetBeansProjects\Auto-Assistance\src\main\java\com\edu\konradlorenz\persistence\exceptions\NonexistentEntityException.java
 D:\Documentos\NetBeansProjects\Auto-Assistance\src\main\java\com\edu\konradlorenz\view\VenECambiarContra.java
 D:\Documentos\NetBeansProjects\Auto-Assistance\src\main\java\com\edu\konradlorenz\view\VenEMiPerfil.java
+D:\Documentos\NetBeansProjects\Auto-Assistance\src\main\java\com\edu\konradlorenz\model\ViajesEnElTiempoException.java
 D:\Documentos\NetBeansProjects\Auto-Assistance\src\main\java\com\edu\konradlorenz\controller\Controlador.java
 D:\Documentos\NetBeansProjects\Auto-Assistance\src\main\java\com\edu\konradlorenz\view\VenAEditarHorario.java
 D:\Documentos\NetBeansProjects\Auto-Assistance\src\main\java\com\edu\konradlorenz\model\YaExisteException.java

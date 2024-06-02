@@ -8,6 +8,7 @@ import com.edu.konradlorenz.model.Persona;
 import com.edu.konradlorenz.model.YaExisteException;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import java.awt.*;
 
 public class VenAEditarUser extends javax.swing.JFrame {
 
@@ -25,17 +26,17 @@ public class VenAEditarUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        lblContrasena = new javax.swing.JLabel();
-        btnVolver = new javax.swing.JButton();
-        lblEdicionUser = new javax.swing.JLabel();
-        lblNombreUser = new javax.swing.JLabel();
-        lblNombreApellido = new javax.swing.JLabel();
-        lblTipoDoc = new javax.swing.JLabel();
-        lblNumeroDoc = new javax.swing.JLabel();
-        lblCorreo = new javax.swing.JLabel();
-        lblTelefono = new javax.swing.JLabel();
-        lblRol = new javax.swing.JLabel();
+        javax.swing.JPanel jPanel2 = new javax.swing.JPanel();
+        javax.swing.JLabel lblContrasena = new javax.swing.JLabel();
+        javax.swing.JButton btnVolver = new javax.swing.JButton();
+        javax.swing.JLabel lblEdicionUser = new javax.swing.JLabel();
+        javax.swing.JLabel lblNombreUser = new javax.swing.JLabel();
+        javax.swing.JLabel lblNombreApellido = new javax.swing.JLabel();
+        javax.swing.JLabel lblTipoDoc = new javax.swing.JLabel();
+        javax.swing.JLabel lblNumeroDoc = new javax.swing.JLabel();
+        javax.swing.JLabel lblCorreo = new javax.swing.JLabel();
+        javax.swing.JLabel lblTelefono = new javax.swing.JLabel();
+        javax.swing.JLabel lblRol = new javax.swing.JLabel();
         txtNombreUser = new javax.swing.JTextField();
         txtNombreApellido = new javax.swing.JTextField();
         cmbTipoDoc = new javax.swing.JComboBox<>();
@@ -43,130 +44,105 @@ public class VenAEditarUser extends javax.swing.JFrame {
         txtCorreo = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
         cmbRol = new javax.swing.JComboBox<>();
-        btnResetearContrasena = new javax.swing.JButton();
-        btnLimpiar = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
+        javax.swing.JButton btnResetearContrasena = new javax.swing.JButton();
+        javax.swing.JButton btnLimpiar = new javax.swing.JButton();
+        // Variables declaration - do not modify//GEN-BEGIN:variables
+        javax.swing.JButton btnGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(192, 214, 250));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
+                formWindowOpened();
             }
         });
 
         jPanel2.setBackground(new java.awt.Color(192, 214, 250));
 
-        lblContrasena.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        lblContrasena.setFont(new java.awt.Font("sansserif", Font.PLAIN, 18)); // NOI18N
 
         btnVolver.setBackground(new java.awt.Color(108, 152, 197));
-        btnVolver.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnVolver.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 18)); // NOI18N
         btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("Volver");
         btnVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(177, 216, 255), null, null));
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
-            }
-        });
+        btnVolver.addActionListener(this::btnVolverActionPerformed);
 
-        lblEdicionUser.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        lblEdicionUser.setFont(new java.awt.Font("sansserif", Font.BOLD, 24)); // NOI18N
         lblEdicionUser.setText("Edicion de Usuario");
 
-        lblNombreUser.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        lblNombreUser.setFont(new java.awt.Font("sansserif", Font.PLAIN, 18)); // NOI18N
         lblNombreUser.setText("Nombre de Usuario:");
 
-        lblNombreApellido.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        lblNombreApellido.setFont(new java.awt.Font("sansserif", Font.PLAIN, 18)); // NOI18N
         lblNombreApellido.setText("Nombres y Apellidos:");
 
-        lblTipoDoc.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        lblTipoDoc.setFont(new java.awt.Font("sansserif", Font.PLAIN, 18)); // NOI18N
         lblTipoDoc.setText("Tipo de Documento:");
 
-        lblNumeroDoc.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        lblNumeroDoc.setFont(new java.awt.Font("sansserif", Font.PLAIN, 18)); // NOI18N
         lblNumeroDoc.setText("Numero de Documento:");
 
-        lblCorreo.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        lblCorreo.setFont(new java.awt.Font("sansserif", Font.PLAIN, 18)); // NOI18N
         lblCorreo.setText("Correo:");
 
-        lblTelefono.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        lblTelefono.setFont(new java.awt.Font("sansserif", Font.PLAIN, 18)); // NOI18N
         lblTelefono.setText("Telefono:");
 
-        lblRol.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        lblRol.setFont(new java.awt.Font("sansserif", Font.PLAIN, 18)); // NOI18N
         lblRol.setText("Rol:");
 
         txtNombreUser.setBackground(new java.awt.Color(228, 235, 247));
-        txtNombreUser.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txtNombreUser.setFont(new java.awt.Font("Century Gothic", Font.PLAIN, 18)); // NOI18N
         txtNombreUser.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         txtNombreApellido.setBackground(new java.awt.Color(228, 235, 247));
-        txtNombreApellido.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txtNombreApellido.setFont(new java.awt.Font("Century Gothic", Font.PLAIN, 18)); // NOI18N
         txtNombreApellido.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtNombreApellido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreApellidoActionPerformed(evt);
-            }
-        });
 
         cmbTipoDoc.setBackground(new java.awt.Color(228, 235, 247));
         cmbTipoDoc.setEditable(true);
-        cmbTipoDoc.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        cmbTipoDoc.setFont(new java.awt.Font("Century Gothic", Font.PLAIN, 18)); // NOI18N
         cmbTipoDoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cedula de Ciudadania", "Cedula de Extranjeria", "Pasaporte" }));
         cmbTipoDoc.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         txtNumeroDoc.setBackground(new java.awt.Color(228, 235, 247));
-        txtNumeroDoc.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txtNumeroDoc.setFont(new java.awt.Font("Century Gothic", Font.PLAIN, 18)); // NOI18N
         txtNumeroDoc.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         txtCorreo.setBackground(new java.awt.Color(228, 235, 247));
-        txtCorreo.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txtCorreo.setFont(new java.awt.Font("Century Gothic", Font.PLAIN, 18)); // NOI18N
         txtCorreo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         txtTelefono.setBackground(new java.awt.Color(228, 235, 247));
-        txtTelefono.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txtTelefono.setFont(new java.awt.Font("Century Gothic", Font.PLAIN, 18)); // NOI18N
         txtTelefono.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         cmbRol.setBackground(new java.awt.Color(228, 235, 247));
-        cmbRol.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        cmbRol.setFont(new java.awt.Font("Century Gothic", Font.PLAIN, 18)); // NOI18N
         cmbRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "administrador", "empleado" }));
         cmbRol.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        cmbRol.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbRolActionPerformed(evt);
-            }
-        });
 
         btnResetearContrasena.setBackground(new java.awt.Color(108, 152, 197));
-        btnResetearContrasena.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnResetearContrasena.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 18)); // NOI18N
         btnResetearContrasena.setForeground(new java.awt.Color(255, 255, 255));
         btnResetearContrasena.setText("Resetear Contraseña");
         btnResetearContrasena.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(183, 216, 249), null, null));
-        btnResetearContrasena.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResetearContrasenaActionPerformed(evt);
-            }
-        });
+        btnResetearContrasena.addActionListener(this::btnResetearContrasenaActionPerformed);
 
         btnLimpiar.setBackground(new java.awt.Color(108, 152, 197));
-        btnLimpiar.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
+        btnLimpiar.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 20)); // NOI18N
         btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpiar.setText("Limpiar");
         btnLimpiar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(186, 217, 248), null, null));
-        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarActionPerformed(evt);
-            }
-        });
+        btnLimpiar.addActionListener(this::btnLimpiarActionPerformed);
 
         btnGuardar.setBackground(new java.awt.Color(108, 152, 197));
-        btnGuardar.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
+        btnGuardar.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 20)); // NOI18N
         btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardar.setText("Guardar");
         btnGuardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(186, 217, 249), null, null));
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
-            }
-        });
+        btnGuardar.addActionListener(this::btnGuardarActionPerformed);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -287,13 +263,22 @@ public class VenAEditarUser extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmbRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRolActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbRolActionPerformed
+    private void formWindowOpened() {//GEN-FIRST:event_formWindowOpened
+
+        person = control.traerUsuario(id_user);
+
+        txtNombreUser.setText(person.getNombreUsuario());
+        txtNombreApellido.setText(person.getNombre());
+        cmbTipoDoc.setSelectedItem(person.getTipoDocumento());
+        txtNumeroDoc.setText(String.valueOf(person.getNumeroDocumento()));
+        txtCorreo.setText(person.getCorreo());
+        txtTelefono.setText(String.valueOf(person.getTelefono()));
+        cmbRol.setSelectedItem(person.getRol());
+
+    }//GEN-LAST:event_formWindowOpened
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         this.dispose();
-
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
@@ -340,27 +325,11 @@ public class VenAEditarUser extends javax.swing.JFrame {
             mostrarMensaje("Todos los campos son obligatorios.", "Error", "Error al guardar");
         } catch (YaExisteException e) {
             mostrarMensaje("El nombre de usuario ya fue asignado previamente.", "Error", "Error al guardar");
-        } catch (NoLeenException e) {
-            mostrarMensaje(e.getMessage(), "Error", "Error al guardar");
-        } catch (ExageradosException e) {
+        } catch (NoLeenException | ExageradosException e) {
             mostrarMensaje(e.getMessage(), "Error", "Error al guardar");
         }
 
     }//GEN-LAST:event_btnGuardarActionPerformed
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
-        person = control.traerUsuario(id_user);
-
-        txtNombreUser.setText(person.getNombreUsuario());
-        txtNombreApellido.setText(person.getNombre());
-        cmbTipoDoc.setSelectedItem(person.getTipoDocumento());
-        txtNumeroDoc.setText(String.valueOf(person.getNumeroDocumento()));
-        txtCorreo.setText(person.getCorreo());
-        txtTelefono.setText(String.valueOf(person.getTelefono()));
-        cmbRol.setSelectedItem(person.getRol());
-
-    }//GEN-LAST:event_formWindowOpened
 
     private void btnResetearContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetearContrasenaActionPerformed
 
@@ -380,10 +349,6 @@ public class VenAEditarUser extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnResetearContrasenaActionPerformed
 
-    private void txtNombreApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreApellidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreApellidoActionPerformed
-
     public void mostrarMensaje(String mensaje, String tipo, String titulo) {
         JOptionPane optionPane = new JOptionPane(mensaje);
         if (tipo.equals("Info")) {
@@ -395,23 +360,9 @@ public class VenAEditarUser extends javax.swing.JFrame {
         dialog.setAlwaysOnTop(true);
         dialog.setVisible(true);
     }
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnLimpiar;
-    private javax.swing.JButton btnResetearContrasena;
-    private javax.swing.JButton btnVolver;
+
     private javax.swing.JComboBox<String> cmbRol;
     private javax.swing.JComboBox<String> cmbTipoDoc;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblContrasena;
-    private javax.swing.JLabel lblCorreo;
-    private javax.swing.JLabel lblEdicionUser;
-    private javax.swing.JLabel lblNombreApellido;
-    private javax.swing.JLabel lblNombreUser;
-    private javax.swing.JLabel lblNumeroDoc;
-    private javax.swing.JLabel lblRol;
-    private javax.swing.JLabel lblTelefono;
-    private javax.swing.JLabel lblTipoDoc;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtNombreApellido;
     private javax.swing.JTextField txtNombreUser;

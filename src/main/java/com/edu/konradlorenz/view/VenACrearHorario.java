@@ -3,12 +3,12 @@ package com.edu.konradlorenz.view;
 import com.edu.konradlorenz.controller.Controlador;
 import com.edu.konradlorenz.model.Persona;
 import com.edu.konradlorenz.model.ViajesEnElTiempoException;
+
+import java.awt.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
@@ -29,86 +29,74 @@ public class VenACrearHorario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        lblCreacionHor = new javax.swing.JLabel();
-        lblHoraEnt = new javax.swing.JLabel();
-        lblHoraSal = new javax.swing.JLabel();
+        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
+        javax.swing.JLabel lblCreacionHor = new javax.swing.JLabel();
+        javax.swing.JLabel lblHoraEnt = new javax.swing.JLabel();
+        javax.swing.JLabel lblHoraSal = new javax.swing.JLabel();
         cmbHoraSal = new javax.swing.JComboBox<>();
         cmbHoraEnt = new javax.swing.JComboBox<>();
-        btnVolver = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
+        javax.swing.JButton btnVolver = new javax.swing.JButton();
+        // Variables declaration - do not modify//GEN-BEGIN:variables
+        javax.swing.JButton btnGuardar = new javax.swing.JButton();
         jdcFechaIni = new com.toedter.calendar.JDateChooser();
-        lblFechaIni = new javax.swing.JLabel();
-        lblFechaFin = new javax.swing.JLabel();
+        javax.swing.JLabel lblFechaIni = new javax.swing.JLabel();
+        javax.swing.JLabel lblFechaFin = new javax.swing.JLabel();
         jdcFechaFin = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
+                formWindowOpened();
             }
         });
 
         jPanel1.setBackground(new java.awt.Color(192, 214, 250));
 
-        lblCreacionHor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblCreacionHor.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 18)); // NOI18N
         lblCreacionHor.setText("Crear Horario");
 
-        lblHoraEnt.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblHoraEnt.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 14)); // NOI18N
         lblHoraEnt.setText("Hora entrada:");
         lblHoraEnt.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        lblHoraSal.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblHoraSal.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 14)); // NOI18N
         lblHoraSal.setText("Hora Salida:");
         lblHoraSal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        cmbHoraSal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cmbHoraSal.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 14)); // NOI18N
         cmbHoraSal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00" }));
 
-        cmbHoraEnt.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cmbHoraEnt.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 14)); // NOI18N
         cmbHoraEnt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00" }));
-        cmbHoraEnt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbHoraEntActionPerformed(evt);
-            }
-        });
 
         btnVolver.setBackground(new java.awt.Color(108, 152, 197));
-        btnVolver.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
+        btnVolver.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 16)); // NOI18N
         btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("Volver");
         btnVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(175, 210, 246), null, null));
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
-            }
-        });
+        btnVolver.addActionListener(this::btnVolverActionPerformed);
 
         btnGuardar.setBackground(new java.awt.Color(108, 152, 197));
-        btnGuardar.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
+        btnGuardar.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 16)); // NOI18N
         btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardar.setText("Guardar");
         btnGuardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(175, 210, 246), null, null));
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
-            }
-        });
+        btnGuardar.addActionListener(this::btnGuardarActionPerformed);
 
         jdcFechaIni.setBackground(new java.awt.Color(228, 235, 247));
         jdcFechaIni.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jdcFechaIni.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jdcFechaIni.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 14)); // NOI18N
 
-        lblFechaIni.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblFechaIni.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 14)); // NOI18N
         lblFechaIni.setText("Fecha Inicial:");
 
-        lblFechaFin.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblFechaFin.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 14)); // NOI18N
         lblFechaFin.setText("Fecha Final:");
         lblFechaFin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         jdcFechaFin.setBackground(new java.awt.Color(228, 235, 247));
         jdcFechaFin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jdcFechaFin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jdcFechaFin.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -184,6 +172,10 @@ public class VenACrearHorario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowOpened() {//GEN-FIRST:event_formWindowOpened
+        person = control.traerUsuario(id_user);
+    }//GEN-LAST:event_formWindowOpened
+
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
         // Obtener la fecha inicial
@@ -246,14 +238,6 @@ public class VenACrearHorario extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void cmbHoraEntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbHoraEntActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbHoraEntActionPerformed
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        person = control.traerUsuario(id_user);
-    }//GEN-LAST:event_formWindowOpened
-
     public void mostrarMensaje(String mensaje, String tipo, String titulo) {
         JOptionPane optionPane = new JOptionPane(mensaje);
         if (tipo.equals("Info")) {
@@ -266,18 +250,9 @@ public class VenACrearHorario extends javax.swing.JFrame {
         dialog.setVisible(true);
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox<String> cmbHoraEnt;
     private javax.swing.JComboBox<String> cmbHoraSal;
-    private javax.swing.JPanel jPanel1;
     private com.toedter.calendar.JDateChooser jdcFechaFin;
     private com.toedter.calendar.JDateChooser jdcFechaIni;
-    private javax.swing.JLabel lblCreacionHor;
-    private javax.swing.JLabel lblFechaFin;
-    private javax.swing.JLabel lblFechaIni;
-    private javax.swing.JLabel lblHoraEnt;
-    private javax.swing.JLabel lblHoraSal;
     // End of variables declaration//GEN-END:variables
 }

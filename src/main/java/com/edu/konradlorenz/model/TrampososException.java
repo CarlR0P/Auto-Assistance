@@ -3,8 +3,6 @@ package com.edu.konradlorenz.model;
 
 import com.edu.konradlorenz.persistence.ControladorPersistencia;
 import java.time.LocalDateTime;
-import java.util.List;
-
 
 
 public class TrampososException extends Exception{
