@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class HistorialHorario implements Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private short id_historial;
@@ -20,14 +20,16 @@ public class HistorialHorario implements Serializable {
     private Persona id_user;
     private LocalDateTime fechaHoraIni;
     private LocalDateTime fechaHoraFin;
+    private String registroLabor;
 
     public HistorialHorario() {
     }
 
-    public HistorialHorario(LocalDateTime fechaHoraIni, LocalDateTime fechaHoraFin) {
+    public HistorialHorario(LocalDateTime fechaHoraIni, LocalDateTime fechaHoraFin, String registroLabor) {
         this.fechaHoraIni = fechaHoraIni;
         this.fechaHoraFin = fechaHoraFin;
-   }
+        this.registroLabor = registroLabor;
+    }
 
     public short getId_historial() {
         return id_historial;
@@ -60,5 +62,20 @@ public class HistorialHorario implements Serializable {
     public void setFechaHoraFin(LocalDateTime fechaHoraFin) {
         this.fechaHoraFin = fechaHoraFin;
     }
+
+    public String getRegistroLabor() {
+        return registroLabor;
+    }
+
+    public void setRegistroLabor(String registroLabor) {
+        this.registroLabor = registroLabor;
+    }
+
+    @Override
+    public String toString() {
+        return "HistorialHorario{" + "id_historial=" + id_historial + ", id_user=" + id_user + ", fechaHoraIni=" + fechaHoraIni + ", fechaHoraFin=" + fechaHoraFin + ", registroLabor=" + registroLabor + '}';
+    }
     
+    
+
 }

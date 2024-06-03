@@ -29,6 +29,7 @@ public class Controlador {
     public Persona validarUsuario(String usuario, String contrasena) {
         List<Persona> listaUsuarios = controlPersistencia.traerUsuarios();
         Persona person = null;
+        
         for (Persona usu : listaUsuarios) {
             if (usu.getNombreUsuario().equals(usuario)) {
                 if (usu.getContrasena().equals(contrasena)) {
@@ -57,7 +58,7 @@ public class Controlador {
     public HistorialHorario traerRegistro(short id_user) {
         return controlPersistencia.traerRegistro(id_user);
     }
-    
+
     public List<HistorialHorario> traerRegistros() {
         return controlPersistencia.traerRegistros();
     }
@@ -90,6 +91,7 @@ public class Controlador {
         short id = this.buscarUltimoIdUsuario();
         objPerson.setId((short) (id + 1));
         controlPersistencia.crearUsuario(objPerson);
+        
     }
 
     public void editarUsuario(Persona person, String nombreUser, String nombresApellidos, String tipoDoc, String numeroDoc, String correo, String telefono, String rol) throws EmpleadoVacioException {
@@ -146,7 +148,6 @@ public class Controlador {
     }
 
     public void eliminarHorario(short id_empleado) {
-
         objEmpleado = (Empleado) traerUsuario(id_empleado);
 
         if (objEmpleado != null) {
@@ -156,16 +157,15 @@ public class Controlador {
             objEmpleado.setHoraSalida(null);
             controlPersistencia.editarEmpleado(objEmpleado);
         }
-
+        
     }
 
     public void registrarLlegada(Persona person, LocalDateTime llegada) throws TrampososException {
-        
+
         TrampososException tramposos = new TrampososException(controlPersistencia);
         if (tramposos.verificarUltimoRegistro(person)) {
-        throw new TrampososException("Su hora de llegada de hoy ya fue registrada.");
-    }
-
+            throw new TrampososException("Su hora de llegada de hoy ya fue registrada.");
+        }
 
         objHistorialHorario = new HistorialHorario();
         objHistorialHorario.setFechaHoraIni(llegada);
@@ -174,13 +174,14 @@ public class Controlador {
     }
 
     public void registrarSalida(short id_historial, LocalDateTime salida) throws TrampososException {
+        
         TrampososException tramposos = new TrampososException(controlPersistencia);
         if (tramposos.verificarUltimoRegistro(id_historial)) {
-        throw new TrampososException("Su hora de salida de hoy ya fue registrada.");
-    }
+            throw new TrampososException("Su hora de salida de hoy ya fue registrada.");
+        }
 
         objHistorialHorario = traerRegistro(id_historial);
-        
+
         if (objHistorialHorario != null) {
             objHistorialHorario.setFechaHoraFin(salida);
             controlPersistencia.editarRegistroHorario(objHistorialHorario);
@@ -188,14 +189,15 @@ public class Controlador {
 
     }
 
-    public void registrarLabores(Persona person, String labores) {
+    public void registrarLabores(short id_historial, String labores) {
 
-        if (person instanceof Empleado) {
-            objEmpleado = (Empleado) person;
-            objEmpleado.setRegistroLabor(labores);
-            controlPersistencia.editarEmpleado(objEmpleado);
+        objHistorialHorario = traerRegistro(id_historial);
+        
+        if (objHistorialHorario != null) {
+            objHistorialHorario.setRegistroLabor(labores);
+            controlPersistencia.editarRegistroHorario(objHistorialHorario);
         }
 
     }
-   
+
 }

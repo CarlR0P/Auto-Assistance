@@ -3,7 +3,6 @@ package com.edu.konradlorenz.view;
 import com.edu.konradlorenz.controller.Controlador;
 import com.edu.konradlorenz.model.Empleado;
 import com.edu.konradlorenz.model.Persona;
-
 import java.awt.*;
 import java.util.List;
 import javax.swing.JDialog;
@@ -295,7 +294,7 @@ public class VenAHorariosOpc extends javax.swing.JFrame {
 
         if (tblAEmpleados.getSelectedRow() != -1) {
             short id_user = (short) Integer.parseInt(String.valueOf(tblAEmpleados.getValueAt(tblAEmpleados.getSelectedRow(), 0)));
-            VenAHistorialEmple venAHistorialEmple = new VenAHistorialEmple(person, control, id_user);
+            VenAHistorialEmple venAHistorialEmple = new VenAHistorialEmple(control, id_user);
             venAHistorialEmple.setVisible(true);
             venAHistorialEmple.setLocationRelativeTo(null);
         } else {

@@ -4,7 +4,6 @@ import com.edu.konradlorenz.controller.Controlador;
 import com.edu.konradlorenz.model.HistorialHorario;
 import com.edu.konradlorenz.model.Persona;
 import com.edu.konradlorenz.model.TrampososException;
-
 import java.awt.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -197,10 +196,7 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
 
         LocalDateTime llegada = LocalDateTime.now();
         Object[] options = {"Sí", "No"};
-        int confirmacion = JOptionPane.showOptionDialog(this,
-                "¿Está seguro de que desea registrar la llegada en "
-                + llegada.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "?",
-                "Registro Llegada",
+        int confirmacion = JOptionPane.showOptionDialog(this, "¿Está seguro de que desea registrar la llegada en " + llegada.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "?", "Registro Llegada",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE,
                 null, options, options[0]);
@@ -218,6 +214,7 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
 
             }
         }
+
     }//GEN-LAST:event_btnRegistrarLlegadaActionPerformed
 
     private void btnRegistrarSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarSalidaActionPerformed
@@ -225,17 +222,14 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
         LocalDateTime salida = LocalDateTime.now();
         int dia = salida.getDayOfMonth();
         List<HistorialHorario> listaHistorial = control.traerRegistros();
-        
+
         if (listaHistorial != null) {
             for (HistorialHorario historial : listaHistorial) {
                 if (id_user == historial.getId_user().getId()) {
-                    if(dia == historial.getFechaHoraIni().getDayOfMonth()){
+                    if (dia == historial.getFechaHoraIni().getDayOfMonth()) {
                         short id_historial = historial.getId_historial();
                         Object[] options = {"Sí", "No"};
-                        int confirmacion = JOptionPane.showOptionDialog(this,
-                                "¿Está seguro de que desea registrar la salida en "
-                                        + salida.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "?",
-                                "Registro Salida",
+                        int confirmacion = JOptionPane.showOptionDialog(this, "¿Está seguro de que desea registrar la salida en " + salida.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "?", "Registro Salida",
                                 JOptionPane.YES_NO_OPTION,
                                 JOptionPane.QUESTION_MESSAGE,
                                 null, options, options[0]);
@@ -260,15 +254,29 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
 
         String labores = txtRegistroLabores.getText();
 
-        Object[] options = {"Sí", "No"};
-        int confirmacion = JOptionPane.showOptionDialog(this, "¿Está seguro de que desea registrar las labores?", "Registro Labores",
-                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-                options, options[0]);
-        if (confirmacion == JOptionPane.YES_OPTION) {
-            control.registrarLabores(person, labores);
-            mostrarMensaje("Se registraron las labores exitosamente", "Info", "Registro Labores");
-        } else {
-            mostrarMensaje("No se registraron labores", "Info", "Registro Labores");
+        LocalDateTime salida = LocalDateTime.now();
+        int dia = salida.getDayOfMonth();
+        List<HistorialHorario> listaHistorial = control.traerRegistros();
+
+        if (listaHistorial != null) {
+            for (HistorialHorario historial : listaHistorial) {
+                if (id_user == historial.getId_user().getId()) {
+                    if (dia == historial.getFechaHoraIni().getDayOfMonth()) {
+                        short id_historial = historial.getId_historial();
+                        Object[] options = {"Sí", "No"};
+                        int confirmacion = JOptionPane.showOptionDialog(this, "¿Está seguro de que desea registrar las labores?", "Registro Labores",
+                                JOptionPane.YES_NO_OPTION,
+                                JOptionPane.QUESTION_MESSAGE,
+                                null, options, options[0]);
+                        if (confirmacion == JOptionPane.YES_OPTION) {
+                            control.registrarLabores(id_historial, labores);
+                            mostrarMensaje("Se registraron las labores exitosamente", "Info", "Registro Labores");
+                        } else {
+                            mostrarMensaje("No se registraron labores", "Info", "Registro Labores");
+                        }
+                    }
+                }
+            }
         }
 
     }//GEN-LAST:event_btnRegistrarLaboresActionPerformed
@@ -279,6 +287,7 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
         ventanaEmpleado.setVisible(true);
         ventanaEmpleado.setLocationRelativeTo(null);
         this.dispose();
+
     }//GEN-LAST:event_btnMenuPrincipalActionPerformed
 
     public void mostrarMensaje(String mensaje, String tipo, String titulo) {

@@ -32,6 +32,7 @@ com\edu\konradlorenz\view\VenAHorariosOpc$1.class
 com\edu\konradlorenz\model\ExageradosException.class
 com\edu\konradlorenz\view\VenAHistorialEmple.class
 com\edu\konradlorenz\view\VenAHistorialEmple$2.class
+com\edu\konradlorenz\view\VenAProducDia$3.class
 com\edu\konradlorenz\view\VenAUsuarioOpc.class
 com\edu\konradlorenz\view\VenAEditarHorario$1.class
 com\edu\konradlorenz\view\VentanaAdministrador$1.class
@@ -45,6 +46,7 @@ com\edu\konradlorenz\view\VentanaEmpleado.class
 com\edu\konradlorenz\view\VenACrearHorario$1.class
 com\edu\konradlorenz\model\HistorialHorario.class
 com\edu\konradlorenz\persistence\exceptions\NonexistentEntityException.class
+com\edu\konradlorenz\view\VenAProducDia$2.class
 com\edu\konradlorenz\view\VenAUsuarioOpc$1.class
 com\edu\konradlorenz\model\Administrador.class
 com\edu\konradlorenz\model\NoLeenException.class

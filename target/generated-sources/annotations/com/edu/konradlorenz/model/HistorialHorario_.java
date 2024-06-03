@@ -6,12 +6,13 @@ import javax.annotation.processing.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2024-06-03T15:07:20", comments="EclipseLink-2.7.10.v20211216-rNA")
+@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2024-06-03T18:35:46", comments="EclipseLink-2.7.10.v20211216-rNA")
 @StaticMetamodel(HistorialHorario.class)
 public class HistorialHorario_ { 
 
     public static volatile SingularAttribute<HistorialHorario, Short> id_historial;
     public static volatile SingularAttribute<HistorialHorario, LocalDateTime> fechaHoraIni;
+    public static volatile SingularAttribute<HistorialHorario, String> registroLabor;
     public static volatile SingularAttribute<HistorialHorario, Persona> id_user;
     public static volatile SingularAttribute<HistorialHorario, LocalDateTime> fechaHoraFin;
 

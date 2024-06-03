@@ -17,18 +17,16 @@ public class Empleado extends Persona implements Trabajador {
     private LocalTime horaEntrada;
     @Column(name = "HORASALIDA")
     private LocalTime horaSalida;
-    private String registroLabor;
     private int calificacion;
 
     public Empleado() {
     }   
 
-    public Empleado(LocalDate fechaInicial, LocalDate fechaFinal, LocalTime horaEntrada, LocalTime horaSalida, String registroLabor, int calificacion) {
+    public Empleado(LocalDate fechaInicial, LocalDate fechaFinal, LocalTime horaEntrada, LocalTime horaSalida, int calificacion) {
         this.fechaInicial = fechaInicial;
         this.fechaFinal = fechaFinal;
         this.horaEntrada = horaEntrada;
         this.horaSalida = horaSalida;
-        this.registroLabor = registroLabor;
         this.calificacion = calificacion;
     }
 
@@ -36,13 +34,12 @@ public class Empleado extends Persona implements Trabajador {
         super(nombreUsuario, nombre, contrasena, tipoDocumento, numeroDocumento, correo, telefono);
     }
 
-    public Empleado(LocalDate fechaInicial, LocalDate fechaFinal, LocalTime horaEntrada, LocalTime horaSalida, String registroLabor, int calificacion, String nombreUsuario, String nombre, String contrasena, String tipoDocumento, long numeroDocumento, String correo, long telefono) {
+    public Empleado(LocalDate fechaInicial, LocalDate fechaFinal, LocalTime horaEntrada, LocalTime horaSalida, int calificacion, String nombreUsuario, String nombre, String contrasena, String tipoDocumento, long numeroDocumento, String correo, long telefono) {
         super(nombreUsuario, nombre, contrasena, tipoDocumento, numeroDocumento, correo, telefono);
         this.fechaInicial = fechaInicial;
         this.fechaFinal = fechaFinal;
         this.horaEntrada = horaEntrada;
         this.horaSalida = horaSalida;
-        this.registroLabor = registroLabor;
         this.calificacion = calificacion;
     }
 
@@ -81,14 +78,6 @@ public class Empleado extends Persona implements Trabajador {
 
     public void setHoraSalida(LocalTime horaSalida) {
         this.horaSalida = horaSalida;
-    }
-
-    public String getRegistroLabor() {
-        return registroLabor;
-    }
-
-    public void setRegistroLabor(String registroLabor) {
-        this.registroLabor = registroLabor;
     }
     
     public int getCalificacion() {

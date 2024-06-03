@@ -3,8 +3,8 @@ package com.edu.konradlorenz.view;
 import com.edu.konradlorenz.controller.Controlador;
 import com.edu.konradlorenz.model.HistorialHorario;
 import com.edu.konradlorenz.model.Persona;
-
 import java.awt.*;
+import java.awt.event.WindowEvent;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -14,11 +14,10 @@ public class VenAHistorialEmple extends javax.swing.JFrame {
     short id_user;
     Persona person;
 
-    public VenAHistorialEmple(Persona person, Controlador control, short id_user) {
+    public VenAHistorialEmple(Controlador control, short id_user) {
         initComponents();
         this.control = control;
         this.id_user = id_user;
-        this.person = person;
     }
 
     @SuppressWarnings("unchecked")
@@ -29,18 +28,18 @@ public class VenAHistorialEmple extends javax.swing.JFrame {
         lblHistorialEmpleado = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblHistorialEmple = new javax.swing.JTable();
-        btnSalir = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened();
+                formWindowOpened(evt);
             }
         });
 
         jPanel1.setBackground(new java.awt.Color(192, 214, 250));
 
-        lblHistorialEmpleado.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 24)); // NOI18N
+        lblHistorialEmpleado.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 18)); // NOI18N
         lblHistorialEmpleado.setText("Historial del empleado:");
 
         tblHistorialEmple.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 12)); // NOI18N
@@ -57,41 +56,41 @@ public class VenAHistorialEmple extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblHistorialEmple);
 
-        btnSalir.setBackground(new java.awt.Color(108, 152, 197));
-        btnSalir.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 16)); // NOI18N
-        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setText("Volver");
-        btnSalir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(170, 208, 245), null, null));
-        btnSalir.addActionListener(this::btnSalirActionPerformed);
+        btnVolver.setBackground(new java.awt.Color(108, 152, 197));
+        btnVolver.setFont(new java.awt.Font("Century Gothic", Font.BOLD, 16)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
+        btnVolver.setText("Volver");
+        btnVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(170, 208, 245), null, null));
+        btnVolver.addActionListener(this::btnVolverActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblHistorialEmpleado)
+                .addGap(199, 199, 199))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(245, 245, 245)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(243, 243, 243)
+                        .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(21, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblHistorialEmpleado)
-                .addGap(162, 162, 162))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(42, 42, 42)
                 .addComponent(lblHistorialEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -104,22 +103,22 @@ public class VenAHistorialEmple extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowOpened() {//GEN-FIRST:event_formWindowOpened
+    private void formWindowOpened(WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 
         person = control.traerUsuario(id_user);
         cargarTablaEmpleados();
 
     }//GEN-LAST:event_formWindowOpened
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         this.dispose();
-    }//GEN-LAST:event_btnSalirActionPerformed
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     private void cargarTablaEmpleados() {
 
@@ -147,7 +146,7 @@ public class VenAHistorialEmple extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblHistorialEmpleado;
