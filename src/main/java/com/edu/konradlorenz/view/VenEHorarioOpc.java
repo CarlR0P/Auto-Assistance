@@ -223,38 +223,35 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
     private void btnRegistrarSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarSalidaActionPerformed
 
         LocalDateTime salida = LocalDateTime.now();
-
+        int dia = salida.getDayOfMonth();
         List<HistorialHorario> listaHistorial = control.traerRegistros();
-
+        
         if (listaHistorial != null) {
-
             for (HistorialHorario historial : listaHistorial) {
                 if (id_user == historial.getId_user().getId()) {
-                    short id_historial = historial.getId_historial();
-
-                    Object[] options = {"Sí", "No"};
-                    int confirmacion = JOptionPane.showOptionDialog(this,
-                            "¿Está seguro de que desea registrar la salida en "
-                            + salida.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "?",
-                            "Registro Salida",
-                            JOptionPane.YES_NO_OPTION,
-                            JOptionPane.QUESTION_MESSAGE,
-                            null, options, options[0]);
-
-                    if (confirmacion == JOptionPane.YES_OPTION) {
-                        try {
-                            control.registrarSalida(id_historial, salida);
-                            mostrarMensaje("Se registró la salida exitosamente", "Info", "Registro Salida");
-                        } catch (TrampososException ex) {
-                            mostrarMensaje(ex.getMessage(), "Error", "Error al registrar la salida");
-
+                    if(dia == historial.getFechaHoraIni().getDayOfMonth()){
+                        short id_historial = historial.getId_historial();
+                        Object[] options = {"Sí", "No"};
+                        int confirmacion = JOptionPane.showOptionDialog(this,
+                                "¿Está seguro de que desea registrar la salida en "
+                                        + salida.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "?",
+                                "Registro Salida",
+                                JOptionPane.YES_NO_OPTION,
+                                JOptionPane.QUESTION_MESSAGE,
+                                null, options, options[0]);
+                        if (confirmacion == JOptionPane.YES_OPTION) {
+                            try {
+                                control.registrarSalida(id_historial, salida);
+                                mostrarMensaje("Se registró la salida exitosamente", "Info", "Registro Salida");
+                            } catch (TrampososException ex) {
+                                mostrarMensaje(ex.getMessage(), "Error", "Error al registrar la salida");
+                            }
+                        } else {
+                            mostrarMensaje("No se guardó la hora de salida", "Info", "Registro Salida");
                         }
-                    } else {
-                        mostrarMensaje("No se guardó la hora de salida", "Info", "Registro Salida");
                     }
                 }
             }
-
         }
 
     }//GEN-LAST:event_btnRegistrarSalidaActionPerformed
