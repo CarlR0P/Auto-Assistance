@@ -25,29 +25,28 @@ public class VenACrearUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.JTextField jTextField1 = new javax.swing.JTextField();
-        javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
-        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
-        javax.swing.JLabel lblNombreUser = new javax.swing.JLabel();
-        javax.swing.JLabel lblCreacionUser = new javax.swing.JLabel();
-        javax.swing.JLabel lblContrasena = new javax.swing.JLabel();
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        javax.swing.JButton btnGuardar = new javax.swing.JButton();
-        javax.swing.JButton btnLimpiar = new javax.swing.JButton();
-        javax.swing.JButton btnVolver = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jPanel1 = new javax.swing.JPanel();
+        lblNombreUser = new javax.swing.JLabel();
+        lblCreacionUser = new javax.swing.JLabel();
+        lblContrasena = new javax.swing.JLabel();
+        btnGuardar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
         txtNombreUser = new javax.swing.JTextField();
         txtContrasena = new javax.swing.JPasswordField();
-        javax.swing.JLabel lblNombreApellido = new javax.swing.JLabel();
+        lblNombreApellido = new javax.swing.JLabel();
         txtNombreApellido = new javax.swing.JTextField();
-        javax.swing.JLabel lblTipoDoc = new javax.swing.JLabel();
+        lblTipoDoc = new javax.swing.JLabel();
         cmbTipoDoc = new javax.swing.JComboBox<>();
-        javax.swing.JLabel lblNumeroDoc = new javax.swing.JLabel();
+        lblNumeroDoc = new javax.swing.JLabel();
         txtNumeroDoc = new javax.swing.JTextField();
-        javax.swing.JLabel lblCorreo = new javax.swing.JLabel();
+        lblCorreo = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
-        javax.swing.JLabel lblTelefono = new javax.swing.JLabel();
+        lblTelefono = new javax.swing.JLabel();
         txtTelefono = new javax.swing.JTextField();
-        javax.swing.JLabel lblRol = new javax.swing.JLabel();
+        lblRol = new javax.swing.JLabel();
         cmbRol = new javax.swing.JComboBox<>();
 
         jTextField1.setFont(new java.awt.Font("sansserif", Font.PLAIN, 18)); // NOI18N
@@ -56,6 +55,8 @@ public class VenACrearUser extends javax.swing.JFrame {
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+        });
 
         jPanel1.setBackground(new java.awt.Color(192, 214, 250));
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 650));
@@ -100,6 +101,7 @@ public class VenACrearUser extends javax.swing.JFrame {
         txtContrasena.setBackground(new java.awt.Color(228, 235, 247));
         txtContrasena.setFont(new java.awt.Font("Century Gothic", Font.PLAIN, 18)); // NOI18N
         txtContrasena.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
 
         lblNombreApellido.setFont(new java.awt.Font("Century Gothic", Font.PLAIN, 18)); // NOI18N
         lblNombreApellido.setForeground(new java.awt.Color(10, 10, 10));
@@ -258,10 +260,6 @@ public class VenACrearUser extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnVolverActionPerformed
-
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
         String nombreUser = txtNombreUser.getText();
@@ -310,7 +308,11 @@ public class VenACrearUser extends javax.swing.JFrame {
         txtCorreo.setText("");
         txtTelefono.setText("");
 
-    }//GEN-LAST:event_btnLimpiarActionPerforme
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     public void mostrarMensaje(String mensaje, String tipo, String titulo) {
         JOptionPane optionPane = new JOptionPane(mensaje);
@@ -324,8 +326,24 @@ public class VenACrearUser extends javax.swing.JFrame {
         dialog.setVisible(true);
     }
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox<String> cmbRol;
     private javax.swing.JComboBox<String> cmbTipoDoc;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblContrasena;
+    private javax.swing.JLabel lblCorreo;
+    private javax.swing.JLabel lblCreacionUser;
+    private javax.swing.JLabel lblNombreApellido;
+    private javax.swing.JLabel lblNombreUser;
+    private javax.swing.JLabel lblNumeroDoc;
+    private javax.swing.JLabel lblRol;
+    private javax.swing.JLabel lblTelefono;
+    private javax.swing.JLabel lblTipoDoc;
     private javax.swing.JPasswordField txtContrasena;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtNombreApellido;

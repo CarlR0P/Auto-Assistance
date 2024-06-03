@@ -3,6 +3,7 @@ package com.edu.konradlorenz.view;
 import com.edu.konradlorenz.controller.Controlador;
 import com.edu.konradlorenz.model.HistorialHorario;
 import com.edu.konradlorenz.model.Persona;
+
 import java.awt.*;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -24,12 +25,11 @@ public class VenAHistorialEmple extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
-        javax.swing.JLabel lblHistorialEmpleado = new javax.swing.JLabel();
-        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        lblHistorialEmpleado = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         tblHistorialEmple = new javax.swing.JTable();
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        javax.swing.JButton btnSalir = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -146,6 +146,11 @@ public class VenAHistorialEmple extends javax.swing.JFrame {
 
     }
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblHistorialEmpleado;
     private javax.swing.JTable tblHistorialEmple;
     // End of variables declaration//GEN-END:variables
 }

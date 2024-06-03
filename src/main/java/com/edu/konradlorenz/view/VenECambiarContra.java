@@ -23,13 +23,12 @@ public class VenECambiarContra extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
-        javax.swing.JLabel lblCambioContrasena = new javax.swing.JLabel();
-        javax.swing.JLabel lblNuevaContrasena = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblCambioContrasena = new javax.swing.JLabel();
+        lblNuevaContrasena = new javax.swing.JLabel();
         txtContrasena = new javax.swing.JPasswordField();
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        javax.swing.JButton btnCancelar = new javax.swing.JButton();
-        javax.swing.JButton btnGuardar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -128,7 +127,7 @@ public class VenECambiarContra extends javax.swing.JFrame {
         txtContrasena.setText(person.getContrasena());
     }//GEN-LAST:event_formWindowOpened
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {
 
         String contrasena = txtContrasena.getText();
 
@@ -167,8 +166,14 @@ public class VenECambiarContra extends javax.swing.JFrame {
         JDialog dialog = optionPane.createDialog(titulo);
         dialog.setAlwaysOnTop(true);
         dialog.setVisible(true);
-    }//GEN-LAST:event_btnGuardarActionPerformed
+    }
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblCambioContrasena;
+    private javax.swing.JLabel lblNuevaContrasena;
     private javax.swing.JPasswordField txtContrasena;
     // End of variables declaration//GEN-END:variables
 }

@@ -21,17 +21,16 @@ public class VenEMiPerfil extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
-        javax.swing.JLabel lblMisDatos = new javax.swing.JLabel();
-        javax.swing.JLabel lblCorreo = new javax.swing.JLabel();
-        javax.swing.JLabel lblNombreUsuario = new javax.swing.JLabel();
-        javax.swing.JLabel lblNombresApellidos = new javax.swing.JLabel();
-        javax.swing.JLabel lblTipoDoc = new javax.swing.JLabel();
-        javax.swing.JLabel lblNumeDoc = new javax.swing.JLabel();
-        javax.swing.JLabel lblTelefono = new javax.swing.JLabel();
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        javax.swing.JButton btnCambiarContrasena = new javax.swing.JButton();
-        javax.swing.JButton btnMenuPrincipal = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        lblMisDatos = new javax.swing.JLabel();
+        lblCorreo = new javax.swing.JLabel();
+        lblNombreUsuario = new javax.swing.JLabel();
+        lblNombresApellidos = new javax.swing.JLabel();
+        lblTipoDoc = new javax.swing.JLabel();
+        lblNumeDoc = new javax.swing.JLabel();
+        lblTelefono = new javax.swing.JLabel();
+        btnCambiarContrasena = new javax.swing.JButton();
+        btnMenuPrincipal = new javax.swing.JButton();
         txtTipoDoc = new javax.swing.JTextField();
         txtNumDoc = new javax.swing.JTextField();
         txtNombreUsuario = new javax.swing.JTextField();
@@ -241,6 +240,17 @@ public class VenEMiPerfil extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnMenuPrincipalActionPerformed
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCambiarContrasena;
+    private javax.swing.JButton btnMenuPrincipal;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblCorreo;
+    private javax.swing.JLabel lblMisDatos;
+    private javax.swing.JLabel lblNombreUsuario;
+    private javax.swing.JLabel lblNombresApellidos;
+    private javax.swing.JLabel lblNumeDoc;
+    private javax.swing.JLabel lblTelefono;
+    private javax.swing.JLabel lblTipoDoc;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtNombreApellido;
     private javax.swing.JTextField txtNombreUsuario;

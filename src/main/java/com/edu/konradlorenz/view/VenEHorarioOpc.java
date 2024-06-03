@@ -4,6 +4,7 @@ import com.edu.konradlorenz.controller.Controlador;
 import com.edu.konradlorenz.model.HistorialHorario;
 import com.edu.konradlorenz.model.Persona;
 import com.edu.konradlorenz.model.TrampososException;
+
 import java.awt.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -28,18 +29,17 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
-        javax.swing.JLabel lblSistEmple = new javax.swing.JLabel();
-        javax.swing.JButton btnRegistrarSalida = new javax.swing.JButton();
-        javax.swing.JButton btnRegistrarLlegada = new javax.swing.JButton();
-        javax.swing.JButton btnRegistrarLabores = new javax.swing.JButton();
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        javax.swing.JButton btnMenuPrincipal = new javax.swing.JButton();
-        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        lblSistEmple = new javax.swing.JLabel();
+        btnRegistrarSalida = new javax.swing.JButton();
+        btnRegistrarLlegada = new javax.swing.JButton();
+        btnRegistrarLabores = new javax.swing.JButton();
+        btnMenuPrincipal = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
         txtRegistroLabores = new javax.swing.JTextArea();
-        javax.swing.JLabel lblRegistrarLabores = new javax.swing.JLabel();
+        lblRegistrarLabores = new javax.swing.JLabel();
         lblUserLogged = new javax.swing.JLabel();
-        javax.swing.JButton btnVerHorario = new javax.swing.JButton();
+        btnVerHorario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -82,7 +82,7 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
         btnMenuPrincipal.addActionListener(this::btnMenuPrincipalActionPerformed);
 
         txtRegistroLabores.setColumns(20);
-        txtRegistroLabores.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 14)); // NOI18N
+        txtRegistroLabores.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 14)); // NOI18N
         txtRegistroLabores.setRows(5);
         jScrollPane1.setViewportView(txtRegistroLabores);
 
@@ -182,6 +182,7 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
     private void formWindowOpened() {//GEN-FIRST:event_formWindowOpened
         person = control.traerUsuario(id_user);
         this.lblUserLogged.setText(person.getNombreUsuario());
+
     }//GEN-LAST:event_formWindowOpened
 
     private void btnVerHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerHorarioActionPerformed
@@ -207,14 +208,14 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
         if (confirmacion == JOptionPane.YES_OPTION) {
             if (person != null && control != null) {
                 try {
-            control.registrarLlegada(person, llegada);
-            mostrarMensaje("Se registró la llegada exitosamente", "Info", "Registro Llegada");
-        } catch (TrampososException e) {
-            mostrarMensaje(e.getMessage(), "Error", "Error al registrar la llegada");
-        }
-    } else {
-        mostrarMensaje("No se guardó la hora de llegada", "Info", "Registro Llegada");
-    
+                    control.registrarLlegada(person, llegada);
+                    mostrarMensaje("Se registró la llegada exitosamente", "Info", "Registro Llegada");
+                } catch (TrampososException e) {
+                    mostrarMensaje(e.getMessage(), "Error", "Error al registrar la llegada");
+                }
+            } else {
+                mostrarMensaje("No se guardó la hora de llegada", "Info", "Registro Llegada");
+
             }
         }
     }//GEN-LAST:event_btnRegistrarLlegadaActionPerformed
@@ -246,7 +247,7 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
                             mostrarMensaje("Se registró la salida exitosamente", "Info", "Registro Salida");
                         } catch (TrampososException ex) {
                             mostrarMensaje(ex.getMessage(), "Error", "Error al registrar la salida");
-        
+
                         }
                     } else {
                         mostrarMensaje("No se guardó la hora de salida", "Info", "Registro Salida");
@@ -281,7 +282,6 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
         ventanaEmpleado.setVisible(true);
         ventanaEmpleado.setLocationRelativeTo(null);
         this.dispose();
-
     }//GEN-LAST:event_btnMenuPrincipalActionPerformed
 
     public void mostrarMensaje(String mensaje, String tipo, String titulo) {
@@ -296,6 +296,16 @@ public class VenEHorarioOpc extends javax.swing.JFrame {
         dialog.setVisible(true);
     }
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMenuPrincipal;
+    private javax.swing.JButton btnRegistrarLabores;
+    private javax.swing.JButton btnRegistrarLlegada;
+    private javax.swing.JButton btnRegistrarSalida;
+    private javax.swing.JButton btnVerHorario;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblRegistrarLabores;
+    private javax.swing.JLabel lblSistEmple;
     private javax.swing.JLabel lblUserLogged;
     private javax.swing.JTextArea txtRegistroLabores;
     // End of variables declaration//GEN-END:variables

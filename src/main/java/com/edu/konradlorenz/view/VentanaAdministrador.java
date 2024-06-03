@@ -21,13 +21,12 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
-        javax.swing.JLabel lblSistAdmin = new javax.swing.JLabel();
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        javax.swing.JButton btnHorarios = new javax.swing.JButton();
-        javax.swing.JButton btnUsuarios = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        lblSistAdmin = new javax.swing.JLabel();
+        btnHorarios = new javax.swing.JButton();
+        btnUsuarios = new javax.swing.JButton();
         lblUserLogged = new javax.swing.JLabel();
-        javax.swing.JButton btnSalir = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -143,9 +142,17 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHorariosActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+
         System.exit(0);
+
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHorarios;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnUsuarios;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblSistAdmin;
     private javax.swing.JLabel lblUserLogged;
     // End of variables declaration//GEN-END:variables
 }

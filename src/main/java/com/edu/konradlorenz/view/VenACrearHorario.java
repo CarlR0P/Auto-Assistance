@@ -29,18 +29,17 @@ public class VenACrearHorario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
-        javax.swing.JLabel lblCreacionHor = new javax.swing.JLabel();
-        javax.swing.JLabel lblHoraEnt = new javax.swing.JLabel();
-        javax.swing.JLabel lblHoraSal = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblCreacionHor = new javax.swing.JLabel();
+        lblHoraEnt = new javax.swing.JLabel();
+        lblHoraSal = new javax.swing.JLabel();
         cmbHoraSal = new javax.swing.JComboBox<>();
         cmbHoraEnt = new javax.swing.JComboBox<>();
-        javax.swing.JButton btnVolver = new javax.swing.JButton();
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        javax.swing.JButton btnGuardar = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         jdcFechaIni = new com.toedter.calendar.JDateChooser();
-        javax.swing.JLabel lblFechaIni = new javax.swing.JLabel();
-        javax.swing.JLabel lblFechaFin = new javax.swing.JLabel();
+        lblFechaIni = new javax.swing.JLabel();
+        lblFechaFin = new javax.swing.JLabel();
         jdcFechaFin = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -201,9 +200,9 @@ public class VenACrearHorario extends javax.swing.JFrame {
         // Obtener la hora de salida
         String horaSalidaStr = (String) cmbHoraSal.getSelectedItem();
         LocalTime horaSalida = LocalTime.parse(horaSalidaStr);
-        
-       try {
-           
+
+        try {
+
             ViajesEnElTiempoException.viajeAlPasado(fechaInicial, fechaFinal);
             ViajesEnElTiempoException.viajeAlPasado(horaEntradaStr, horaSalidaStr);
 
@@ -227,7 +226,6 @@ public class VenACrearHorario extends javax.swing.JFrame {
             // Manejar otras posibles excepciones
             mostrarMensaje("Error al asignar el horario: " + ex.getMessage(), "Error", "Asignacion de Horario");
         }
-        
         /*Mostrar un mensaje con la hora de entrada para prueba
         JOptionPane.showMessageDialog(null, "Hora de Entrada: " + horaEntrada + "\nHora de Salida: " + horaSalida
                 + "\nFecha Inicial: " + fechaIniLocal + "\nFecha Final: " + fechaFinLocal);*/
@@ -250,9 +248,18 @@ public class VenACrearHorario extends javax.swing.JFrame {
         dialog.setVisible(true);
     }
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox<String> cmbHoraEnt;
     private javax.swing.JComboBox<String> cmbHoraSal;
+    private javax.swing.JPanel jPanel1;
     private com.toedter.calendar.JDateChooser jdcFechaFin;
     private com.toedter.calendar.JDateChooser jdcFechaIni;
+    private javax.swing.JLabel lblCreacionHor;
+    private javax.swing.JLabel lblFechaFin;
+    private javax.swing.JLabel lblFechaIni;
+    private javax.swing.JLabel lblHoraEnt;
+    private javax.swing.JLabel lblHoraSal;
     // End of variables declaration//GEN-END:variables
 }

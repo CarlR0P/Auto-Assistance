@@ -21,13 +21,12 @@ public class VentanaEmpleado extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
-        javax.swing.JLabel lblSistEmpleado = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblSistEmpleado = new javax.swing.JLabel();
         lblUserLogged = new javax.swing.JLabel();
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        javax.swing.JButton btnMiHorario = new javax.swing.JButton();
-        javax.swing.JButton btnSalir1 = new javax.swing.JButton();
-        javax.swing.JButton btnMiPerfil1 = new javax.swing.JButton();
+        btnMiHorario = new javax.swing.JButton();
+        btnSalir1 = new javax.swing.JButton();
+        btnMiPerfil1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -136,9 +135,9 @@ public class VentanaEmpleado extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMiPerfil1ActionPerformed
 
     private void btnMiHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiHorarioActionPerformed
-        
+
         short id_user = person.getId();
-        VenEHorarioOpc venEHorarioOpc = new VenEHorarioOpc(control, person,id_user);
+        VenEHorarioOpc venEHorarioOpc = new VenEHorarioOpc(control, person, id_user);
         venEHorarioOpc.setVisible(true);
         venEHorarioOpc.setLocationRelativeTo(null);
         this.dispose();
@@ -151,6 +150,12 @@ public class VentanaEmpleado extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMiHorario;
+    private javax.swing.JButton btnMiPerfil1;
+    private javax.swing.JButton btnSalir1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblSistEmpleado;
     private javax.swing.JLabel lblUserLogged;
     // End of variables declaration//GEN-END:variables
 }

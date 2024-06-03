@@ -25,19 +25,18 @@ public class VenAHorariosOpc extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
-        javax.swing.JLabel lblSistAdmin = new javax.swing.JLabel();
-        javax.swing.JLabel lblEmpleadosDispo = new javax.swing.JLabel();
-        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        lblSistAdmin = new javax.swing.JLabel();
+        lblEmpleadosDispo = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         tblAEmpleados = new javax.swing.JTable();
-        javax.swing.JButton btnEliminarHorario = new javax.swing.JButton();
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        javax.swing.JButton btnCrearHorario = new javax.swing.JButton();
-        javax.swing.JButton btnEditarHorario = new javax.swing.JButton();
-        javax.swing.JButton btnRecargarTabla = new javax.swing.JButton();
-        javax.swing.JButton btnMenuPrincipal = new javax.swing.JButton();
-        javax.swing.JButton btnProductividadEmple = new javax.swing.JButton();
-        javax.swing.JButton btnHistorialEmple = new javax.swing.JButton();
+        btnEliminarHorario = new javax.swing.JButton();
+        btnCrearHorario = new javax.swing.JButton();
+        btnEditarHorario = new javax.swing.JButton();
+        btnRecargarTabla = new javax.swing.JButton();
+        btnMenuPrincipal = new javax.swing.JButton();
+        btnProductividadEmple = new javax.swing.JButton();
+        btnHistorialEmple = new javax.swing.JButton();
         lblUserLogged = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -223,6 +222,7 @@ public class VenAHorariosOpc extends javax.swing.JFrame {
             mostrarMensaje("No selecciono ningun registro", "Error", "Error al editar");
         }
 
+
     }//GEN-LAST:event_btnCrearHorarioActionPerformed
 
     private void btnEditarHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarHorarioActionPerformed
@@ -291,15 +291,6 @@ public class VenAHorariosOpc extends javax.swing.JFrame {
         cargarTablaEmpleados();
     }//GEN-LAST:event_btnRecargarTablaActionPerformed
 
-    private void btnMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuPrincipalActionPerformed
-
-        VentanaAdministrador ventaAdmin = new VentanaAdministrador(control, person);
-        ventaAdmin.setVisible(true);
-        ventaAdmin.setLocationRelativeTo(null);
-        this.dispose();
-
-    }//GEN-LAST:event_btnMenuPrincipalActionPerformed
-
     private void btnHistorialEmpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialEmpleActionPerformed
 
         if (tblAEmpleados.getSelectedRow() != -1) {
@@ -325,6 +316,15 @@ public class VenAHorariosOpc extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnProductividadEmpleActionPerformed
+
+    private void btnMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuPrincipalActionPerformed
+
+        VentanaAdministrador ventaAdmin = new VentanaAdministrador(control, person);
+        ventaAdmin.setVisible(true);
+        ventaAdmin.setLocationRelativeTo(null);
+        this.dispose();
+
+    }//GEN-LAST:event_btnMenuPrincipalActionPerformed
 
     private void cargarTablaEmpleados() {
 
@@ -362,6 +362,18 @@ public class VenAHorariosOpc extends javax.swing.JFrame {
         dialog.setVisible(true);
     }
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCrearHorario;
+    private javax.swing.JButton btnEditarHorario;
+    private javax.swing.JButton btnEliminarHorario;
+    private javax.swing.JButton btnHistorialEmple;
+    private javax.swing.JButton btnMenuPrincipal;
+    private javax.swing.JButton btnProductividadEmple;
+    private javax.swing.JButton btnRecargarTabla;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblEmpleadosDispo;
+    private javax.swing.JLabel lblSistAdmin;
     private javax.swing.JLabel lblUserLogged;
     private javax.swing.JTable tblAEmpleados;
     // End of variables declaration//GEN-END:variables

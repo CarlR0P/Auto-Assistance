@@ -7,11 +7,11 @@ import javax.swing.JOptionPane;
 import java.awt.*;
 
 public class VenAProducDia extends javax.swing.JFrame {
-    
+
     Controlador control;
     short id_user;
     Persona person;
-    
+
     public VenAProducDia(Controlador control, short id_user) {
         initComponents();
         this.control = control;
@@ -22,12 +22,11 @@ public class VenAProducDia extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
-        javax.swing.JLabel lblProductividadEmple = new javax.swing.JLabel();
-        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        lblProductividadEmple = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         txtProductivadDelEmpleado = new javax.swing.JTextArea();
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        javax.swing.JButton btnVolver = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -102,7 +101,7 @@ public class VenAProducDia extends javax.swing.JFrame {
 
         if (person instanceof Empleado) {
             Empleado emple;
-            emple =  (Empleado) person;
+            emple = (Empleado) person;
             txtProductivadDelEmpleado.setText(emple.getRegistroLabor());
         } else {
             // Manejar el caso donde la persona no es un Empleado
@@ -115,6 +114,11 @@ public class VenAProducDia extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVolver;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblProductividadEmple;
     private javax.swing.JTextArea txtProductivadDelEmpleado;
     // End of variables declaration//GEN-END:variables
 }

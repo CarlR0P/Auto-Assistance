@@ -24,17 +24,16 @@ public class VenAUsuarioOpc extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
-        javax.swing.JLabel lblSistAdmin = new javax.swing.JLabel();
-        javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
-        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        lblSistAdmin = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         tblaUsuarios = new javax.swing.JTable();
-        javax.swing.JButton btnEliminarUsuario = new javax.swing.JButton();
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        javax.swing.JButton btnCrearUsuario = new javax.swing.JButton();
-        javax.swing.JButton btnEditarUsuario = new javax.swing.JButton();
-        javax.swing.JButton btnMenuPrincipal = new javax.swing.JButton();
-        javax.swing.JButton btnRecargarTabla = new javax.swing.JButton();
+        btnEliminarUsuario = new javax.swing.JButton();
+        btnCrearUsuario = new javax.swing.JButton();
+        btnEditarUsuario = new javax.swing.JButton();
+        btnMenuPrincipal = new javax.swing.JButton();
+        btnRecargarTabla = new javax.swing.JButton();
         lblUserLogged = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -187,7 +186,6 @@ public class VenAUsuarioOpc extends javax.swing.JFrame {
         VenACrearUser venCrearUser = new VenACrearUser(control);
         venCrearUser.setVisible(true);
         venCrearUser.setLocationRelativeTo(null);
-
     }//GEN-LAST:event_btnCrearUsuarioActionPerformed
 
     private void btnEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarUsuarioActionPerformed
@@ -200,6 +198,7 @@ public class VenAUsuarioOpc extends javax.swing.JFrame {
         } else {
             mostrarMensaje("No selecciono ningun registro", "Error", "Error al editar");
         }
+
 
     }//GEN-LAST:event_btnEditarUsuarioActionPerformed
 
@@ -233,7 +232,6 @@ public class VenAUsuarioOpc extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRecargarTablaActionPerformed
 
     private void btnMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuPrincipalActionPerformed
-
         VentanaAdministrador ventaAdmin = new VentanaAdministrador(control, person);
         ventaAdmin.setVisible(true);
         ventaAdmin.setLocationRelativeTo(null);
@@ -276,6 +274,16 @@ public class VenAUsuarioOpc extends javax.swing.JFrame {
         dialog.setVisible(true);
     }
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCrearUsuario;
+    private javax.swing.JButton btnEditarUsuario;
+    private javax.swing.JButton btnEliminarUsuario;
+    private javax.swing.JButton btnMenuPrincipal;
+    private javax.swing.JButton btnRecargarTabla;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblSistAdmin;
     private javax.swing.JLabel lblUserLogged;
     private javax.swing.JTable tblaUsuarios;
     // End of variables declaration//GEN-END:variables

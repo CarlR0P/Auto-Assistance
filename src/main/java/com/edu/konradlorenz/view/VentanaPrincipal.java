@@ -21,13 +21,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
-        javax.swing.JLabel lblLogin = new javax.swing.JLabel();
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        javax.swing.JButton btnIniciar = new javax.swing.JButton();
-        javax.swing.JButton btnLimpiar = new javax.swing.JButton();
-        javax.swing.JLabel lblUsuario = new javax.swing.JLabel();
-        javax.swing.JLabel lblContrasena = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblLogin = new javax.swing.JLabel();
+        btnIniciar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
+        lblUsuario = new javax.swing.JLabel();
+        lblContrasena = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         txtContrasena = new javax.swing.JPasswordField();
 
@@ -171,6 +170,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         dialog.setVisible(true);
     }
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnIniciar;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblContrasena;
+    private javax.swing.JLabel lblLogin;
+    private javax.swing.JLabel lblUsuario;
     private javax.swing.JPasswordField txtContrasena;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

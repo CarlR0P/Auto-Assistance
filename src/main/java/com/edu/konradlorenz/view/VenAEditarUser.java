@@ -26,17 +26,17 @@ public class VenAEditarUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.JPanel jPanel2 = new javax.swing.JPanel();
-        javax.swing.JLabel lblContrasena = new javax.swing.JLabel();
-        javax.swing.JButton btnVolver = new javax.swing.JButton();
-        javax.swing.JLabel lblEdicionUser = new javax.swing.JLabel();
-        javax.swing.JLabel lblNombreUser = new javax.swing.JLabel();
-        javax.swing.JLabel lblNombreApellido = new javax.swing.JLabel();
-        javax.swing.JLabel lblTipoDoc = new javax.swing.JLabel();
-        javax.swing.JLabel lblNumeroDoc = new javax.swing.JLabel();
-        javax.swing.JLabel lblCorreo = new javax.swing.JLabel();
-        javax.swing.JLabel lblTelefono = new javax.swing.JLabel();
-        javax.swing.JLabel lblRol = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        lblContrasena = new javax.swing.JLabel();
+        btnVolver = new javax.swing.JButton();
+        lblEdicionUser = new javax.swing.JLabel();
+        lblNombreUser = new javax.swing.JLabel();
+        lblNombreApellido = new javax.swing.JLabel();
+        lblTipoDoc = new javax.swing.JLabel();
+        lblNumeroDoc = new javax.swing.JLabel();
+        lblCorreo = new javax.swing.JLabel();
+        lblTelefono = new javax.swing.JLabel();
+        lblRol = new javax.swing.JLabel();
         txtNombreUser = new javax.swing.JTextField();
         txtNombreApellido = new javax.swing.JTextField();
         cmbTipoDoc = new javax.swing.JComboBox<>();
@@ -44,10 +44,9 @@ public class VenAEditarUser extends javax.swing.JFrame {
         txtCorreo = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
         cmbRol = new javax.swing.JComboBox<>();
-        javax.swing.JButton btnResetearContrasena = new javax.swing.JButton();
-        javax.swing.JButton btnLimpiar = new javax.swing.JButton();
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        javax.swing.JButton btnGuardar = new javax.swing.JButton();
+        btnResetearContrasena = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(192, 214, 250));
@@ -277,19 +276,23 @@ public class VenAEditarUser extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowOpened
 
-    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnVolverActionPerformed
+    private void btnResetearContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetearContrasenaActionPerformed
 
-    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        String contrasena = "Colombia123";
 
-        txtNombreUser.setText("");
-        txtNombreApellido.setText("");
-        txtNumeroDoc.setText("");
-        txtCorreo.setText("");
-        txtTelefono.setText("");
+        Object[] options = {"Sí", "No"};
+        int confirmacion = JOptionPane.showOptionDialog(this, "¿Está seguro de que desea cambiar su contraseña?", "Cambio Contraseña",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+                options, options[0]);
 
-    }//GEN-LAST:event_btnLimpiarActionPerformed
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            control.cambiarContra(person, contrasena);
+            mostrarMensaje("Se reseteo la contraseña correctamente", "Info", "Cambio de Contraseña");
+            this.dispose();
+        } else {
+            mostrarMensaje("No se reseteo la contraseña", "Info", "Cambio de Contraseña");
+        }
+    }//GEN-LAST:event_btnResetearContrasenaActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
@@ -331,23 +334,19 @@ public class VenAEditarUser extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void btnResetearContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetearContrasenaActionPerformed
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
 
-        String contrasena = "Colombia123";
+        txtNombreUser.setText("");
+        txtNombreApellido.setText("");
+        txtNumeroDoc.setText("");
+        txtCorreo.setText("");
+        txtTelefono.setText("");
 
-        Object[] options = {"Sí", "No"};
-        int confirmacion = JOptionPane.showOptionDialog(this, "¿Está seguro de que desea cambiar su contraseña?", "Cambio Contraseña",
-                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-                options, options[0]);
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
-        if (confirmacion == JOptionPane.YES_OPTION) {
-            control.cambiarContra(person, contrasena);
-            mostrarMensaje("Se reseteo la contraseña correctamente", "Info", "Cambio de Contraseña");
-            this.dispose();
-        } else {
-            mostrarMensaje("No se reseteo la contraseña", "Info", "Cambio de Contraseña");
-        }
-    }//GEN-LAST:event_btnResetearContrasenaActionPerformed
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     public void mostrarMensaje(String mensaje, String tipo, String titulo) {
         JOptionPane optionPane = new JOptionPane(mensaje);
@@ -361,8 +360,23 @@ public class VenAEditarUser extends javax.swing.JFrame {
         dialog.setVisible(true);
     }
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnResetearContrasena;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox<String> cmbRol;
     private javax.swing.JComboBox<String> cmbTipoDoc;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblContrasena;
+    private javax.swing.JLabel lblCorreo;
+    private javax.swing.JLabel lblEdicionUser;
+    private javax.swing.JLabel lblNombreApellido;
+    private javax.swing.JLabel lblNombreUser;
+    private javax.swing.JLabel lblNumeroDoc;
+    private javax.swing.JLabel lblRol;
+    private javax.swing.JLabel lblTelefono;
+    private javax.swing.JLabel lblTipoDoc;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtNombreApellido;
     private javax.swing.JTextField txtNombreUser;

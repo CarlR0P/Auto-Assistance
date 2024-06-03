@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 import java.awt.*;
 
 public class VenEVerHorario extends javax.swing.JFrame {
-    
+
     Controlador control;
     short id_user;
     Persona person;
@@ -23,18 +23,17 @@ public class VenEVerHorario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
-        javax.swing.JLabel lblHorarioAsignado = new javax.swing.JLabel();
-        javax.swing.JLabel lblDesde = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblHorarioAsignado = new javax.swing.JLabel();
+        lblDesde = new javax.swing.JLabel();
         txtFechaIni = new javax.swing.JTextField();
-        javax.swing.JLabel lblHasta = new javax.swing.JLabel();
+        lblHasta = new javax.swing.JLabel();
         txtFechaFin = new javax.swing.JTextField();
-        javax.swing.JLabel lblHoraEnt = new javax.swing.JLabel();
+        lblHoraEnt = new javax.swing.JLabel();
         txtHoraEnt = new javax.swing.JTextField();
-        javax.swing.JLabel lblHoraSal = new javax.swing.JLabel();
+        lblHoraSal = new javax.swing.JLabel();
         txtHoraSal = new javax.swing.JTextField();
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        javax.swing.JButton btnVolver = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -160,7 +159,7 @@ public class VenEVerHorario extends javax.swing.JFrame {
 
         if (person instanceof Empleado) {
             Empleado emple;
-            emple =  (Empleado) person;
+            emple = (Empleado) person;
             txtFechaIni.setText(emple.getFechaInicial().toString());
             txtFechaFin.setText(emple.getFechaFinal().toString());
             txtHoraEnt.setText(emple.getHoraEntrada().toString());
@@ -177,6 +176,14 @@ public class VenEVerHorario extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVolver;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblDesde;
+    private javax.swing.JLabel lblHasta;
+    private javax.swing.JLabel lblHoraEnt;
+    private javax.swing.JLabel lblHoraSal;
+    private javax.swing.JLabel lblHorarioAsignado;
     private javax.swing.JTextField txtFechaFin;
     private javax.swing.JTextField txtFechaIni;
     private javax.swing.JTextField txtHoraEnt;
